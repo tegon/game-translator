@@ -11,3 +11,1041 @@ Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (534.2ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (376.6ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (25.6ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to DeviseCreateGameTranslatorUsers (20130719134436)
+  [1m[35m (200.6ms)[0m  CREATE TABLE `game_translator_users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (187.6ms)[0m  [1mCREATE UNIQUE INDEX `index_game_translator_users_on_email` ON `game_translator_users` (`email`)[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130719134436')
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+ActionController::RoutingError (No route matches [GET] "/assets/rails.png"):
+  actionpack (3.2.12) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.12) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.12) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.12) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.12) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.12) lib/rails/engine.rb:479:in `call'
+  railties (3.2.12) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.12) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-07-19 13:34:13 -0300
+Processing by Devise::SessionsController#new as HTML
+Mysql2::Error: Table 'game_translator_development.users' doesn't exist: SHOW FULL FIELDS FROM `users`
+Completed 500 Internal Server Error in 55ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'game_translator_development.users' doesn't exist: SHOW FULL FIELDS FROM `users`):
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:243:in `query'
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:243:in `block in execute'
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract_adapter.rb:280:in `block in log'
+  activesupport (3.2.12) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract_adapter.rb:275:in `log'
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:243:in `execute'
+  activerecord (3.2.12) lib/active_record/connection_adapters/mysql2_adapter.rb:211:in `execute'
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:257:in `execute_and_free'
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:424:in `columns'
+  activerecord (3.2.12) lib/active_record/connection_adapters/schema_cache.rb:12:in `block in initialize'
+  activerecord (3.2.12) lib/active_record/model_schema.rb:228:in `yield'
+  activerecord (3.2.12) lib/active_record/model_schema.rb:228:in `default'
+  activerecord (3.2.12) lib/active_record/model_schema.rb:228:in `columns'
+  activerecord (3.2.12) lib/active_record/model_schema.rb:243:in `column_defaults'
+  activerecord (3.2.12) lib/active_record/base.rb:482:in `initialize'
+  devise (3.0.0) app/controllers/devise/sessions_controller.rb:8:in `new'
+  devise (3.0.0) app/controllers/devise/sessions_controller.rb:8:in `new'
+  actionpack (3.2.12) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.2.12) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.12) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:447:in `_run__2421075445137866068__process_action__3823184423202566963__callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.12) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.12) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.12) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.12) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.12) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.12) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.12) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.12) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.12) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.12) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.12) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.12) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (3.2.12) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.12) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  actionpack (3.2.12) lib/action_dispatch/routing/mapper.rb:42:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.12) lib/action_dispatch/routing/route_set.rb:601:in `call'
+  sass (3.2.9) lib/sass/plugin/rack.rb:54:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.12) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:405:in `_run__3360086016901159974__call__332684064414190449__callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.12) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.12) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.12) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.12) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.12) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.12) lib/rails/engine.rb:479:in `call'
+  railties (3.2.12) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.12) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.3ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-07-19 13:34:14 -0300
+Processing by Devise::RegistrationsController#new as HTML
+Mysql2::Error: Table 'game_translator_development.users' doesn't exist: SHOW FULL FIELDS FROM `users`
+Completed 500 Internal Server Error in 2ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'game_translator_development.users' doesn't exist: SHOW FULL FIELDS FROM `users`):
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:243:in `query'
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:243:in `block in execute'
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract_adapter.rb:280:in `block in log'
+  activesupport (3.2.12) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract_adapter.rb:275:in `log'
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:243:in `execute'
+  activerecord (3.2.12) lib/active_record/connection_adapters/mysql2_adapter.rb:211:in `execute'
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:257:in `execute_and_free'
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:424:in `columns'
+  activerecord (3.2.12) lib/active_record/connection_adapters/schema_cache.rb:12:in `block in initialize'
+  activerecord (3.2.12) lib/active_record/model_schema.rb:228:in `yield'
+  activerecord (3.2.12) lib/active_record/model_schema.rb:228:in `default'
+  activerecord (3.2.12) lib/active_record/model_schema.rb:228:in `columns'
+  activerecord (3.2.12) lib/active_record/model_schema.rb:243:in `column_defaults'
+  activerecord (3.2.12) lib/active_record/base.rb:482:in `initialize'
+  devise (3.0.0) lib/devise/models/registerable.rb:20:in `new'
+  devise (3.0.0) lib/devise/models/registerable.rb:20:in `new_with_session'
+  devise (3.0.0) app/controllers/devise/registrations_controller.rb:86:in `build_resource'
+  devise (3.0.0) app/controllers/devise/registrations_controller.rb:7:in `new'
+  actionpack (3.2.12) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.2.12) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.12) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:436:in `_run__2569338119920420841__process_action__3823184423202566963__callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.12) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.12) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.12) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.12) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.12) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.12) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.12) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.12) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.12) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.12) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.12) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.12) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (3.2.12) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.12) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  actionpack (3.2.12) lib/action_dispatch/routing/mapper.rb:42:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.12) lib/action_dispatch/routing/route_set.rb:601:in `call'
+  sass (3.2.9) lib/sass/plugin/rack.rb:54:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.12) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:405:in `_run__3360086016901159974__call__332684064414190449__callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.12) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.12) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.12) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.12) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.12) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.12) lib/rails/engine.rb:479:in `call'
+  railties (3.2.12) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.12) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.0ms)
+Connecting to database specified by database.yml
+  [1m[36m (121.7ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (183.1ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (2.9ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateGameTranslatorUsers (20130719134436)
+  [1m[35m (487.3ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+Mysql2::Error: Table 'game_translator_development.game_translator_users' doesn't exist: SHOW KEYS FROM `game_translator_users`
+Connecting to database specified by database.yml
+  [1m[36m (2.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateGameTranslatorUsers (20130719134436)
+  [1m[35m (0.4ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+Mysql2::Error: Table 'users' already exists: CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+Connecting to database specified by database.yml
+  [1m[36m (144.5ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (217.4ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (2.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateGameTranslatorUsers (20130719134436)
+  [1m[35m (118.4ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (146.8ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`)[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130719134436')
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Connecting to database specified by database.yml
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-07-19 13:37:40 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/shared/_links.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/registrations/new.html.erb within layouts/application (108.4ms)
+Completed 200 OK in 263ms (Views: 230.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-07-19 13:37:47 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/shared/_links.erb (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/sessions/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 12ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-07-19 13:37:49 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/shared/_links.erb (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/sessions/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+ActionController::RoutingError (No route matches [GET] "/assets/rails.png"):
+  actionpack (3.2.12) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.12) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.12) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.12) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.12) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.12) lib/rails/engine.rb:479:in `call'
+  railties (3.2.12) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.12) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-19 13:40:12 -0300
+Processing by Devise::SessionsController#new as HTML
+[Devise] Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 0ms
+
+AbstractController::ActionNotFound (Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  devise (3.0.0) app/controllers/devise_controller.rb:84:in `unknown_action!'
+  devise (3.0.0) app/controllers/devise_controller.rb:59:in `assert_is_devise_resource!'
+  devise (3.0.0) app/controllers/devise_controller.rb:97:in `require_no_authentication'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:418:in `_run__1814577539200247985__process_action__1638685027719539420__callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.12) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.12) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.12) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.12) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.12) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.12) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.12) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.12) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.12) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.12) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.12) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.12) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (3.2.12) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.12) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.12) lib/action_dispatch/routing/route_set.rb:601:in `call'
+  sass (3.2.9) lib/sass/plugin/rack.rb:54:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.12) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:405:in `_run__1872326465111273830__call__1259019111536724460__callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.12) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.12) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.12) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.12) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.12) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.12) lib/rails/engine.rb:479:in `call'
+  railties (3.2.12) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.12) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-19 13:40:15 -0300
+Processing by Devise::SessionsController#new as HTML
+[Devise] Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+
+Completed 404 Not Found in 0ms
+
+AbstractController::ActionNotFound (Could not find devise mapping for path "/".
+This may happen for two reasons:
+
+1) You forgot to wrap your route inside the scope block. For example:
+
+  devise_scope :user do
+    get "/some/route" => "some_devise_controller"
+  end
+
+2) You are testing a Devise controller bypassing the router.
+   If so, you can explicitly tell Devise which mapping to use:
+
+   @request.env["devise.mapping"] = Devise.mappings[:user]
+
+):
+  devise (3.0.0) app/controllers/devise_controller.rb:84:in `unknown_action!'
+  devise (3.0.0) app/controllers/devise_controller.rb:59:in `assert_is_devise_resource!'
+  devise (3.0.0) app/controllers/devise_controller.rb:97:in `require_no_authentication'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:418:in `_run__1814577539200247985__process_action__1638685027719539420__callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.12) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.12) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.12) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.12) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.12) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.12) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.12) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.12) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.12) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.12) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.12) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.12) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (3.2.12) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.12) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.12) lib/action_dispatch/routing/route_set.rb:601:in `call'
+  sass (3.2.9) lib/sass/plugin/rack.rb:54:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.12) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:405:in `_run__1872326465111273830__call__1259019111536724460__callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.12) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.12) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.12) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.12) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.12) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.12) lib/rails/engine.rb:479:in `call'
+  railties (3.2.12) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.12) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-19 13:41:17 -0300
+
+SyntaxError (/Users/tegon/game-translator/config/routes.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('):
+  activesupport (3.2.12) lib/active_support/dependencies.rb:245:in `load'
+  activesupport (3.2.12) lib/active_support/dependencies.rb:245:in `block in load'
+  activesupport (3.2.12) lib/active_support/dependencies.rb:236:in `load_dependency'
+  activesupport (3.2.12) lib/active_support/dependencies.rb:245:in `load'
+  railties (3.2.12) lib/rails/application/routes_reloader.rb:40:in `block in load_paths'
+  railties (3.2.12) lib/rails/application/routes_reloader.rb:40:in `each'
+  railties (3.2.12) lib/rails/application/routes_reloader.rb:40:in `load_paths'
+  railties (3.2.12) lib/rails/application/routes_reloader.rb:16:in `reload!'
+  railties (3.2.12) lib/rails/application/routes_reloader.rb:26:in `block in updater'
+  activesupport (3.2.12) lib/active_support/file_update_checker.rb:78:in `call'
+  activesupport (3.2.12) lib/active_support/file_update_checker.rb:78:in `execute'
+  activesupport (3.2.12) lib/active_support/file_update_checker.rb:86:in `execute_if_updated'
+  railties (3.2.12) lib/rails/application/routes_reloader.rb:7:in `execute_if_updated'
+  railties (3.2.12) lib/rails/application/finisher.rb:68:in `block (2 levels) in <module:Finisher>'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:451:in `_run__1019250114377991145__prepare__1259019111536724460__callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:385:in `_run_prepare_callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.12) lib/action_dispatch/middleware/reloader.rb:74:in `prepare!'
+  actionpack (3.2.12) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.12) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.12) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.12) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.12) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.12) lib/rails/engine.rb:479:in `call'
+  railties (3.2.12) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.12) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-19 13:42:29 -0300
+
+ActionController::RoutingError (No route matches [GET] "/"):
+  actionpack (3.2.12) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.12) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.12) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.12) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.12) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.12) lib/rails/engine.rb:479:in `call'
+  railties (3.2.12) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.12) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-07-19 13:42:35 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/shared/_links.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/sessions/new.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 78ms (Views: 26.0ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-07-19 13:42:42 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OxjOh+QrEjpCiOWS0hom7Kh6G9+82bX9fFn4eF9eQec=", "user"=>{"email"=>"leonardotegon@clickjogos.com.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mGameTranslator::User Load (15.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'leonardotegon@clickjogos.com.br' LIMIT 1[0m
+Completed 401 Unauthorized in 64ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OxjOh+QrEjpCiOWS0hom7Kh6G9+82bX9fFn4eF9eQec=", "user"=>{"email"=>"leonardotegon@clickjogos.com.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+Completed 500 Internal Server Error in 1ms
+
+ActiveModel::MassAssignmentSecurity::Error (Can't mass-assign protected attributes: email, password, remember_me):
+  activemodel (3.2.12) lib/active_model/mass_assignment_security/sanitizer.rb:48:in `process_removed_attributes'
+  activemodel (3.2.12) lib/active_model/mass_assignment_security/sanitizer.rb:20:in `debug_protected_attribute_removal'
+  activemodel (3.2.12) lib/active_model/mass_assignment_security/sanitizer.rb:12:in `sanitize'
+  activemodel (3.2.12) lib/active_model/mass_assignment_security.rb:230:in `sanitize_for_mass_assignment'
+  activerecord (3.2.12) lib/active_record/attribute_assignment.rb:75:in `assign_attributes'
+  activerecord (3.2.12) lib/active_record/base.rb:497:in `initialize'
+  devise (3.0.0) app/controllers/devise/sessions_controller.rb:8:in `new'
+  devise (3.0.0) app/controllers/devise/sessions_controller.rb:8:in `new'
+  actionpack (3.2.12) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.2.12) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.12) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:447:in `_run__1532780564652866994__process_action__789017670482528422__callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.12) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.12) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.12) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.12) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.12) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.12) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.12) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.12) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.12) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.12) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.12) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.12) lib/action_controller/metal.rb:246:in `block in action'
+  devise (3.0.0) lib/devise/failure_app.rb:51:in `call'
+  devise (3.0.0) lib/devise/failure_app.rb:51:in `recall'
+  devise (3.0.0) lib/devise/failure_app.rb:35:in `respond'
+  actionpack (3.2.12) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.12) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.12) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.12) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.12) lib/action_controller/metal.rb:246:in `block in action'
+  devise (3.0.0) lib/devise/failure_app.rb:20:in `call'
+  devise (3.0.0) lib/devise/failure_app.rb:20:in `call'
+  devise (3.0.0) lib/devise/delegator.rb:5:in `call'
+  warden (1.2.3) lib/warden/manager.rb:130:in `call_failure_app'
+  warden (1.2.3) lib/warden/manager.rb:116:in `process_unauthenticated'
+  warden (1.2.3) lib/warden/manager.rb:47:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:35:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.12) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.12) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:405:in `_run__3512342048737472346__call__1398306656238498555__callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.12) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.12) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.12) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.12) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.12) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.12) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.12) lib/rails/engine.rb:479:in `call'
+  railties (3.2.12) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.12) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.5ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-07-19 13:43:32 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OxjOh+QrEjpCiOWS0hom7Kh6G9+82bX9fFn4eF9eQec=", "user"=>{"email"=>"leonardotegon@clickjogos.com.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mGameTranslator::User Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'leonardotegon@clickjogos.com.br' LIMIT 1
+Completed 401 Unauthorized in 29ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OxjOh+QrEjpCiOWS0hom7Kh6G9+82bX9fFn4eF9eQec=", "user"=>{"email"=>"leonardotegon@clickjogos.com.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/shared/_links.erb (0.2ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/sessions/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 92ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-07-19 13:43:36 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OxjOh+QrEjpCiOWS0hom7Kh6G9+82bX9fFn4eF9eQec=", "user"=>{"email"=>"leonardotegon@clickjogos.com.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mGameTranslator::User Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'leonardotegon@clickjogos.com.br' LIMIT 1[0m
+Completed 401 Unauthorized in 2ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OxjOh+QrEjpCiOWS0hom7Kh6G9+82bX9fFn4eF9eQec=", "user"=>{"email"=>"leonardotegon@clickjogos.com.br", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/shared/_links.erb (0.2ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/sessions/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 81ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-07-19 13:43:43 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/shared/_links.erb (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/registrations/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-07-19 13:44:07 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/shared/_links.erb (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/registrations/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-07-19 13:44:10 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OxjOh+QrEjpCiOWS0hom7Kh6G9+82bX9fFn4eF9eQec=", "user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (42.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/shared/_links.erb (0.2ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/registrations/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 59ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-07-19 13:45:02 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OxjOh+QrEjpCiOWS0hom7Kh6G9+82bX9fFn4eF9eQec=", "user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/shared/_links.erb (0.2ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/registrations/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 12ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-07-19 13:45:05 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/shared/_links.erb (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/sessions/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-07-19 13:45:08 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OxjOh+QrEjpCiOWS0hom7Kh6G9+82bX9fFn4eF9eQec=", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Sign in"}
+Completed 401 Unauthorized in 0ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OxjOh+QrEjpCiOWS0hom7Kh6G9+82bX9fFn4eF9eQec=", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Sign in"}
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/shared/_links.erb (0.2ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-07-19 13:45:08 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OxjOh+QrEjpCiOWS0hom7Kh6G9+82bX9fFn4eF9eQec=", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Sign in"}
+Completed 401 Unauthorized in 0ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OxjOh+QrEjpCiOWS0hom7Kh6G9+82bX9fFn4eF9eQec=", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Sign in"}
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/shared/_links.erb (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/sessions/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 8ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-07-19 13:45:09 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OxjOh+QrEjpCiOWS0hom7Kh6G9+82bX9fFn4eF9eQec=", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Sign in"}
+Completed 401 Unauthorized in 1ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OxjOh+QrEjpCiOWS0hom7Kh6G9+82bX9fFn4eF9eQec=", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Sign in"}
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/shared/_links.erb (0.5ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/sessions/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-07-19 13:45:09 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OxjOh+QrEjpCiOWS0hom7Kh6G9+82bX9fFn4eF9eQec=", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Sign in"}
+Completed 401 Unauthorized in 1ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OxjOh+QrEjpCiOWS0hom7Kh6G9+82bX9fFn4eF9eQec=", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Sign in"}
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/shared/_links.erb (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/sessions/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-07-19 13:45:34 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/shared/_links.erb (0.3ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/sessions/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-07-19 13:45:41 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/shared/_links.erb (0.4ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/devise-3.0.0/app/views/devise/registrations/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-07-19 13:45:55 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jA/zP2IYDwG2mg8FaKIcYA8gPmmoYMNmQg7/5DYgYNo=", "user"=>{"email"=>"ltegon93@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mGameTranslator::User Exists (15.6ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ltegon93@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (3.1ms)[0m  INSERT INTO `users` (`created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `last_sign_in_at`, `last_sign_in_ip`, `name`, `remember_created_at`, `sign_in_count`, `updated_at`) VALUES ('2013-07-19 16:45:55', NULL, NULL, 'ltegon93@gmail.com', '$2a$10$u0hjYHUmhfyYhuA3d9HK5.c2V5XMbY/SqfdwVckrqJ/E8GRbueA1W', NULL, NULL, NULL, NULL, 0, '2013-07-19 16:45:55')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (7.1ms)[0m  [1mUPDATE `users` SET `last_sign_in_at` = '2013-07-19 16:45:55', `current_sign_in_at` = '2013-07-19 16:45:55', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2013-07-19 16:45:55' WHERE `users`.`id` = 1[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 224ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-19 13:45:55 -0300
+
+ActionController::RoutingError (No route matches [GET] "/"):
+  actionpack (3.2.12) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.12) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.12) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.12) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.12) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.12) lib/rails/engine.rb:479:in `call'
+  railties (3.2.12) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.12) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-07-19 13:46:04 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mGameTranslator::User Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-19 13:46:04 -0300
+
+ActionController::RoutingError (No route matches [GET] "/"):
+  actionpack (3.2.12) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.12) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.12) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.12) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.12) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.12) lib/rails/engine.rb:479:in `call'
+  railties (3.2.12) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.12) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-07-19 13:46:21 -0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[35mGameTranslator::User Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-19 13:46:21 -0300
+
+ActionController::RoutingError (No route matches [GET] "/"):
+  actionpack (3.2.12) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.12) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.12) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.12) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.12) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.12) lib/rails/engine.rb:479:in `call'
+  railties (3.2.12) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.12) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2013-07-19 13:46:27 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mGameTranslator::User Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-19 13:46:27 -0300
+
+ActionController::RoutingError (No route matches [GET] "/"):
+  actionpack (3.2.12) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.12) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.12) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.12) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.12) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.12) lib/rails/engine.rb:479:in `call'
+  railties (3.2.12) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.12) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-19 13:46:43 -0300
+
+ActionController::RoutingError (No route matches [GET] "/"):
+  actionpack (3.2.12) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.12) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.12) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.12) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.12) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.12) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.12) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.12) lib/rails/engine.rb:479:in `call'
+  railties (3.2.12) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.12) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.3-p392/gems/actionpack-3.2.12/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
