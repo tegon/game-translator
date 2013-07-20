@@ -11,6 +11,10 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
+log/*.log
+tmp/**/*
+doc/api
+doc/app
 
 # YARD artifacts
 .yardoc
