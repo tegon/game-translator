@@ -23,4 +23,8 @@
     = f.label @game.wide_description
     = text_field_tag :wide_description_en
   %br
+  = 'Instructions'
+  = f.label @game.instructions
+  = text_area_tag :instructions_en
+  %br
   = f.submit "enviar tradução"
