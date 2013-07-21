@@ -12,6 +12,7 @@ test/tmp
 test/version_tmp
 tmp
 log/*.log
+db/schema.rb
 
 # YARD artifacts
 .yardoc
