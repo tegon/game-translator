@@ -15,6 +15,10 @@ gem 'uglifier', '1.2.6'
 
 gem 'rspec-rails', '2.8', group: [:test, :development]
 
+gem 'click_jogos_base', path: '../../clickjogos/clickjogos-base'
+gem 'paperclip_interpolations', path: '../../clickjogos/paperclip-interpolations'
+gem 'file_helper', git: 'git@github.com:clickjogos/file-helper.git'
+
 group :development do
   gem 'capistrano', '2.12.0'
   gem 'capistrano-ext', '1.2.1'

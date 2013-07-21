@@ -13,6 +13,7 @@ test/version_tmp
 tmp
 log/*.log
 db/schema.rb
+Gemfile.lock
 
 # YARD artifacts
 .yardoc
