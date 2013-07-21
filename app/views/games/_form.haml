@@ -1,26 +1,26 @@
-= form_for @game, url: {action: "edit"}, html: {class: "nifty_form"} do |f|
+= form_for @game, url: {action: "update"}, html: {class: "nifty_form"} do |f|
   = 'original |'
   = 'traduzir p/ inglês'
   %br
   = 'Nome'
   %br
-  = f.label :name
+  = f.label @game.name 
   = text_field_tag :name_en 
   %br
   = 'Short Description'
   %br
-  = f.label :short_description
+  = f.label @game.short_description
   = text_field_tag :short_description_en
   %br
   = 'Long Description'
   %br
-  = f.label :long_description
+  = f.label @game.long_description
   = text_area_tag :long_description_en
   - unless @game.wide_description.blank?
     %br
     = 'Wide Description'
     %br
-    = f.label :wide_description
+    = f.label @game.wide_description
     = text_field_tag :wide_description_en
   %br
   = f.submit "enviar tradução"
