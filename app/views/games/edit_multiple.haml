@@ -1,9 +1,0 @@
-- form_for :game, :url => update_multiple_games_path, :html => { :method => :put } do |f|
-  %ul
-    - for game in @games
-      %li
-        - p '//////////////////////////////////////////////////////'
-        - p game
-        = hidden_field_tag "game_ids[]", game.id
-        = h game.name
-  %p= f.submit "Submit"

@@ -1,14 +1,7 @@
 GameTranslator::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
-  match 'games/translate' => 'translations#index'
-  resources :games do
-    collection do 
-      post :edit_multiple 
-      put :update_multiple
-    end
-  end
-  # resources :games
+  match 'translate/:id' => 'translations#edit'
   # Sample of regular route:
   #   match 'games/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
