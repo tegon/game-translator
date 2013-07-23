@@ -1,0 +1,5 @@
+%h1
+  %span Editar o cadastro do usuário
+
+= form_for @user, url:  game_translator_user_update_path(@user), html:{ multipart: true, class: 'game' } do |f|
+  = render partial: 'form', locals:{ f:f }
