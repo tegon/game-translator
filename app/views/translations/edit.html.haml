@@ -1,0 +1,26 @@
+= form_for @game, url: {action: 'update'} do |f|
+  ='original |'
+  ='traduzir p/ inglês'
+  %br
+  = 'Nome'
+  %br
+  = f.label @game.name
+  = text_field_tag :name_en 
+  %br
+  = 'Short Description'
+  %br
+  = f.label @game.short_description
+  = text_field_tag :short_description_en
+  %br
+  = 'Long Description'
+  %br
+  = f.label @game.long_description
+  = text_area_tag :long_description
+  - unless @game.wide_description.blank?
+    %br
+    = 'Wide Description'
+    %br
+    = f.label @game.wide_description
+    = text_field_tag :wide_description
+  %br
+  = f.submit "enviar tradução"
