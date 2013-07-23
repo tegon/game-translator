@@ -1,9 +1,8 @@
 GameTranslator::Application.routes.draw do
   devise_for :users, :class_name => "GameTranslator::User"
-
+  match 'translate/:id' => 'translations#edit'
   # The priority is based upon order of creation:
   # first created -> highest priority.
-  match 'translate/:id' => 'translations#edit'
   # Sample of regular route:
   #   match 'games/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

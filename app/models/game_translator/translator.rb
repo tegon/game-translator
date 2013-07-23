@@ -1,6 +1,6 @@
 module GameTranslator
-	class Translator < ActiveRecord::Base
-		# relations
+	class Translator < User
+		# relationship
 		has_many :games
 	end
 end

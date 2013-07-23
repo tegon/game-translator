@@ -17,6 +17,7 @@ class CreateGameTranslatorUsers < ActiveRecord::Migration
 
       ## User
       t.string :name
+      t.string :type
 
       t.timestamps
     end

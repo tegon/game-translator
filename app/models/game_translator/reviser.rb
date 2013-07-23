@@ -1,6 +1,6 @@
 module GameTransaltor
-	class Reviser < ActiveRecord::Base
-		# relations
+	class Reviser < User
+		# relationship
 		has_many :games
 	end
 end

@@ -1,5 +1,11 @@
 class TranslationsController < ApplicationController
+  before_filter :authenticate_user!
+
 	def edit	
+    p '/'*150
+    p user_session
+    p current_user
+    p user_signed_in?
 		@game = ClickJogos::Game.find(params[:id])
 		p '-'*150
 		p @game
