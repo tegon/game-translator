@@ -1,6 +1,7 @@
 GameTranslator::Application.routes.draw do
   devise_for :users, :class_name => "GameTranslator::User"
   match 'translate/:id' => 'translations#edit'
+  match 'translate/send' => 'translations#update'
   # The priority is based upon order of creation:
   # first created -> highest priority.
   # Sample of regular route:
