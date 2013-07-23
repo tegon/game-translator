@@ -12,7 +12,7 @@ class TranslationsController < ApplicationController
 	end
 
 	def update
-    @game = GameTranslator::Game.new(cj_id: params[:id])
+    @game = GameTranslator::Game.where(cj_id: params[:id])
     @game.name_en = params[:name_en]
     @game.short_description_en = params[:short_description_en]
     @game.long_description_en = params[:long_description_en]
