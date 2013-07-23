@@ -6,6 +6,7 @@ gem 'rails', '3.2.12'
 gem 'jquery-rails', '2.0.2'
 gem 'jquery-ui-rails', '4.0.1'
 gem 'mysql2', '0.3.11'
+gem 'devise'
 
 gem 'haml', '3.1.7'
 gem 'sass-rails', '3.2.5'
