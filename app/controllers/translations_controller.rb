@@ -1,5 +1,5 @@
 class TranslationsController < ApplicationController
-	def new	
+	def edit	
 		@game = ClickJogos::Game.find(params[:id])
 		p '-'*150
 		p @game
