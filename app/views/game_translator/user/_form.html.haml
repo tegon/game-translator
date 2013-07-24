@@ -19,6 +19,9 @@
   %dt= f.label :password_confirmation
   %dd= f.password_field :password_confirmation
 
+  %dt= f.label :role
+  %dt= f.collection_select :role, GameTranslator::User::ROLES, :to_s, :humanize
+
   = f.submit 'Cadastrar'
 
-  = link_to 'deletar', user_destroy_path(@user.id), method: :delete, confirm: 'Certeza?', class: 'delete' unless @user.new_record?
+  = link_to 'deletar', user_destroy_path(@user.id), method: :delete, confirm: 'Certeza?' unless @user.new_record?

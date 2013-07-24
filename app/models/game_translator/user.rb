@@ -7,4 +7,5 @@ class GameTranslator::User < ActiveRecord::Base
   
   # relationship 
   has_many :games
+  ROLES = %w[translator reviser]
 end
