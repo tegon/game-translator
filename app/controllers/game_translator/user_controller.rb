@@ -21,7 +21,7 @@ class GameTranslator::UserController < ApplicationController
 		@user = GameTranslator::User.find(params[:id])
 	end
 
-	def upadte
+	def update
 		@user = GameTranslator::User.find(params[:id])
 		if @user.update_attributes(params[:user])
 			flash[:sucess] = 'Cadastro atualizado com sucesso!'
