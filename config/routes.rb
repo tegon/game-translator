@@ -1,5 +1,5 @@
 GameTranslator::Application.routes.draw do
-  match '/' => 'game_translator/sessions#new'
+  match '/' => 'translations#edit'
 
   devise_for :user, class_name: "GameTranslator::User", path_names: { 
     sign_in: 'login', sign_out: 'logout' 
