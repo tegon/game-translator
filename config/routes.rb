@@ -1,5 +1,12 @@
 GameTranslator::Application.routes.draw do
-  devise_for :user, class_name: "GameTranslator::User", controllers: { registrations: 'game_translator/registrations', sessions: 'game_translator/sessions' }
+  match '/' => 'game_translator/sessions#new'
+
+  devise_for :user, class_name: "GameTranslator::User", path_names: { 
+    sign_in: 'login', sign_out: 'logout' 
+    }, controllers: { 
+      registrations: 'game_translator/registrations', 
+      sessions: 'game_translator/sessions' 
+      }
   
   namespace :game_translator, path: 'game_translator' do 
     get 'user' => 'user#index', as: :user_index

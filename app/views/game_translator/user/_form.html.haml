@@ -6,23 +6,19 @@
       %ul
         %li= error
 
-%dl.form
-  .user_adm
-    %dt= f.label :name
-    %dd= f.text_field :name, autofocus: true
+%dl
+  %dt= f.label :name
+  %dd= f.text_field :name, autofocus: true
 
-    %dt= f.label :email
-    %dd= f.email_field :email
+  %dt= f.label :email
+  %dd= f.email_field :email
 
-    %dt= f.label :password
-    %dd= f.password_field :password
+  %dt= f.label :password
+  %dd= f.password_field :password
 
-    %dt= f.label :password_confirmation
-    %dd= f.password_field :password_confirmation
+  %dt= f.label :password_confirmation
+  %dd= f.password_field :password_confirmation
 
-.form_actions
-  .left
-    = f.submit 'Cadastrar'
+  = f.submit 'Cadastrar'
 
-  .right
-    = link_to 'deletar', game_translator_user_destroy_path(@user.id), method: :delete, confirm: 'Certeza?', class: 'delete' unless @user.new_record?
+  = link_to 'deletar', game_translator_user_destroy_path(@user.id), method: :delete, confirm: 'Certeza?', class: 'delete' unless @user.new_record?
