@@ -7,5 +7,5 @@
   - @users.each do |user|
     %p= user.name
     %p= user.email
-    = link_to 'Editar', game_translator_user_edit_path(user.id)
-    = link_to 'Deletar',  game_translator_user_destroy_path(user.id), method: :delete, confirm: 'Certeza?', class: 'delete'
+    = link_to 'Editar', user_edit_path(user.id)
+    = link_to 'Deletar',  user_destroy_path(user.id), method: :delete, confirm: 'Certeza?', class: 'delete'

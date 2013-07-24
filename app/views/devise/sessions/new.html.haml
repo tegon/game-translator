@@ -1,4 +1,4 @@
-%h1 Bem Vindo
+%h1 Login
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   %dt= f.label :email
   %dt= f.email_field :email, autofocus: true

@@ -7,15 +7,13 @@ GameTranslator::Application.routes.draw do
       registrations: 'game_translator/registrations', 
       sessions: 'game_translator/sessions' 
       }
-  
-  namespace :game_translator, path: 'game_translator' do 
-    get 'user' => 'user#index', as: :user_index
-    get 'user/new' => 'user#new', as: :user_new
-    post 'user' => 'user#create', as: :user_create
-    put 'user/:id' => 'user#update', as: :user_update
-    get 'user/:id' => 'user#edit', as: :user_edit
-    delete 'user/:id' => 'user#destroy', as: :user_destroy
-  end
+ 
+  get 'user' => 'game_translator/user#index', as: :user_index
+  get 'user/new' => 'game_translator/user#new', as: :user_new
+  post 'user/create' => 'game_translator/user#create', as: :user_create
+  put 'user/:id' => 'game_translator/user#update', as: :user_update
+  get 'user/:id/edit' => 'game_translator/user#edit', as: :user_edit
+  delete 'user/:id' => 'game_translator/user#destroy', as: :user_destroy
 
   match 'translate/:id' => 'translations#edit'
   match 'translate/send/:id' => 'translations#update'

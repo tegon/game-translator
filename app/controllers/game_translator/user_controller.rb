@@ -11,7 +11,7 @@ class GameTranslator::UserController < ApplicationController
 		@user = GameTranslator::User.new(params[:game_translator_user])
 		if @user.save
 			flash[:success] = 'Cadastrado com sucesso!'
-			redirect_to game_translator_user_index_path
+			redirect_to user_index_path
 		else
 			render action: 'new'
 		end
@@ -23,9 +23,9 @@ class GameTranslator::UserController < ApplicationController
 
 	def update
 		@user = GameTranslator::User.find(params[:id])
-		if @user.update_attributes(params[:user])
+		if @user.update_attributes(params[:game_translator_user])
 			flash[:sucess] = 'Cadastro atualizado com sucesso!'
-			redirect_to game_translator_user_index_path
+			redirect_to user_index_path
 		else
 			render action: :edit
 		end
@@ -35,7 +35,7 @@ class GameTranslator::UserController < ApplicationController
 		user = GameTranslator::User.find(params[:id])
 		if user.destroy
 			flash[:sucess] = 'Cadastro deletado!'
-			redirect_to game_translator_user_index_path
+			redirect_to user_index_path
 		else
 			render action: :edit
 		end

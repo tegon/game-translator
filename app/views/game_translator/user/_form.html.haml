@@ -21,4 +21,4 @@
 
   = f.submit 'Cadastrar'
 
-  = link_to 'deletar', game_translator_user_destroy_path(@user.id), method: :delete, confirm: 'Certeza?', class: 'delete' unless @user.new_record?
+  = link_to 'deletar', user_destroy_path(@user.id), method: :delete, confirm: 'Certeza?', class: 'delete' unless @user.new_record?
