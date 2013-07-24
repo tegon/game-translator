@@ -1,7 +1,8 @@
 class TranslationsController < ApplicationController
-  before_filter :authenticate_user!
+  
 
 	def edit	
+    authorize! :translate, :game
     p '/'*150
     p user_session
     p current_user
@@ -12,7 +13,8 @@ class TranslationsController < ApplicationController
 	end
 
 	def update
-    @game = GameTranslator::Game.where(cj_id: params[:id])
+    @game = GameTranslator::Game.new
+    @game.cj_id = params[:id]
     @game.name_en = params[:name_en]
     @game.short_description_en = params[:short_description_en]
     @game.long_description_en = params[:long_description_en]

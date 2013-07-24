@@ -1,4 +1,6 @@
 class GameTranslator::UserController < ApplicationController
+	load_and_authorize_resource
+	
 	def index
 		@users = GameTranslator::User.all
 	end
