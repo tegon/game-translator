@@ -1,4 +1,6 @@
 class GameTranslator::GamesController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @games = GameTranslator::Game.all
   end
