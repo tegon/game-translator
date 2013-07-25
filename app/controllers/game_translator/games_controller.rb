@@ -6,13 +6,12 @@ class GameTranslator::GamesController < ApplicationController
   end
 
   def update_multiple
-    @games.each do |game|
-      if game.update_attributes(params[:game_translator_game])
-        flash[:sucess] = 'Cadastro atualizado com sucesso!'
-        redirect_to game_index_path
-      else
-        render action: :index
-      end
+    @games.each do |g|
+      game = g.find(params[:id])
+      game.name = params[:name]
+      game.short_description = params[:short_description]
+      game.long_description = parms[:long_description]
+      game.save
     end
   end
 
