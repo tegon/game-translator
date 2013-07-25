@@ -7,7 +7,9 @@
         %li= error
 
 %dl
-  = hidden_field_tag :locale, I18n.locale
+  %dt= label_tag :locale
+  %dd= select_tag(:locale, options_for_select(I18n.available_locales, I18n.locale))
+  
   %dt= f.label :name
   %dd= f.text_field :name, autofocus: true
 

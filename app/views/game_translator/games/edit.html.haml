@@ -2,5 +2,4 @@
   %span Traduzir game
 
 = form_for @game, url:  game_update_path(@game), html:{ multipart: true, class: 'game' } do |f|
-  - I18n.locale = 'en'
   = render partial: 'form', locals:{ f:f }
