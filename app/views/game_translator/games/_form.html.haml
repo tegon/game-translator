@@ -7,6 +7,7 @@
         %li= error
 
 %dl
+  = hidden_field_tag :locale, I18n.locale
   %dt= f.label :name
   %dd= f.text_field :name, autofocus: true
 
@@ -16,10 +17,11 @@
   %dt= f.label :long_description
   %dd= f.text_area :long_description
 
-  %dt= f.label :wide_description
-  %dd= f.text_area :wide_description
+  - if @game.wide_description.present?
+    %dt= f.label :wide_description
+    %dd= f.text_area :wide_description
 
   %dt= f.label :instructions
   %dd= f.text_area :instructions
 
-  = f.submit 'Cadastrar'
+  = f.submit 'enviar tradução'

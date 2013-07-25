@@ -9,12 +9,19 @@ class GameTranslator::GamesController < ApplicationController
 
   def edit
     @game = GameTranslator::Game.find(params[:id])
+    p 'edit-'*150
+    p I18n.locale
   end
 
   def update
+    I18n.locale = params[:locale]
     @game = GameTranslator::Game.find(params[:id])
     if @game.update_attributes(params[:game_translator_game])
+      p 'update/'*150
+      p I18n.locale
       flash[:sucess] = 'Cadastro atualizado com sucesso!'
+      p 'update/'*150
+      p I18n.locale
       redirect_to game_edit_path, id: @game.id
     else
       render action: :edit, id: @game.id
