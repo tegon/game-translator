@@ -1,6 +1,7 @@
 module GameTranslator
 	class Game < ActiveRecord::Base
-    attr_accessible :name_en
+    translates :name, :short_description, :long_description, :wide_description, 
+    	:instructions
     
 		# scopes
 		scope :not_translated, conditions: { translated: false }
