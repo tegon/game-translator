@@ -14,6 +14,11 @@ GameTranslator::Application.routes.draw do
   put 'user/:id' => 'game_translator/user#update', as: :user_update
   get 'user/:id/edit' => 'game_translator/user#edit', as: :user_edit
   delete 'user/:id' => 'game_translator/user#destroy', as: :user_destroy
+  
+  # resources :games, controller: 'game_translator/games'
+  get '/games/:id' => 'game_translator/games#edit', as: :game_edit
+  get '/games/' => 'game_translator/games#index', as: :game_index
+  put '/games/:id' => 'game_translator/games#update', as: :game_update      
 
   match 'translate/:id' => 'translations#edit'
   match 'translate/send/:id' => 'translations#update'

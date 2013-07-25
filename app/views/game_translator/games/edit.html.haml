@@ -1,0 +1,5 @@
+%h1
+  %span Editar game
+- I18n.locale = 'en'
+= form_for @game, url:  game_update_path(@game), html:{ multipart: true, class: 'game' } do |f|
+  = render partial: 'form', locals:{ f:f }

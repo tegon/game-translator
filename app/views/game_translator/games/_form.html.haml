@@ -1,0 +1,25 @@
+- if @game.errors.size > 0
+  .validation
+    %h2 The following errors were found:
+
+    - for error in @game.errors.full_messages
+      %ul
+        %li= error
+
+%dl
+  %dt= f.label :name
+  %dd= f.text_field :name, autofocus: true
+
+  %dt= f.label :short_description
+  %dd= f.text_field :short_description
+
+  %dt= f.label :long_description
+  %dd= f.text_area :long_description
+
+  %dt= f.label :wide_description
+  %dd= f.text_area :wide_description
+
+  %dt= f.label :instructions
+  %dd= f.text_area :instructions
+
+  = f.submit 'Cadastrar'
