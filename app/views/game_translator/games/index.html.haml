@@ -1,0 +1,13 @@
+= form_tag(game_index_path, method: 'post', multipart: true) do
+  - @games.each do |game|
+    %dl
+      %dt= label_tag :name
+      %dd= text_field_tag :name, game.name
+
+      %dt= label_tag :short_description
+      %dd= text_field_tag :short_description, game.short_description
+
+      %dt= label_tag :long_description
+      %dd= text_field_tag :long_description, game.long_description
+
+  = submit_tag 'enviar tradução'

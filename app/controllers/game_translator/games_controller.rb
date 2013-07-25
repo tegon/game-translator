@@ -2,7 +2,18 @@ class GameTranslator::GamesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @games = GameTranslator::Game.all
+    @games = GameTranslator::Game.random.take(4)
+  end
+
+  def update_multiple
+    @games.each do |game|
+      if game.update_attributes(params[:game_translator_game])
+        flash[:sucess] = 'Cadastro atualizado com sucesso!'
+        redirect_to game_index_path
+      else
+        render action: :index
+      end
+    end
   end
 
   def new
