@@ -2,17 +2,26 @@ class GameTranslator::GamesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @games = GameTranslator::Game.random.take(4)
+    @games = GameTranslator::Game.all
+  end
+
+  def edit_multiple
+    @games = GameTranslator::Game.lock.random.take(4)
   end
 
   def update_multiple
-    @games.each do |g|
-      game = g.find(params[:id])
-      game.name = params[:name]
-      game.short_description = params[:short_description]
-      game.long_description = parms[:long_description]
-      game.save
+    I18n.locale = params[:locale]
+    params['game'].keys.each do |id|
+      @game = GameTranslator::Game.find(id.to_i)
+      p '/'*150
+      p I18n.locale
+      if @game.update_attributes(params['game'][id])
+        flash[:sucess] = 'Game traduzido com sucesso!'
+      else
+        redirect_to game_edit_multiple_path
+      end
     end
+    redirect_to game_edit_multiple_path
   end
 
   def new

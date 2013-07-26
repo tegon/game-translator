@@ -1,29 +1,24 @@
-- if @game.errors.size > 0
-  .validation
-    %h2 The following errors were found:
+%dt= label_tag :locale
+%dd= select_tag(:locale, options_for_select(I18n.available_locales, I18n.locale))
 
-    - for error in @game.errors.full_messages
-      %ul
-        %li= error
+- @games.each do |game|
+  = fields_for 'game[]', game do |game_fields|
+    %fieldset
+      %dl
+        %dt= game_fields.label :name
+        %dd= game_fields.text_field :name, autofocus: true
 
-%dl
-  %dt= label_tag :locale
-  %dd= select_tag(:locale, options_for_select(I18n.available_locales, I18n.locale))
-  
-  %dt= f.label :name
-  %dd= f.text_field :name, autofocus: true
+        %dt= game_fields.label :short_description
+        %dd= game_fields.text_field :short_description
 
-  %dt= f.label :short_description
-  %dd= f.text_field :short_description
+        %dt= game_fields.label :long_description
+        %dd= game_fields.text_area :long_description, rows: 2
 
-  %dt= f.label :long_description
-  %dd= f.text_area :long_description, rows: 2
+        - if game.wide_description.present?
+          %dt= game_fields.label :wide_description
+          %dd= game_fields.text_area :wide_description, rows: 2
 
-  - if @game.wide_description.present?
-    %dt= f.label :wide_description
-    %dd= f.text_area :wide_description, rows: 2
+        %dt= game_fields.label :instructions
+        %dd= game_fields.text_area :instructions, rows: 3
 
-  %dt= f.label :instructions
-  %dd= f.text_area :instructions, rows: 3
-
-  = f.submit 'enviar tradução'
+= submit_tag 'enviar tradução'

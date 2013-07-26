@@ -16,10 +16,11 @@ GameTranslator::Application.routes.draw do
   delete 'user/:id' => 'game_translator/user#destroy', as: :user_destroy
   
   # resources :games, controller: 'game_translator/games'
-  get '/games/:id' => 'game_translator/games#edit', as: :game_edit
-  get '/games/' => 'game_translator/games#index', as: :game_index
-  put '/games/:id' => 'game_translator/games#update', as: :game_update
-  post '/games/update_multiple' => 'game_translator/games#update_multiple'      
+  # get '/games/:id' => 'game_translator/games#edit', as: :game_edit
+  # get '/games/' => 'game_translator/games#index', as: :game_index
+  # put '/games/:id' => 'game_translator/games#update', as: :game_update
+  get 'games/edit_multiple' => 'game_translator/games#edit_multiple', as: :game_edit_multiple
+  put 'games/update_multiple' => 'game_translator/games#update_multiple', as: :game_update_multiple
 
   match 'translate/:id' => 'translations#edit'
   match 'translate/send/:id' => 'translations#update'
