@@ -1,5 +1,6 @@
 GameTranslator::Application.routes.draw do
-  root to: 'game_translator/games#edit'
+
+  root to: 'game_translator/games#edit_multiple'
 
   devise_for :user, class_name: 'GameTranslator::User', path_names: { 
     sign_in: 'login', sign_out: 'logout' 
@@ -15,15 +16,9 @@ GameTranslator::Application.routes.draw do
   get 'user/:id/edit' => 'game_translator/user#edit', as: :user_edit
   delete 'user/:id' => 'game_translator/user#destroy', as: :user_destroy
   
-  # resources :games, controller: 'game_translator/games'
-  # get '/games/:id' => 'game_translator/games#edit', as: :game_edit
-  # get '/games/' => 'game_translator/games#index', as: :game_index
-  # put '/games/:id' => 'game_translator/games#update', as: :game_update
-  get 'games/edit_multiple' => 'game_translator/games#edit_multiple', as: :game_edit_multiple
-  put 'games/update_multiple' => 'game_translator/games#update_multiple', as: :game_update_multiple
+  get 'games/translate' => 'game_translator/games#edit_multiple', as: :game_edit_multiple
+  put 'games/translate/send' => 'game_translator/games#update_multiple', as: :game_update_multiple
 
-  match 'translate/:id' => 'translations#edit'
-  match 'translate/send/:id' => 'translations#update'
   # The priority is based upon order of creation:
   # first created -> highest priority.
   # Sample of regular route:

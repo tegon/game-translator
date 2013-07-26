@@ -2,7 +2,6 @@ class TranslationsController < ApplicationController
   
 
 	def edit	
-    authorize! :translate, :game
     p '/'*150
     p user_session
     p current_user
