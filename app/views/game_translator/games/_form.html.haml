@@ -26,6 +26,7 @@
       %dl
         %dt= "Traduzir para #{ I18n.locale }"
 
+        = game_fields.hidden_field :user_id, value: current_user.id
         %dt= game_fields.label :name
         %dd= game_fields.text_field :name, size: 50
 

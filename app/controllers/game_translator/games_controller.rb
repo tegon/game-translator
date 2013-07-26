@@ -6,7 +6,7 @@ class GameTranslator::GamesController < ApplicationController
   end
 
   def edit_multiple
-    @games = GameTranslator::Game.random.take(4)
+    @games = GameTranslator::Game.not_translated.random.take(4)
   end
 
   def update_multiple
