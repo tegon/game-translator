@@ -3,7 +3,7 @@ module GameTranslator
     # translated fields
     translates :name, :short_description, :long_description, :wide_description, 
     	:instructions
-    globalize_accessors locales: [:en, :es]
+    globalize_accessors locales: GameTranslator::Language.languages_abbreviations
 
     # attr
     attr_accessible :name, :short_description, :long_description, :wide_description, 

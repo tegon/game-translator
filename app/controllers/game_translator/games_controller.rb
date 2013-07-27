@@ -2,9 +2,7 @@ class GameTranslator::GamesController < ApplicationController
   load_and_authorize_resource
 
   def edit_multiple
-    @languages = GameTranslator::Language.all.map { |l| l.abbreviation }
-    p '-'*150
-    p @languages
+    @languages = GameTranslator::Language.languages_abbreviations
     GameTranslator::Game.transaction do
       @games = GameTranslator::Game.lock(true).not_translated.random
     end

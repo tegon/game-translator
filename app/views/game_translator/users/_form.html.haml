@@ -12,6 +12,10 @@
   %dt= f.label :email
   %dd= f.email_field :email
 
+  - unless @user.new_record? 
+    %dt= f.label :current_password
+    %dd= f.password_field :current_password
+  
   %dt= f.label :password
   %dd= f.password_field :password
 
