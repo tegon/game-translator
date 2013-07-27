@@ -1,46 +1,45 @@
-/ %dt= label_tag :locale
-/ %dd= select_tag(:locale, options_for_select(I18n.available_locales, I18n.locale), autofocus: true)
+#games
 
-- @games.each do |game|
-  = fields_for 'game[]', game do |game_fields|
-    %fieldset
-      %dl
-        %dt Português
+  - @games.each do |game|
+    = fields_for 'game[]', game do |game_fields|
+      %fieldset
+        %dl
+          %dt= 'Português'
 
-        %dt= label_tag :name_pt_br, 'Name'
-        %dd= text_field_tag :name_pt_br, game.name, disabled: true, size: 50
+          %dt= game_fields.label :name
+          %dd= game_fields.text_field :name, size: 50, disabled: true
 
-        %dt= label_tag :short_description_pt_br, 'Short Description'
-        %dd= text_field_tag :short_description_pt_br, game.short_description, disabled: true, size: 40
+          %dt= game_fields.label :short_description
+          %dd= game_fields.text_field :short_description, size: 40, disabled: true
 
-        %dt= label_tag :long_description_pt_br, 'Long Description'
-        %dd= text_area_tag :long_description_pt_br, game.long_description, rows: 6, cols: 90, disabled: true
+          %dt= game_fields.label :long_description
+          %dd= game_fields.text_area :long_description, rows: 8, cols: 70, disabled: true
 
-        - if game.wide_description.present?
-          %dt= label_tag :wide_description_pt_br, 'Wide Description'
-          %dd= text_field_tag :wide_description_pt_br, game.wide_description, size: 90, disabled: true
+          - if game.wide_description.present?
+            %dt= game_fields.label :wide_description
+            %dd= game_fields.text_field :wide_description, size: 70, disabled: true
 
-        %dt= label_tag :instructions_pt_br, 'Instructions'
-        %dd= text_area_tag :instructions_pt_br, game.instructions, rows: 4, cols: 70, disabled: true
+          %dt= game_fields.label :instructions
+          %dd= game_fields.text_area :instructions, rows: 6, cols: 70, disabled: true
 
-      %dl
-        %dt= "Traduzir"
+        %dl
+          %dt= 'Traduzir para Inglês'
 
-        = game_fields.hidden_field :user_id, value: current_user.id
-        %dt= game_fields.label :name
-        %dd= game_fields.text_field :name, size: 50
+          = game_fields.hidden_field :user_id, value: current_user.id
+          %dt= game_fields.label :name_en
+          %dd= game_fields.text_field :name_en, size: 50
 
-        %dt= game_fields.label :short_description
-        %dd= game_fields.text_field :short_description, size: 40
+          %dt= game_fields.label :short_description_en
+          %dd= game_fields.text_field :short_description_en, size: 40
 
-        %dt= game_fields.label :long_description
-        %dd= game_fields.text_area :long_description, rows: 6, cols: 90
+          %dt= game_fields.label :long_description_en
+          %dd= game_fields.text_area :long_description_en, rows: 8, cols: 70
 
-        - if game.wide_description.present?
-          %dt= game_fields.label :wide_description
-          %dd= game_fields.text_field :wide_description, size: 90
+          - if game.wide_description.present?
+            %dt= game_fields.label :wide_description_en
+            %dd= game_fields.text_field :wide_description_en, size: 70
 
-        %dt= game_fields.label :instructions
-        %dd= game_fields.text_area :instructions, rows: 4, cols: 70
+          %dt= game_fields.label :instructions_en
+          %dd= game_fields.text_area :instructions_en, rows: 6, cols: 70
 
-= submit_tag 'enviar tradução'
+  = submit_tag 'enviar tradução', class: 'button'

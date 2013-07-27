@@ -14,9 +14,8 @@ class GameTranslator::GamesController < ApplicationController
   def update_multiple
     params['game'].keys.each do |id|
       @game = GameTranslator::Game.find(id.to_i)
-      p '/'*150
-      p I18n.locale
       if @game.update_attributes(params['game'][id])
+        @game.update_attribute(:translated, true)
         flash[:sucess] = 'Game traduzido com sucesso!'
       else
         redirect_to game_edit_multiple_path

@@ -9,6 +9,7 @@ gem 'mysql2', '0.3.11'
 gem 'devise', '3.0.0'
 gem 'cancan', '1.6.10'
 gem 'globalize3', '0.3.0'
+gem 'easy_globalize3_accessors', '1.3.0'
 
 gem 'haml', '3.1.7'
 gem 'sass-rails', '3.2.5'
