@@ -12,7 +12,6 @@ class GameTranslator::GamesController < ApplicationController
   end
 
   def update_multiple
-    # I18n.locale = params[:locale]
     params['game'].keys.each do |id|
       @game = GameTranslator::Game.find(id.to_i)
       p '/'*150

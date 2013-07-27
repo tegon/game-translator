@@ -2,19 +2,19 @@ GameTranslator::Application.routes.draw do
 
   root to: 'game_translator/games#edit_multiple'
 
-  devise_for :user, class_name: 'GameTranslator::User', path_names: { 
+  devise_for :users, class_name: 'GameTranslator::User', path_names: { 
     sign_in: 'login', sign_out: 'logout' 
     }, controllers: { 
       registrations: 'game_translator/registrations', 
       sessions: 'game_translator/sessions' 
       }
  
-  get 'user' => 'game_translator/user#index', as: :user_index
-  get 'user/new' => 'game_translator/user#new', as: :user_new
-  post 'user/create' => 'game_translator/user#create', as: :user_create
-  put 'user/:id' => 'game_translator/user#update', as: :user_update
-  get 'user/:id/edit' => 'game_translator/user#edit', as: :user_edit
-  delete 'user/:id' => 'game_translator/user#destroy', as: :user_destroy
+  get 'users' => 'game_translator/users#index', as: :user_index
+  get 'users/new' => 'game_translator/users#new', as: :user_new
+  post 'users/create' => 'game_translator/users#create', as: :user_create
+  put 'users/:id' => 'game_translator/users#update', as: :user_update
+  get 'users/:id/edit' => 'game_translator/users#edit', as: :user_edit
+  delete 'users/:id' => 'game_translator/users#destroy', as: :user_destroy
   
   get 'games/translate' => 'game_translator/games#edit_multiple', as: :game_edit_multiple
   put 'games/translate/send' => 'game_translator/games#update_multiple', as: :game_update_multiple

@@ -9,4 +9,4 @@
     %p= user.email
     %p= user.role.humanize
     = link_to 'Editar', user_edit_path(user.id)
-    = link_to 'Deletar',  user_destroy_path(user.id), method: :delete, confirm: 'Certeza?', class: 'delete'
+    = link_to 'Deletar',  user_destroy_path(user.id), method: :delete, confirm: 'Tem certeza?'

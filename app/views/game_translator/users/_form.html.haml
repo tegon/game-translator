@@ -1,10 +1,9 @@
 - if @user.errors.size > 0
-  .validation
-    %h2 The following errors were found:
+  %h2 The following errors were found:
 
-    - for error in @user.errors.full_messages
-      %ul
-        %li= error
+  - for error in @user.errors.full_messages
+    %ul
+      %li= error
 
 %dl
   %dt= f.label :name
