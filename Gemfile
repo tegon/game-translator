@@ -44,4 +44,5 @@ group :test do
   gem 'factory_girl_rails', '4.1.0'
   gem 'rb-fsevent', '0.9.1'
   gem 'growl', '1.0.3'
+  gem 'rb-inotify', '~> 0.9'
 end
