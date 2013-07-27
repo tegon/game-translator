@@ -1,0 +1,7 @@
+= render partial: 'layouts/nav'
+
+%h1
+	%span Cadastrar Idioma
+
+= form_for @language, url: language_create_path, html:{ multipart: true } do |f|
+	= render partial: 'form', locals:{ f:f }

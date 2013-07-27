@@ -15,7 +15,7 @@ class GameTranslator::UsersController < ApplicationController
 			flash[:success] = 'Cadastrado com sucesso!'
 			redirect_to user_index_path
 		else
-			render action: 'new'
+			render action: :new
 		end
 	end
 

@@ -1,0 +1,15 @@
+= render partial: 'layouts/nav'
+
+%h1
+  %span Idiomas cadastrados
+
+%h3 
+  = link_to 'Novo Idioma', language_new_path
+
+- unless @languages.blank?
+  - @languages.each do |language|
+    %p= language.name
+    %p= language.abbreviation
+    
+    = link_to 'Editar', language_edit_path(language.id)
+    = link_to 'Deletar', language_destroy_path(language.id), method: :delete, confirm: 'Tem certeza?'

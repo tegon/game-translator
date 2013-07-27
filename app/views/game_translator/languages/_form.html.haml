@@ -1,0 +1,17 @@
+- if @language.errors.size > 0
+  %h2 The following errors were found:
+
+  - for error in @language.errors.full_messages
+    %ul
+      %li= error
+
+%dl
+  %dt= f.label :name
+  %dd= f.text_field :name, autofocus: true
+
+  %dt= f.label :abbreviation
+  %dd= f.text_field :abbreviation
+
+  = f.submit 'Cadastrar'
+  
+  = link_to 'Deletar', language_destroy_path(@language), method: :delete, confirm: 'Tem certeza?' unless @language.new_record?

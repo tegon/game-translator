@@ -13,7 +13,8 @@
           %li= link_to 'Estatísticas'
         - if can? :manage, GameTranslator::User
           %li= link_to 'Cadastro de Usuários |', user_index_path
-          %li= link_to 'Cadastro de Idiomas |'
+        - if can? :manage, GameTranslator::Language
+          %li= link_to 'Cadastro de Idiomas |', languages_path
           %li= link_to 'Estatísticas'
     = yield
 
