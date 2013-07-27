@@ -1,5 +1,4 @@
 #games
-
   - @games.each do |game|
     = fields_for 'game[]', game do |game_fields|
       %fieldset
@@ -23,7 +22,7 @@
           %dd= game_fields.text_area :instructions, rows: 6, cols: 70, disabled: true
 
         %dl
-          %dt= 'Traduzir para Inglês'
+          %dt= 'Traduzir'
 
           = game_fields.hidden_field :user_id, value: current_user.id
           %dt= game_fields.label :name_en

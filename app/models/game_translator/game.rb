@@ -29,6 +29,10 @@ module GameTranslator
 			self.user if user.type == 'GameTranslator::Translator'
 		end
 
+		def locales
+			self.translations.map { |translation| translation.locale }
+		end
+
 		# extends globalize3 class :p
 		class GameTranslator::Game::Translation
 			# relationship

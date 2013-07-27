@@ -3,6 +3,9 @@
 %h1
   %span Usuários cadastrados
 
+%h3 
+  = link_to 'Novo Usuário', user_new_path
+
 - unless @users.blank?
   - @users.each do |user|
     %p= user.name
