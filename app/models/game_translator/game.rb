@@ -10,7 +10,7 @@ module GameTranslator
     
     # relationship 
     belongs_to :user
-		
+
 		# scopes
 		scope :not_translated, conditions: { translated: false }
 		scope :translated, conditions: { translated: true }
@@ -25,5 +25,11 @@ module GameTranslator
 		def translator
 			self.user if user.type == 'GameTranslator::Translator'
 		end
+
+		# extends globalize3 class :p
+		class Translation
+      belongs_to :game
+      has_one :user, through: :game
+    end
 	end
 end
