@@ -31,6 +31,12 @@ module GameTranslator
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    
+    # Custom directories with classes and modules you want to be autoloadable.
+    config.after_initialize do
+      require File.expand_path('../../lib/model_alias.rb',  __FILE__)
+    end
+
     config.i18n.default_locale = 'pt-BR'
     # config.i18n.fallbacks = true
     # Configure the default encoding used in templates for Ruby 1.9.

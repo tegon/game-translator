@@ -19,6 +19,8 @@ namespace :games do
 	task :export => :environment do
 		GameTranslator::Game.all.map do |game|
 			g = ClickJogos::Game.where(id: game.cj_id)
+			g.update_attributes(game)
+			puts "Game #{ g.id } exportado!"
 		end
 	end
 end

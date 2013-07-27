@@ -1,5 +1,5 @@
-%dt= label_tag :locale
-%dd= select_tag(:locale, options_for_select(I18n.available_locales, I18n.locale), autofocus: true)
+/ %dt= label_tag :locale
+/ %dd= select_tag(:locale, options_for_select(I18n.available_locales, I18n.locale), autofocus: true)
 
 - @games.each do |game|
   = fields_for 'game[]', game do |game_fields|
@@ -24,7 +24,7 @@
         %dd= text_area_tag :instructions_pt_br, game.instructions, rows: 4, cols: 70, disabled: true
 
       %dl
-        %dt= "Traduzir para #{ I18n.locale }"
+        %dt= "Traduzir"
 
         = game_fields.hidden_field :user_id, value: current_user.id
         %dt= game_fields.label :name
