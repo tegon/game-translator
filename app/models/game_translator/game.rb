@@ -34,7 +34,8 @@ module GameTranslator
 		end
 
 		# extends globalize3 class :p
-		class GameTranslator::Game::Translation
+		#class GameTranslator::Game::Translation
+		class Translation
 			# relationship
       belongs_to :game
       has_one :user, through: :game
