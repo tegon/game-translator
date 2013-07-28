@@ -9,7 +9,7 @@ module GameTranslator
     attr_accessible :name, :short_description, :long_description, :wide_description, 
     	:instructions, :user_id, :name_en, :short_description_en, :long_description_en, 
     	:wide_description_en, :instructions_en, :name_es, :short_description_es, 
-    	:long_description_es, :wide_description_es, :instructions_es
+    	:long_description_es, :wide_description_es, :instructions_es, :name_jp
     
     # relationship 
     belongs_to :user

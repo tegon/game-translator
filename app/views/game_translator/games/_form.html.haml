@@ -25,20 +25,24 @@
           %dt= 'Traduzir para Inglês'
 
           = game_fields.hidden_field :user_id, value: current_user.id
-          %dt= game_fields.label :name_en
-          %dd= game_fields.text_field :name_en, size: 50
 
-          %dt= game_fields.label :short_description_en
-          %dd= game_fields.text_field :short_description_en, size: 40
+          - @languages.each do |language|
+            = game_fields.text_field "name_#{ language }".to_sym
+          
+          / %dt= game_fields.label :name_en
+          / %dd= game_fields.text_field :name_en, size: 50
 
-          %dt= game_fields.label :long_description_en
-          %dd= game_fields.text_area :long_description_en, rows: 8, cols: 70
+          / %dt= game_fields.label :short_description_en
+          / %dd= game_fields.text_field :short_description_en, size: 40
 
-          - if game.wide_description.present?
-            %dt= game_fields.label :wide_description_en
-            %dd= game_fields.text_field :wide_description_en, size: 70
+          / %dt= game_fields.label :long_description_en
+          / %dd= game_fields.text_area :long_description_en, rows: 8, cols: 70
 
-          %dt= game_fields.label :instructions_en
-          %dd= game_fields.text_area :instructions_en, rows: 6, cols: 70
+          / - if game.wide_description.present?
+          /   %dt= game_fields.label :wide_description_en
+          /   %dd= game_fields.text_field :wide_description_en, size: 70
+
+          / %dt= game_fields.label :instructions_en
+          / %dd= game_fields.text_area :instructions_en, rows: 6, cols: 70
 
   = submit_tag 'enviar tradução', class: 'button'
