@@ -6,10 +6,9 @@ module GameTranslator
     globalize_accessors locales: GameTranslator::Language.languages_abbreviations
 
     # attr
-    attr_accessible :name, :short_description, :long_description, :wide_description, 
-    	:instructions, :user_id, :name_en, :short_description_en, :long_description_en, 
+    attr_accessible :user_id, :name_en, :short_description_en, :long_description_en, 
     	:wide_description_en, :instructions_en, :name_es, :short_description_es, 
-    	:long_description_es, :wide_description_es, :instructions_es, :name_jp
+    	:long_description_es, :wide_description_es, :instructions_es
     
     # relationship 
     belongs_to :user
@@ -20,14 +19,6 @@ module GameTranslator
 		scope :not_revised, conditions: { revised: false }
 		scope :revised, conditions: { revised: true }
 		scope :random, order: 'RAND()', limit: '4'
-		
-		def reviser
-			self.user if user.type == 'GameTranslator::Reviser' 
-		end
-
-		def translator
-			self.user if user.type == 'GameTranslator::Translator'
-		end
 
 		def locales
 			self.translations.map { |translation| translation.locale }

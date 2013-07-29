@@ -12,37 +12,35 @@
           %dd= game_fields.text_field :short_description, size: 40, disabled: true
 
           %dt= game_fields.label :long_description
-          %dd= game_fields.text_area :long_description, rows: 8, cols: 60, disabled: true
+          %dd= game_fields.text_area :long_description, rows: 8, cols: 50, disabled: true
 
           - if game.wide_description.present?
             %dt= game_fields.label :wide_description
-            %dd= game_fields.text_field :wide_description, size: 60, disabled: true
+            %dd= game_fields.text_field :wide_description, size: 50, disabled: true
 
           %dt= game_fields.label :instructions
-          %dd= game_fields.text_area :instructions, rows: 6, cols: 60, disabled: true
+          %dd= game_fields.text_area :instructions, rows: 6, cols: 50, disabled: true
 
-        %dl
           = game_fields.hidden_field :user_id, value: current_user.id
-
-          %dd= select_tag(:language, options_for_select(@languages), autofocus: true)
           
-          //- @languages.each do |language|
-          / %dt= "Traduzir para #{ language }"
+        - @languages.each do |language|
+          %dl
+            %dt= "Traduzir para #{ language }"
 
-          / %dt= game_fields.label "name_#{ language }".to_sym
-          / %dd= game_fields.text_field "name_#{ language }".to_sym, size: 50
+            %dt= game_fields.label "name_#{ language }".to_sym
+            %dd= game_fields.text_field "name_#{ language }".to_sym, size: 50
 
-          / %dt= game_fields.label "short_description_#{ language }".to_sym
-          / %dd= game_fields.text_field "short_description_#{ language }".to_sym, size: 40
+            %dt= game_fields.label "short_description_#{ language }".to_sym
+            %dd= game_fields.text_field "short_description_#{ language }".to_sym, size: 40
 
-          / %dt= game_fields.label "long_description_#{ language }".to_sym
-          / %dd= game_fields.text_area "long_description_#{ language }".to_sym, rows: 8, cols: 60
+            %dt= game_fields.label "long_description_#{ language }".to_sym
+            %dd= game_fields.text_area "long_description_#{ language }".to_sym, rows: 8, cols: 50
 
-          / - if game.wide_description.present?
-          /   %dt= game_fields.label "wide_description_#{ language }".to_sym
-          /   %dd= game_fields.text_field "wide_description_#{ language }".to_sym, size: 60
+            - if game.wide_description.present?
+              %dt= game_fields.label "wide_description_#{ language }".to_sym
+              %dd= game_fields.text_field "wide_description_#{ language }".to_sym, size: 50
 
-          / %dt= game_fields.label "instructions_#{ language }".to_sym
-          / %dd= game_fields.text_area "instructions_#{ language }".to_sym, rows: 6, cols: 60
+            %dt= game_fields.label "instructions_#{ language }".to_sym
+            %dd= game_fields.text_area "instructions_#{ language }".to_sym, rows: 6, cols: 50
 
   = submit_tag 'enviar tradução', class: 'button'
