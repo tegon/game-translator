@@ -12,6 +12,7 @@ module GameTranslator
     
     # relationship 
     belongs_to :user
+    has_many :game_translations
 
 		# scopes
 		scope :not_translated, conditions: { translated: false }
@@ -26,7 +27,7 @@ module GameTranslator
 
 		# extends globalize3 class :p
 		#class GameTranslator::Game::Translation
-		class Translation
+		class Translation 
 			# relationship
       belongs_to :game
       has_one :user, through: :game
