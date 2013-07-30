@@ -1,4 +1,5 @@
 %li
   Olá, 
   = current_user.name + '!'
+%li  
   = link_to 'Sair', destroy_user_session_path, method: :delete
