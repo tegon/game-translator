@@ -1,14 +1,43 @@
+@import blueprint/reset
+@import blueprint
+@import blueprint/buttons
+@import compass/css3
+@import compass/utilities
+@import compass/css3/transition
+
 #games
+  form
+    @include blueprint-form
+
+  input 
+    +border-radius(3px)
+
   dl
     float: left
     margin-right: 10px
     border-right: 1px black solid
-
-  *:focus 
-    outline: none
   
   textarea
     resize: vertical
     height: auto
     min-height: 65px
     margin-right: 10px
+    +border-radius(3px)
+
+  fieldset
+    margin: 15px 10px
+
+  .button
+    @include background-image(linear-gradient(#68b12f, #50911e))
+    @include border-radius
+    @include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05))
+    color: white
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25)
+    border-color: #b4e391 #61c419 #b4e391
+    cursor: pointer
+    width: 120px
+    height: 30px
+    &:hover
+      color: white
+      border-color: #9fd574
+      opacity: 0.85

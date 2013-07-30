@@ -1,11 +1,17 @@
 @import compass/css3/inline-block
+@import blueprint
+@import blueprint/buttons
+@import compass/css3
 
 #nav
-  margin: 0
   width: 100%
-  background: #000
   height: 50px
+  @include background-image(linear-gradient(bottom, rgb(209,209,209) 9%, rgb(252,252,252) 55%))
   ul
     list-style: none
     li 
       +inline-block
+
+  .user
+    float: left
+    +inline-block
