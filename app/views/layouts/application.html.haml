@@ -6,15 +6,17 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    #nav
-      %ul
-        - if can? :manage, GameTranslator::Game
-          %li= link_to 'Traduzir', game_edit_multiple_path
-          %li= link_to 'Estatísticas'
-        - if can? :manage, GameTranslator::User
-          %li= link_to 'Cadastro de Usuários |', user_index_path
-        - if can? :manage, GameTranslator::Language
-          %li= link_to 'Cadastro de Idiomas |', languages_path
-          %li= link_to 'Estatísticas'
-    = yield
-
+    #container
+      #nav
+        %ul
+          - if can? :manage, GameTranslator::Game
+            %li= link_to 'Traduzir', game_edit_multiple_path
+            %li= link_to 'Estatísticas'
+          - if can? :manage, GameTranslator::User
+            %li= link_to 'Cadastro de Usuários |', user_index_path
+          - if can? :manage, GameTranslator::Language
+            %li= link_to 'Cadastro de Idiomas |', languages_path
+            %li= link_to 'Estatísticas'
+        - if signed_in?
+          = render 'layouts/nav'
+      = yield

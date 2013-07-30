@@ -4,11 +4,6 @@ module GameTranslator
     translates :name, :short_description, :long_description, :wide_description, 
     	:instructions
     globalize_accessors locales: GameTranslator::Language.languages_abbreviations
-
-    # attr
-    attr_accessible :user_id, :name_en, :short_description_en, :long_description_en, 
-    	:wide_description_en, :instructions_en, :name_es, :short_description_es, 
-    	:long_description_es, :wide_description_es, :instructions_es
     
     # relationship 
     belongs_to :user
