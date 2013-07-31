@@ -22,7 +22,7 @@ class GameTranslator::GamesController < ApplicationController
   def review
     authorize! :review, current_user
     GameTranslator::User.where(role: 'translator').map do |user|
-      @translations = Translation.with_locales(:en, :es).where(user_id: user.id)
+      @translations = Translation.where(user_id: user.id).not_revised
       if @translations.count >=  100
         @translation = @translations.sample 
         @game = Game.find(@translation.game.id)
@@ -37,9 +37,9 @@ class GameTranslator::GamesController < ApplicationController
   end
 
   def accept
-    @translations = Translation.with_locales(:en, :es).where(user_id: params[:id])
+    @translations = Translation.where(user_id: params[:id]).not_revised
     @translations.map do |translation|
-      translation.game.update_attribute(:revised, true)
+      translation.update_attribute(:revised, true)
     end
     redirect_to review_path
   end
