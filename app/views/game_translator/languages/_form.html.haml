@@ -11,7 +11,7 @@
 
   %dt= f.label :abbreviation
   %dd= f.text_field :abbreviation
-
-  = f.submit 'Cadastrar'
+  %br
+  = f.submit 'Cadastrar', class: 'button'
   
-  = link_to 'Deletar', language_destroy_path(@language), method: :delete, confirm: 'Tem certeza?' unless @language.new_record?
+  = link_to 'Deletar', language_destroy_path(@language), method: :delete, confirm: 'Tem certeza?', class: 'button delete' unless @language.new_record?

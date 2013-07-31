@@ -17,7 +17,21 @@
       li 
         +inline-block
         padding: 15px 10px
-
         a
           text-decoration: none
-          color: #000
+          color: #333
+          +inline-block
+          &:hover
+            color: #4183c4
+
+    .divider
+      +inline-block
+      width: 1px
+      height: 50px
+      margin: 0 15px
+      background-color: #e5e5e5
+      border-right: 1px solid #fff
+
+    .user
+      float: right
+      margin-right: 20px

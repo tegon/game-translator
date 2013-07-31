@@ -1,8 +1,5 @@
 module GameTranslator
 	class Language < ActiveRecord::Base
-		# attr
-		attr_accessible :abbreviation, :name
-
 		# validations
 		validates :name, presence: true, allow_blank: false
 		validates :abbreviation, presence: true, allow_blank: false, 

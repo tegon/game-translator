@@ -24,7 +24,7 @@
 
   %dt= f.label :role
   %dt= f.collection_select :role, GameTranslator::User::ROLES, :to_s, :humanize
+  %br
+  = f.submit 'Cadastrar', class: 'button'
 
-  = f.submit 'Cadastrar'
-
-  = link_to 'deletar', user_destroy_path(@user.id), method: :delete, confirm: 'Certeza?' unless @user.new_record?
+  = link_to 'Deletar', user_destroy_path(@user.id), method: :delete, confirm: 'Certeza?', class: 'button delete' unless @user.new_record?

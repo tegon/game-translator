@@ -3,7 +3,7 @@
     = fields_for 'game[]', game do |game_fields|
       %fieldset
         %dl
-          %dt= 'Português'
+          %p= 'Português'
 
           %dt= game_fields.label :name
           %dd= game_fields.text_field :name, size: 50, disabled: true
@@ -16,7 +16,7 @@
 
           - if game.wide_description.present?
             %dt= game_fields.label :wide_description
-            %dd= game_fields.text_field :wide_description, size: 65, disabled: true
+            %dd= game_fields.text_area :wide_description, rows: 2, cols: 50, disabled: true
 
           %dt= game_fields.label :instructions
           %dd= game_fields.text_area :instructions, rows: 6, cols: 50, disabled: true
@@ -25,7 +25,7 @@
           
         - @languages.each do |language|
           %dl
-            %dt= "Traduzir para #{ language }"
+            %p= "Traduzir para #{ language }"
 
             %dt= game_fields.label "name_#{ language }".to_sym
             %dd= game_fields.text_field "name_#{ language }".to_sym, size: 50
@@ -38,11 +38,9 @@
 
             - if game.wide_description.present?
               %dt= game_fields.label "wide_description_#{ language }".to_sym
-              %dd= game_fields.text_field "wide_description_#{ language }".to_sym, size: 65
+              %dd= game_fields.text_area "wide_description_#{ language }".to_sym, rows: 2, cols: 50
 
             %dt= game_fields.label "instructions_#{ language }".to_sym
             %dd= game_fields.text_area "instructions_#{ language }".to_sym, rows: 6, cols: 50
 
   = submit_tag 'Traduzir!', class: 'button'
-
-= javascript_tag 'new Game()'

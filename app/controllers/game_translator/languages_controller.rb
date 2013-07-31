@@ -26,7 +26,7 @@ class GameTranslator::LanguagesController < ApplicationController
   def update
     @language = GameTranslator::Language.find(params[:id])
     if @language.update_attributes(params[:game_translator_language])
-      flash[:sucess] = 'Game traduzido com sucesso!'
+      flash[:sucess] = 'Atualizado com sucesso!'
       redirect_to languages_path
     else
       render action: :edit
