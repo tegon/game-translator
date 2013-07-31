@@ -6,7 +6,6 @@ module GameTranslator
     globalize_accessors locales: GameTranslator::Language.languages_abbreviations
     
     # relationship 
-    belongs_to :user
     has_many :game_translations
 
 		# scopes
@@ -25,7 +24,9 @@ module GameTranslator
 		class Translation 
 			# relationship
       belongs_to :game
-      has_one :user, through: :game
+      belongs_to :user
+
+      attr_accessible :game_id
     end
 	end
 end

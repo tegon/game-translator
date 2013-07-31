@@ -3,9 +3,6 @@ class GameTranslator::User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :rememberable, :trackable, :validatable
   
-  # relationship 
-  has_many :games
-
   # validates
   validates :name, presence: true, allow_blank: false, length: { minimum: 3 }
   validates :role, presence: true, inclusion: { in: %w(translator reviser) }
