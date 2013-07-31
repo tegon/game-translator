@@ -9,5 +9,7 @@ class Ability
     can :manage, GameTranslator::User if user.reviser?
 
     can :manage, GameTranslator::Language if user.reviser?
+
+    can :manage, :review if user.reviser?
   end
 end

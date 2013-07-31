@@ -1,15 +1,9 @@
 class GameTranslator::GamesController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource only: [:edit_multiple, :update_multiple]
 
   def edit_multiple
     @languages = GameTranslator::Language.languages_abbreviations
-    GameTranslator::Game.transaction do
-      @games = GameTranslator::Game.lock(true).not_translated.random
-    end
-
-  rescue Exception => e
-    flash[:notice] = 'Erro: #{ e }'
-    false
+    @games = GameTranslator::Game.not_translated.random
   end
 
   def update_multiple
@@ -23,5 +17,30 @@ class GameTranslator::GamesController < ApplicationController
       end
     end
     redirect_to game_edit_multiple_path
+  end
+
+  def review
+    authorize! :review, current_user
+    GameTranslator::User.where(role: 'translator').map do |user|
+      @translations = Translation.with_locales(:en, :es).where(user_id: user.id)
+      if @translations.count >=  100
+        @translation = @translations.sample 
+        @game = Game.find(@translation.game.id)
+      end
+    end
+  end
+
+  def reject
+    authorize! :review, current_user
+    Translation.destroy_all(user_id: params[:id])
+    redirect_to review_path
+  end
+
+  def accept
+    @translations = Translation.with_locales(:en, :es).where(user_id: params[:id])
+    @translations.map do |translation|
+      translation.game.update_attribute(:revised, true)
+    end
+    redirect_to review_path
   end
 end

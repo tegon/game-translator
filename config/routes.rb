@@ -18,6 +18,9 @@ GameTranslator::Application.routes.draw do
   
   get 'games/translate' => 'game_translator/games#edit_multiple', as: :game_edit_multiple
   put 'games/translate/send' => 'game_translator/games#update_multiple', as: :game_update_multiple
+  get 'games/review' => 'game_translator/games#review', as: :review
+  put 'games/review/:id' => 'game_translator/games#accept', as: :review_accept 
+  delete 'games/review/:id' => 'game_translator/games#reject', as: :review_destroy
 
   get '/languages' => 'game_translator/languages#index', as: :languages
   post '/languages' => 'game_translator/languages#create', as: :language_create

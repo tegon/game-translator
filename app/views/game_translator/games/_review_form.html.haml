@@ -1,0 +1,45 @@
+#games
+  %h1 Review
+  = form_for @game, url: review_accept_path(@translation.user.id), html: { method: :put } do |f|
+    %fieldset
+      %dl
+        %dt Português
+
+        %dt= f.label :name
+        %dd= f.text_field :name
+        
+        %dt= f.label :short_description
+        %dd= f.text_field :short_description
+        
+        %dt= f.label :long_description
+        %dd= f.text_area :long_description
+        
+        - if @game.wide_description.present?
+          %dt= f.label :wide_description
+          %dd= f.text_area :wide_description
+        
+        %dt= f.label :instructions
+        %dd= f.text_area :instructions
+
+      %dl
+        %dt= "Traduzido para #{ @translation.locale }, por #{ @translation.user.name }"
+
+        %dt= f.label "name_#{ @translation.locale }".to_sym
+        %dd= f.text_field "name_#{ @translation.locale }".to_sym
+        
+        %dt= f.label "short_description_#{ @translation.locale }".to_sym
+        %dd= f.text_field "short_description_#{ @translation.locale }".to_sym
+        
+        %dt= f.label "long_description_#{ @translation.locale }".to_sym
+        %dd= f.text_area "long_description_#{ @translation.locale }".to_sym
+        
+        - if @translation.wide_description.present?
+          %dt= f.label "wide_description_#{ @translation.locale }".to_sym
+          %dd= f.text_area "wide_description_#{ @translation.locale }".to_sym
+        
+        %dt= f.label "instructions_#{ @translation.locale }".to_sym
+        %dd= f.text_area "instructions_#{ @translation.locale }".to_sym
+
+    = f.submit 'Aceitar', class: 'button', confirm: 'Certeza?'
+
+    = link_to 'Recusar', review_destroy_path(@translation.user.id), method: :delete, confirm: 'Certeza?', class: 'button delete'

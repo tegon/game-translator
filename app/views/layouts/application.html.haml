@@ -23,6 +23,9 @@
             %li= link_to 'Cadastro de Idiomas', languages_path
             .divider
             %li= link_to 'Estatísticas'
+          - if can? :manage, :review, current_user
+            .divider
+            %li= link_to 'Revisões', review_path
           - if signed_in?
             = render 'layouts/nav'
     #container
