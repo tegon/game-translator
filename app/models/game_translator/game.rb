@@ -21,12 +21,12 @@ module GameTranslator
 
 		# extends globalize3 class :p
 		#class GameTranslator::Game::Translation
-		class Translation 
-			# relationship
-      belongs_to :game
-      belongs_to :user
+		# class Translation 
+		# 	# relationship
+  #     belongs_to :game
+  #     belongs_to :user
 
-      attr_accessible :game_id, :user_id
-    end
+  #     attr_accessible :game_id, :user_id
+  #   end
 	end
 end
