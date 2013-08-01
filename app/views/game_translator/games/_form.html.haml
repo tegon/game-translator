@@ -21,12 +21,12 @@
           %dt= game_fields.label :instructions
           %dd= game_fields.text_area :instructions, rows: 6, cols: 50, disabled: true
 
-          = game_fields.hidden_field :user_id, value: current_user.id
+          = hidden_field_tag :user_id, current_user.id
           
         - @languages.each do |language|
           %dl
             %p= "Traduzir para #{ language }"
-
+            
             %dt= game_fields.label "name_#{ language }".to_sym
             %dd= game_fields.text_field "name_#{ language }".to_sym, size: 50
 
