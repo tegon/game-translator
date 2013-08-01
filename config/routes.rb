@@ -28,4 +28,6 @@ GameTranslator::Application.routes.draw do
   get '/languages/:id/edit' => 'game_translator/languages#edit', as: :language_edit
   put '/languages/:id' => 'game_translator/languages#update', as: :language_update
   delete '/languages/:id' => 'game_translator/languages#destroy', as: :language_destroy
+
+  get '/stats' => 'game_translator/stats#index', as: :stats
 end

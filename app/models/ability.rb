@@ -6,10 +6,6 @@ class Ability
 
     can :manage, GameTranslator::Game if user.translator?
 
-    can :manage, GameTranslator::User if user.reviser?
-
-    can :manage, GameTranslator::Language if user.reviser?
-
-    can :manage, :review if user.reviser?
+    can :manage, [GameTranslator::Stat, GameTranslator::User, GameTranslator::Language, :review] if user.reviser?
   end
 end

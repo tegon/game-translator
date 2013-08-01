@@ -13,16 +13,15 @@
           - if can? :manage, GameTranslator::Game
             .divider
             %li= link_to 'Traduzir', game_edit_multiple_path
-            .divider
-            %li= link_to 'Estatísticas'
           - if can? :manage, GameTranslator::User
             .divider
             %li= link_to 'Cadastro de Usuários', user_index_path
           - if can? :manage, GameTranslator::Language
             .divider
             %li= link_to 'Cadastro de Idiomas', languages_path
+          - if can? :manage, GameTranslator::Stat
             .divider
-            %li= link_to 'Estatísticas'
+            %li= link_to 'Estatísticas', stats_path
           - if can? :manage, :review, current_user
             .divider
             %li= link_to 'Revisões', review_path
