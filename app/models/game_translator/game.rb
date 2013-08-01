@@ -16,15 +16,5 @@ module GameTranslator
 		def locales
 			self.translations.map { |translation| translation.locale }
 		end
-
-		# extends globalize3 class :p
-		#class GameTranslator::Game::Translation
-		# class Translation 
-		# 	# relationship
-  #     belongs_to :game
-  #     belongs_to :user
-
-  #     attr_accessible :game_id, :user_id
-  #   end
 	end
 end

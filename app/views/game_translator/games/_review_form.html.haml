@@ -23,7 +23,7 @@
 
       %dl
         %dt= "Traduzido para #{ @translation.locale }, por #{ @translation.user.name }"
-
+        = hidden_field_tag :translations_ids, @translations.map { |t| t.id }
         %dt= f.label "name_#{ @translation.locale }".to_sym
         %dd= f.text_field "name_#{ @translation.locale }".to_sym
         

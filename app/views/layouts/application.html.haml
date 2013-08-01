@@ -9,7 +9,7 @@
     #nav
       .content
         %ul
-          %li= link_to 'GameTranslator', '/'
+          %li GameTranslator
           - if can? :manage, GameTranslator::Game
             .divider
             %li= link_to 'Traduzir', game_edit_multiple_path
