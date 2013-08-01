@@ -27,26 +27,42 @@ class GameTranslator::GamesController < ApplicationController
 
   def review
     authorize! :review, current_user
+    @translations = get_translations.compact!
+  end
+
+  def get_translations
     GameTranslator::User.translators.map do |user|
-      @translations = Translation.where(user_id: user.id).not_revised
-      if @translations.count >=  100
-        @translation = @translations.sample 
-        @game = Game.find(@translation.game.id)
+      if user.game_translations.not_revised.count >= 100
+        {
+          user: user,
+          ids: user.game_translations.not_revised.map { |t| t.id },
+          sample: user.game_translations.not_revised.sample
+        } 
       end
     end
   end
 
   def reject
     authorize! :review, current_user
-    Translation.destroy_all(user_id: params[:id])
+    @translations = params[:translations_ids]
+    @translations.split(" ").map do |id|
+      t = Translation.find(id)
+      t.game.update_attribute(:translated, false)
+      t.update_attributes(rejected: true, revised: true)
+    end
     redirect_to review_path
   end
 
   def accept
-    @translations = params[:translations_ids]
-    @translations.split(" ").map do |id|
-      Translation.find(id).update_attribute(:revised, true)
+    if params[:delete_button]
+      reject
+      redirect_to review_path
+    else
+      @translations = params[:translations_ids]
+      @translations.split(" ").map do |id|
+        Translation.find(id).update_attribute(:revised, true)
+      end
+      redirect_to review_path
     end
-    redirect_to review_path
   end
 end

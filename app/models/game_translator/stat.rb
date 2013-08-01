@@ -16,7 +16,7 @@ module GameTranslator
       def greatest_translator
         max = 0
         GameTranslator::User.translators.map do |user|
-          if count_translations(user) > max
+          if count_translations(user) >= max
             max = count_translations(user)
             @user = user
           end
