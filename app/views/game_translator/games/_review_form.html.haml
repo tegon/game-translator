@@ -2,7 +2,7 @@
   %h1 Review
   - @translations.each do |translation|
     - @game = Game.find(translation[:sample][:game_id])
-    = form_for @game, url: review_accept_path(translation[:user][:id]), html: { method: :put } do |f|
+    = form_for @game, url: review_confirm_path(translation[:user][:id]), html: { method: :put } do |f|
       %fieldset
         %dl
           %dt Português
@@ -44,4 +44,4 @@
 
       = f.submit 'Aceitar', class: 'button', confirm: 'Certeza?'
 
-      = f.submit 'Recusar', name: 'delete_button', confirm: 'Certeza?', class: 'button delete'
+      = f.submit 'Recusar', name: 'delete', confirm: 'Certeza?', class: 'button refuse'

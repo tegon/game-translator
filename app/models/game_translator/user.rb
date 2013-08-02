@@ -3,6 +3,7 @@ class GameTranslator::User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :rememberable, :trackable, :validatable
   
+  # relationship  
   has_many :game_translations
 
   # validates
@@ -22,5 +23,13 @@ class GameTranslator::User < ActiveRecord::Base
 
   def translator?
   	self.role == 'translator'
+  end
+
+  def translations_ids(revised=false)
+    if revised
+      self.game_translations.revised.map { |translation| translation.id }
+    else
+      self.game_translations.not_revised.map { |translation| translation.id }
+    end
   end
 end

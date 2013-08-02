@@ -2,7 +2,7 @@ class GameTranslator::GamesController < ApplicationController
   load_and_authorize_resource only: [:edit_multiple, :update_multiple]
 
   def edit_multiple
-    @languages = GameTranslator::Language.languages_abbreviations
+    @languages = GameTranslator::Language.abbreviations
     @games = GameTranslator::Game.not_translated.random
   end
 
@@ -27,42 +27,39 @@ class GameTranslator::GamesController < ApplicationController
 
   def review
     authorize! :review, current_user
-    @translations = get_translations.compact!
+    @translations = Translation.to_review.compact!
   end
 
-  def get_translations
-    GameTranslator::User.translators.map do |user|
-      if user.game_translations.not_revised.count >= 100
-        {
-          user: user,
-          ids: user.game_translations.not_revised.map { |t| t.id },
-          sample: user.game_translations.not_revised.sample
-        } 
-      end
+  def review_confirm
+    authorize! :review, current_user
+    if params[:delete]
+      reject
+    else
+      accept
     end
   end
 
   def reject
     authorize! :review, current_user
     @translations = params[:translations_ids]
+
     @translations.split(" ").map do |id|
       t = Translation.find(id)
       t.game.update_attribute(:translated, false)
       t.update_attributes(rejected: true, revised: true)
     end
+    
     redirect_to review_path
   end
 
   def accept
-    if params[:delete_button]
-      reject
-      redirect_to review_path
-    else
-      @translations = params[:translations_ids]
-      @translations.split(" ").map do |id|
-        Translation.find(id).update_attribute(:revised, true)
-      end
-      redirect_to review_path
+    authorize! :review, current_user
+    @translations = params[:translations_ids]
+
+    @translations.split(" ").map do |id|
+      Translation.find(id).update_attribute(:revised, true)
     end
+    
+    redirect_to review_path
   end
 end

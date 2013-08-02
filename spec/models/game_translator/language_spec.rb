@@ -21,14 +21,14 @@ describe GameTranslator::Language do
 		build(:game_translator_language, abbreviation: 'ab-cd').should be_valid
 	end
 
-	describe '#languages_abbreviations' do 
-		it 'should have a languages_abbreviations method' do
-			GameTranslator::Language.should respond_to :languages_abbreviations		
+	describe '#abbreviations' do 
+		it 'should have a abbreviations method' do
+			GameTranslator::Language.should respond_to :abbreviations		
 		end
 
-		it 'should return an array of languages abbreviations' do 
+		it 'should return an array of abbreviations' do 
 			create(:game_translator_language, name: 'English', abbreviation: 'en')
-			abbreviations = GameTranslator::Language.languages_abbreviations
+			abbreviations = GameTranslator::Language.abbreviations
 			abbreviations.should_not include 'English'
 			abbreviations.should include 'en'
 		end

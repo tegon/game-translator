@@ -25,7 +25,7 @@ module GameTranslator
       end
 
       def percentage
-        (100 * revised/total.to_f).round
+        (100 * translated/total.to_f).round
       end
 
       def count_translations(user)
