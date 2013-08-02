@@ -1,30 +1,30 @@
-#games
-  %h1 Review
-  - @translations.each do |translation|
-    - @game = Game.find(translation[:sample][:game_id])
-    = form_for @game, url: review_confirm_path(translation[:user][:id]), html: { method: :put } do |f|
+%h1 Review
+- @translations.each do |translation|
+  - @game = Game.find(translation[:sample][:game_id])
+  = form_for @game, url: review_confirm_path(translation[:user][:id]), html: { method: :put } do |f|
+    #games
       %fieldset
         %dl
-          %dt Português
+          %p Português
 
           %dt= f.label :name
-          %dd= f.text_field :name
+          %dd= f.text_field :name, disabled: true
           
           %dt= f.label :short_description
-          %dd= f.text_field :short_description
+          %dd= f.text_field :short_description, disabled: true
           
           %dt= f.label :long_description
-          %dd= f.text_area :long_description
+          %dd= f.text_area :long_description, disabled: true
           
           - if @game.wide_description.present?
             %dt= f.label :wide_description
-            %dd= f.text_area :wide_description
+            %dd= f.text_area :wide_description, disabled: true
           
           %dt= f.label :instructions
-          %dd= f.text_area :instructions
+          %dd= f.text_area :instructions, disabled: true
 
         %dl
-          %dt= "Traduzido para #{ translation[:sample][:locale] }, por #{ translation[:user][:name] }"
+          %p= "Traduzido para #{ translation[:sample][:locale] }, por #{ translation[:user][:name] }"
           = hidden_field_tag :translations_ids, translation[:ids]
           %dt= f.label "name_#{ translation[:locale] }".to_sym
           %dd= f.text_field "name_#{ translation[:sample][:locale] }".to_sym
