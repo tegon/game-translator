@@ -9,20 +9,25 @@
   form
     @include blueprint-form
 
-  input 
-    +border-radius(3px)
+  input, textarea
+    +border-radius(4px)
+    font-family: 'Open Sans', sans-serif 
+    padding: 5px
+    margin-bottom: 10px
 
   dl
     float: left
     margin-right: 10px
     border-right: 1px black solid
   
+  input[type='text']
+    width: 400px
+
   textarea
     resize: vertical
-    height: auto
-    min-height: 65px
+    width: 400px
+    height: 150px
     margin-right: 10px
-    +border-radius(3px)
 
   fieldset
     margin: 15px 10px
