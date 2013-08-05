@@ -7,39 +7,39 @@
         %dl
           %p Português
 
-          %dt= f.label :name
+          %dt Nome
           %dd= f.text_field :name, disabled: true
           
-          %dt= f.label :short_description
+          %dt Descrição Curta
           %dd= f.text_field :short_description, disabled: true
           
-          %dt= f.label :long_description
+          %dt Descrição Longa
           %dd= f.text_area :long_description, disabled: true
           
           - if @game.wide_description.present?
-            %dt= f.label :wide_description
+            %dt Descrição Wide
             %dd= f.text_area :wide_description, disabled: true
           
-          %dt= f.label :instructions
+          %dt Instruções
           %dd= f.text_area :instructions, disabled: true
 
         %dl
           %p= "Traduzido para #{ translation[:sample][:locale] }, por #{ translation[:user][:name] }"
           = hidden_field_tag :translations_ids, translation[:ids]
-          %dt= f.label "name_#{ translation[:locale] }".to_sym
+          %dt Nome
           %dd= f.text_field "name_#{ translation[:sample][:locale] }".to_sym
           
-          %dt= f.label "short_description_#{ translation[:sample][:locale] }".to_sym
+          %dt Descrição Curta
           %dd= f.text_field "short_description_#{ translation[:sample][:locale] }".to_sym
           
-          %dt= f.label "long_description_#{ translation[:sample][:locale] }".to_sym
+          %dt Descrição Longa
           %dd= f.text_area "long_description_#{ translation[:sample][:locale] }".to_sym
           
           - if translation[:sample][:wide_description].present?
-            %dt= f.label "wide_description_#{ translation[:sample][:locale] }".to_sym
+            %dt Descrição Wide
             %dd= f.text_area "wide_description_#{ translation[:sample][:locale] }".to_sym
           
-          %dt= f.label "instructions_#{ translation[:sample][:locale] }".to_sym
+          %dt Instruções
           %dd= f.text_area "instructions_#{ translation[:sample][:locale] }".to_sym
 
       = f.submit 'Aceitar', class: 'button', confirm: 'Certeza?'

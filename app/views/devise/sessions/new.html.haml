@@ -1,12 +1,12 @@
 #login
   %h1 Login 
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    %dt= f.label :email
+    %dt Email
     %dt= f.email_field :email, autofocus: true, required: true
 
-    %div= f.label :password
+    %div Senha
     = f.password_field :password, required: true
     - if devise_mapping.rememberable?
-      %div #{ f.check_box :remember_me } #{ f.label :remember_me }
+      %div #{ f.check_box :remember_me } Mantenha-me conectado
     %br
     %div= f.submit 'Entrar', class: 'button'

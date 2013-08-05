@@ -1,17 +1,20 @@
 - if @language.errors.size > 0
-  %h2 The following errors were found:
 
   - for error in @language.errors.full_messages
-    %ul
-      %li= error
+    .error
+      %ul
+        %li= error
 
 %dl
-  %dt= f.label :name
+  %dt Nome
   %dd= f.text_field :name, autofocus: true
 
-  %dt= f.label :abbreviation
+  %dt Sigla
   %dd= f.text_field :abbreviation
+
+  = link_to 'Referência', 'http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements', target: '_blank'
+
   %br
-  = f.submit 'Cadastrar', class: 'button'
+  = f.submit 'Salvar', class: 'button'
   
   = link_to 'Deletar', language_destroy_path(@language), method: :delete, confirm: 'Tem certeza?', class: 'button delete' unless @language.new_record?

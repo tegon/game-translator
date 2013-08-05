@@ -2,7 +2,7 @@ class GameTranslator::GamesController < ApplicationController
   load_and_authorize_resource only: [:edit_multiple, :update_multiple]
 
   def edit_multiple
-    @languages = GameTranslator::Language.abbreviations
+    @languages = GameTranslator::Language.all
     @games = GameTranslator::Game.not_translated.random
   end
 

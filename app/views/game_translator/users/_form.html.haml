@@ -1,30 +1,30 @@
 - if @user.errors.size > 0
-  %h2 The following errors were found:
 
   - for error in @user.errors.full_messages
-    %ul
-      %li= error
+    .error
+      %ul
+        %li= error
 
 %dl
-  %dt= f.label :name
+  %dt Nome
   %dd= f.text_field :name, autofocus: true
 
-  %dt= f.label :email
+  %dt Email
   %dd= f.email_field :email
 
   - unless @user.new_record? 
-    %dt= f.label :current_password
+    %dt Senha Atual
     %dd= f.password_field :current_password
   
-  %dt= f.label :password
+  %dt Senha
   %dd= f.password_field :password
 
-  %dt= f.label :password_confirmation
+  %dt Confirmação da Senha
   %dd= f.password_field :password_confirmation
 
-  %dt= f.label :role
+  %dt Função
   %dt= f.collection_select :role, GameTranslator::User::ROLES, :to_s, :humanize
   %br
-  = f.submit 'Cadastrar', class: 'button'
+  = f.submit 'Salvar', class: 'button'
 
   = link_to 'Deletar', user_destroy_path(@user.id), method: :delete, confirm: 'Certeza?', class: 'button delete' unless @user.new_record?

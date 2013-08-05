@@ -28,4 +28,10 @@
           - if signed_in?
             = render 'layouts/nav'
     #container
+      - unless flash[:error].blank?
+        .error= flash[:error].html_safe
+      - unless flash[:success].blank?
+        .success= flash[:success].html_safe
+      - unless flash[:alert].blank?
+        .error= flash[:alert].html_safe
       = yield

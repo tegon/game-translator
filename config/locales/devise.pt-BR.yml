@@ -1,0 +1,13 @@
+pt-BR:
+  devise:
+    failure:
+      user:
+        already_authenticated: "Você já está logado."
+        inactive: "A sua conta não foi ativada ainda."
+        invalid: "E-mail ou senha inválidos."
+        invalid_token: "Token de autenticação inválido."
+        locked: "Sua conta está bloqueada."
+        not_found_in_database: "E-mail ou senha inválidos."
+        timeout: "A sua sessão expirou, por favor faça login novamente para continuar."
+        unauthenticated: "Você precisa fazer login para continuar."
+        unconfirmed: "Você deve confirmar sua conta antes de continuar."

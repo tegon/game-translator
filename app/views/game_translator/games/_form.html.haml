@@ -3,44 +3,46 @@
     = fields_for 'game[]', game do |game_fields|
       %fieldset
         %dl
+          = flag('br')
           %p= 'Português'
 
-          %dt= game_fields.label :name
+          %dt Nome
           %dd= game_fields.text_field :name, disabled: true
 
-          %dt= game_fields.label :short_description
+          %dt Descrição Curta
           %dd= game_fields.text_field :short_description, disabled: true
 
-          %dt= game_fields.label :long_description
+          %dt Descrição Longa
           %dd= game_fields.text_area :long_description, disabled: true
 
           - if game.wide_description.present?
-            %dt= game_fields.label :wide_description
+            %dt Descrição Wide
             %dd= game_fields.text_area :wide_description, disabled: true
 
-          %dt= game_fields.label :instructions
+          %dt Instruções
           %dd= game_fields.text_area :instructions, disabled: true
 
           = hidden_field_tag :user_id, current_user.id
           
         - @languages.each do |language|
           %dl
-            %p= "Traduzir para #{ language }"
+            = flag(language.abbreviation)
+            %p= "Traduzir para #{ language.name }" 
             
-            %dt= game_fields.label "name_#{ language }".to_sym
-            %dd= game_fields.text_field "name_#{ language }".to_sym
+            %dt Nome
+            %dd= game_fields.text_field "name_#{ language.abbreviation }".to_sym
 
-            %dt= game_fields.label "short_description_#{ language }".to_sym
-            %dd= game_fields.text_field "short_description_#{ language }".to_sym
+            %dt Descrição Curta
+            %dd= game_fields.text_field "short_description_#{ language.abbreviation }".to_sym
 
-            %dt= game_fields.label "long_description_#{ language }".to_sym
-            %dd= game_fields.text_area "long_description_#{ language }".to_sym
+            %dt Descrição Longa
+            %dd= game_fields.text_area "long_description_#{ language.abbreviation }".to_sym
 
             - if game.wide_description.present?
-              %dt= game_fields.label "wide_description_#{ language }".to_sym
-              %dd= game_fields.text_area "wide_description_#{ language }".to_sym
+              %dt Descrição Wide
+              %dd= game_fields.text_area "wide_description_#{ language.abbreviation }".to_sym
 
-            %dt= game_fields.label "instructions_#{ language }".to_sym
-            %dd= game_fields.text_area "instructions_#{ language }".to_sym
+            %dt Instruções
+            %dd= game_fields.text_area "instructions_#{ language.abbreviation }".to_sym
 
   = submit_tag 'Traduzir!', class: 'button'

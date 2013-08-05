@@ -4,10 +4,20 @@
 @import blueprint
 @import blueprint/buttons
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300)
+@import blueprint/interaction
 
 body
   font-size: 18px 
   font-family: 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif
+  @include blueprint-interaction
+
+.error
+  +error
+  margin-top: 15px
+
+.success
+  +success
+  margin-top: 15px
 
 h1
   font-family: 'Open Sans', sans-serif 
@@ -75,3 +85,6 @@ a
   @include container
   width: 1360px
   margin: 50px auto 10px auto
+
+#wrap
+  margin: 20px 0 20px 0

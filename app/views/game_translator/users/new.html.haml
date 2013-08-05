@@ -1,5 +1,5 @@
 %h1
-	%span Cadastrar Usuário
+	%span Novo usuário
 
 = form_for @user, url: user_create_path, html:{ multipart: true } do |f|
 	= render partial: 'form', locals:{ f:f }

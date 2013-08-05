@@ -1,13 +1,16 @@
 %h1
   %span Usuários cadastrados
-
-%h3 
-  = link_to 'Novo Usuário', user_new_path
+ 
+= link_to 'Novo usuário', user_new_path
 
 - unless @users.blank?
   - @users.each do |user|
-    %p= user.name
-    %p= user.email
-    %p= user.role.humanize
-    = link_to 'Editar', user_edit_path(user.id)
-    = link_to 'Deletar',  user_destroy_path(user.id), method: :delete, confirm: 'Tem certeza?'
+    #wrap
+      %p= "Nome: #{ user.name }"
+      
+      %p= "Email: #{ user.email }"
+      
+      %p= "Função: #{ user.role.humanize }"
+      
+      = link_to 'Editar', user_edit_path(user.id)
+      = link_to 'Deletar',  user_destroy_path(user.id), method: :delete, confirm: 'Tem certeza?'
