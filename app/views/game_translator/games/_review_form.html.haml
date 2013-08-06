@@ -1,11 +1,13 @@
-%h1 Review
+%h1 Revisar
 - @translations.each do |translation|
   - @game = Game.find(translation[:sample][:game_id])
   = form_for @game, url: review_confirm_path(translation[:user][:id]), html: { method: :put } do |f|
     #games
       %fieldset
         %dl
-          %p Português
+          .flag
+            = flag('br')
+            %p Português
 
           %dt Nome
           %dd= f.text_field :name, disabled: true
@@ -24,8 +26,12 @@
           %dd= f.text_area :instructions, disabled: true
 
         %dl
-          %p= "Traduzido para #{ translation[:sample][:locale] }, por #{ translation[:user][:name] }"
+          .flag
+            = flag(translation[:sample][:locale])
+            %p= "Traduzido para #{ translation[:sample][:locale] }, por #{ translation[:user][:name] }"
+          
           = hidden_field_tag :translations_ids, translation[:ids]
+          
           %dt Nome
           %dd= f.text_field "name_#{ translation[:sample][:locale] }".to_sym
           

@@ -27,7 +27,8 @@ class GameTranslator::GamesController < ApplicationController
 
   def review
     authorize! :review, current_user
-    @translations = Translation.to_review.compact!
+    @translations = Translation.to_review
+    @translations = @translations.compact
   end
 
   def review_confirm
