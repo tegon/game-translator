@@ -11,7 +11,7 @@ class GameTranslator::GamesController < ApplicationController
       @game = GameTranslator::Game.find(id.to_i)
       if @game.update_attributes(params['game'][id])
 
-        @game.update_attribute(:translated, true)
+        @game.update_attribute(:status, 'translated')
         
         @game.translations.map do |t| 
           t.update_attribute(:user_id, params[:user_id]) unless t.locale == :'pt-BR'

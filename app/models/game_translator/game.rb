@@ -9,8 +9,8 @@ module GameTranslator
     has_many :game_translations
 
 		# scopes
-		scope :not_translated, conditions: { translated: false }
-		scope :translated, conditions: { translated: true }
+		scope :not_translated, conditions: { status: 'not_translated' }
+		scope :translated, conditions: { status: 'translated' }
 		scope :random, order: 'RAND()', limit: '4'
 
 		def locales

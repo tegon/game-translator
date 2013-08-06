@@ -1,6 +1,7 @@
 #games
   - @games.each do |game|
     = fields_for 'game[]', game do |game_fields|
+      - game.update_attribute(:status, 'translating')
       %fieldset
         %dl
           .flag
