@@ -33,20 +33,20 @@
           = hidden_field_tag :translations_ids, translation[:ids]
           
           %dt Nome
-          %dd= f.text_field "name_#{ translation[:sample][:locale] }".to_sym
+          %dd= f.text_field "name_#{ translation[:sample][:locale] }".to_sym, disabled: true
           
           %dt Descrição Curta
-          %dd= f.text_field "short_description_#{ translation[:sample][:locale] }".to_sym
+          %dd= f.text_field "short_description_#{ translation[:sample][:locale] }".to_sym, disabled: true
           
           %dt Descrição Longa
-          %dd= f.text_area "long_description_#{ translation[:sample][:locale] }".to_sym
+          %dd= f.text_area "long_description_#{ translation[:sample][:locale] }".to_sym, disabled: true
           
           - if translation[:sample][:wide_description].present?
             %dt Descrição Wide
-            %dd= f.text_area "wide_description_#{ translation[:sample][:locale] }".to_sym
+            %dd= f.text_area "wide_description_#{ translation[:sample][:locale] }".to_sym, disabled: true
           
           %dt Instruções
-          %dd= f.text_area "instructions_#{ translation[:sample][:locale] }".to_sym
+          %dd= f.text_area "instructions_#{ translation[:sample][:locale] }".to_sym, disabled: true
 
       = f.submit 'Aceitar', class: 'button', confirm: 'Certeza?'
 

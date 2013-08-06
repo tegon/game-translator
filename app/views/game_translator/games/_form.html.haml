@@ -48,3 +48,5 @@
             %dd= game_fields.text_area "instructions_#{ language.abbreviation }".to_sym
 
   = submit_tag 'Traduzir!', class: 'button'
+
+  = javascript_tag 'new Game()'
