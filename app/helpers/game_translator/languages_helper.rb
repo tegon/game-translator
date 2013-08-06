@@ -1,4 +1,4 @@
-module GameTranslator::GamesHelper
+module GameTranslator::LanguagesHelper
   def flag(language)
     src = "/flags/#{ language }.png"
 
