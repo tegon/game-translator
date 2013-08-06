@@ -1,7 +1,10 @@
 module GameTranslator::GamesHelper
   def flag(language)
-    src = "/assets/flags/#{ language }.png"
-    img = "<img src=#{ src }>"
-    "<div class='flag'>#{ img }</div>".html_safe
+    src = "/flags/#{ language }.png"
+
+    if FileTest.exist?("#{ Rails.root }/app/assets/images#{ src }")  
+      src = "/assets#{ src }"
+      "<img src=#{ src }>".html_safe
+    end
   end
 end

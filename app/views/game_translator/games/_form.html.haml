@@ -3,8 +3,9 @@
     = fields_for 'game[]', game do |game_fields|
       %fieldset
         %dl
-          = flag('br')
-          %p= 'Português'
+          .flag
+            = flag('br')
+            %p= 'Português'
 
           %dt Nome
           %dd= game_fields.text_field :name, disabled: true
@@ -26,8 +27,9 @@
           
         - @languages.each do |language|
           %dl
-            = flag(language.abbreviation)
-            %p= "Traduzir para #{ language.name }" 
+            .flag
+              = flag(language.abbreviation)
+              %p= "Traduzir para #{ language.name }" 
             
             %dt Nome
             %dd= game_fields.text_field "name_#{ language.abbreviation }".to_sym
