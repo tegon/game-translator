@@ -8,127 +8,59 @@ describe GameTranslator::LanguagesController do
   end
 
   describe 'GET index' do
-    context 'when not logged in' do
-      it 'should redirect_to login page' do
-        get :index
-        response.should redirect_to new_user_session_path
-      end
-    end
-
-    context 'when user is reviser' do
-      it 'should render the users index' do 
-        sign_in @reviser
-        get :index
-        response.should render_template :index
-      end
-    end
-
-    context 'when user is translator' do
-      it 'should redirect to games/translate' do
-        sign_in @translator
-        get :index
-        response.should redirect_to game_edit_multiple_path
-      end
+    it 'should render the users index' do 
+      sign_in @reviser
+      get :index
+      response.should render_template :index
     end
   end
 
   describe 'GET new' do
-    context 'when not logged in' do
-      it 'should redirect to login page' do
-        get :new
-        response.should redirect_to new_user_session_path
-      end
+    before do
+      sign_in @reviser
     end
 
-    context 'when user is translator' do
-      it 'should redirect to games/translate' do
-        sign_in @translator
-        get :new
-        response.should redirect_to game_edit_multiple_path
-      end
+    it 'assigns a new object to the language' do
+      get :new
+      assigns(:language).should be_new_record
     end
 
-    context 'when user is reviser' do
-      before do
-        sign_in @reviser
-      end
-
-      it 'assigns a new object to the language' do
-        get :new
-        assigns(:language).should be_new_record
-      end
-
-      it 'renders the new view' do
-        get :new 
-        response.should render_template :new
-      end
+    it 'renders the new view' do
+      get :new 
+      response.should render_template :new
     end
   end
 
   describe 'POST create' do
-    context 'when not logged in' do
-      it 'should redirect to login page' do
-        put :create, game_translator_language: FactoryGirl.attributes_for(:game_translator_language)
-        response.should redirect_to new_user_session_path
-      end
+    before do
+      sign_in @reviser
     end
 
-    context 'when user is translator' do
-      it 'should redirect to games/translate' do
-        sign_in @translator
-        post :create, game_translator_language: FactoryGirl.attributes_for(:game_translator_language)
-        response.should redirect_to game_edit_multiple_path
-      end
+    it 'create language with valid attributes' do 
+      post :create, game_translator_language: FactoryGirl.attributes_for(:game_translator_language)
+      response.should redirect_to languages_path
     end
 
-    context 'when user is reviser' do
-      before do
-        sign_in @reviser
-      end
-
-      it 'create language with valid attributes' do 
-        post :create, game_translator_language: FactoryGirl.attributes_for(:game_translator_language)
-        response.should redirect_to languages_path
-      end
-
-      it 'saves language to the database' do
-        post :create, game_translator_language: FactoryGirl.attributes_for(:game_translator_language)
-        assigns(:language).should_not be_new_record
-        response.should redirect_to languages_path
-      end
+    it 'saves language to the database' do
+      post :create, game_translator_language: FactoryGirl.attributes_for(:game_translator_language)
+      assigns(:language).should_not be_new_record
+      response.should redirect_to languages_path
     end
   end
 
   describe 'GET edit' do
-    context 'when not logged in' do
-      it 'should redirect to login page' do
-        get :edit, id: @language.id
-        response.should redirect_to new_user_session_path
-      end
+    before do 
+      sign_in @reviser
     end
 
-    context 'when user is translator' do
-      it 'should redirect to games/translate' do
-        sign_in @translator
-        get :edit, id: @language.id
-        response.should redirect_to game_edit_multiple_path
-      end
+    it 'should render the edit view' do
+      get :edit, id: @language.id
+      response.should render_template :edit
     end
 
-    context 'when user is reviser' do
-      before do 
-        sign_in @reviser
-      end
-
-      it 'should render the edit view' do
-        get :edit, id: @language.id
-        response.should render_template :edit
-      end
-
-      it 'should assigns a language to the language variable' do
-        get :edit, id: @language.id
-        assigns(:language).should == @language
-      end
+    it 'should assigns a language to the language variable' do
+      get :edit, id: @language.id
+      assigns(:language).should == @language
     end
   end
 

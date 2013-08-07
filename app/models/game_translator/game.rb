@@ -8,6 +8,9 @@ module GameTranslator
     # relationship 
     has_many :game_translations
 
+    # validates
+    validates :status, presence: true, inclusion: { in: %w(not_translated translated translating) }
+
 		# scopes
 		scope :not_translated, conditions: { status: 'not_translated' }
 		scope :translated, conditions: { status: 'translated' }

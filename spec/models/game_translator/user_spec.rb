@@ -69,8 +69,15 @@ describe GameTranslator::User do
 		end
 	end
 
-  it 'should have many games' do 
+  it 'should have many games translations' do 
     user = create(:game_translator_user)
-    user.should respond_to :games
+    user.should respond_to :game_translations
+  end
+
+  describe '#translations_ids' do
+    it 'should have a translations_ids method' do
+      user = create(:game_translator_user)
+      user.should respond_to :translations_ids
+    end
   end
 end
