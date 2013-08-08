@@ -22,7 +22,7 @@
           - if can? :manage, GameTranslator::Stat
             .divider
             %li= link_to 'Estatísticas', stats_path
-          - if can? :manage, :review, current_user
+          - if can? :manage, GameTranslator::Review
             .divider
             %li= link_to 'Revisões', review_path
           - if signed_in?

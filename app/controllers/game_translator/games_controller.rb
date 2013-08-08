@@ -1,5 +1,5 @@
 class GameTranslator::GamesController < ApplicationController
-  load_and_authorize_resource only: [:edit_multiple, :update_multiple]
+  load_and_authorize_resource
 
   def edit_multiple
     @languages = GameTranslator::Language.all
@@ -24,43 +24,5 @@ class GameTranslator::GamesController < ApplicationController
       end
     end
     redirect_to game_edit_multiple_path
-  end
-
-  def review
-    authorize! :review, current_user
-    @translations = Translation.to_review
-    @translations = @translations.compact
-  end
-
-  def review_confirm
-    authorize! :review, current_user
-    if params[:delete]
-      reject
-    else
-      accept
-    end
-  end
-
-  def reject
-    authorize! :review, current_user
-    @user = GameTranslator::User.find(params[:user_id])
-
-    @user.game_translations.map do |t|
-      t.game.update_attribute(:status, 'not_translated')
-      t.update_attributes(rejected: true, revised: true)
-    end
-    
-    redirect_to review_path
-  end
-
-  def accept
-    authorize! :review, current_user
-    @user = GameTranslator::User.find(params[:user_id])
-
-    @user.game_translations.map do |t|
-      t.update_attribute(:revised, true)
-    end
-    
-    redirect_to review_path
   end
 end

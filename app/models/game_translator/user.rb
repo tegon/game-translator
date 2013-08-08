@@ -5,6 +5,7 @@ class GameTranslator::User < ActiveRecord::Base
   
   # relationship  
   has_many :game_translations
+  has_many :reviews
 
   # validates
   validates :name, presence: true, allow_blank: false, length: { minimum: 3 }
@@ -23,13 +24,5 @@ class GameTranslator::User < ActiveRecord::Base
 
   def translator?
   	self.role == 'translator'
-  end
-
-  def translations_ids(revised=false)
-    if revised
-      self.game_translations.revised.map { |translation| translation.id }
-    else
-      self.game_translations.not_revised.map { |translation| translation.id }
-    end
   end
 end

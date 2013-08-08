@@ -3,21 +3,11 @@ module GameTranslator
     # relationship
     belongs_to :game
     belongs_to :user
+    belongs_to :review
 
     # scopes
-    scope :not_revised, conditions: { revised: false }
+    scope :not_revised, conditions: { revised: false, review_id: nil }
     scope :revised, conditions: { revised: true }
     scope :rejected, conditions: { rejected: true }
-
-    def self.to_review
-      GameTranslator::User.translators.map do |user|
-        if user.game_translations.not_revised.count >= 100
-          {
-            user: user,
-            sample: user.game_translations.not_revised.sample
-          } 
-        end
-      end
-    end
   end
 end
