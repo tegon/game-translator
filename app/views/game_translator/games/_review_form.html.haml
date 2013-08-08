@@ -30,8 +30,6 @@
             = flag(translation[:sample][:locale])
             %p= "Traduzido para #{ translation[:sample][:locale] }, por #{ translation[:user][:name] }"
           
-          = hidden_field_tag :translations_ids, translation[:ids]
-          
           %dt Nome
           %dd= f.text_field "name_#{ translation[:sample][:locale] }".to_sym, disabled: true
           

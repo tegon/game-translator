@@ -14,7 +14,6 @@ module GameTranslator
         if user.game_translations.not_revised.count >= 100
           {
             user: user,
-            ids: user.translations_ids,
             sample: user.game_translations.not_revised.sample
           } 
         end

@@ -42,11 +42,10 @@ class GameTranslator::GamesController < ApplicationController
 
   def reject
     authorize! :review, current_user
-    @translations = params[:translations_ids]
+    @user = GameTranslator::User.find(params[:user_id])
 
-    @translations.split(" ").map do |id|
-      t = Translation.find(id)
-      t.game.update_attribute(:translated, false)
+    @user.game_translations.map do |t|
+      t.game.update_attribute(:status, 'not_translated')
       t.update_attributes(rejected: true, revised: true)
     end
     
@@ -55,10 +54,10 @@ class GameTranslator::GamesController < ApplicationController
 
   def accept
     authorize! :review, current_user
-    @translations = params[:translations_ids]
+    @user = GameTranslator::User.find(params[:user_id])
 
-    @translations.split(" ").map do |id|
-      Translation.find(id).update_attribute(:revised, true)
+    @user.game_translations.map do |t|
+      t.update_attribute(:revised, true)
     end
     
     redirect_to review_path
