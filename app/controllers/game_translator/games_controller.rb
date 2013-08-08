@@ -4,6 +4,7 @@ class GameTranslator::GamesController < ApplicationController
   def edit_multiple
     @languages = GameTranslator::Language.all
     @games = GameTranslator::Game.not_translated.random
+    @games.map { |game| game.update_attribute(:status, 'translating') }
   end
 
   def update_multiple

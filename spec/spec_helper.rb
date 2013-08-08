@@ -11,6 +11,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
   config.mock_with :rspec
+
   Capybara.javascript_driver = :webkit
   config.include FactoryGirl::Syntax::Methods
   config.include Devise::TestHelpers, type: :controller
