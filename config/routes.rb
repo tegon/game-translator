@@ -1,6 +1,6 @@
 GameTranslator::Application.routes.draw do
 
-  root to: 'game_translator/games#edit_multiple'
+  root to: 'game_translator/games#translate'
 
   devise_for :users, class_name: 'GameTranslator::User', path_names: { 
     sign_in: 'login', sign_out: 'logout' 
@@ -16,8 +16,8 @@ GameTranslator::Application.routes.draw do
   get 'users/:id/edit' => 'game_translator/users#edit', as: :user_edit
   delete 'users/:id' => 'game_translator/users#destroy', as: :user_destroy
   
-  get 'games/translate' => 'game_translator/games#edit_multiple', as: :game_edit_multiple
-  put 'games/translate/send' => 'game_translator/games#update_multiple', as: :game_update_multiple
+  get 'translate' => 'game_translator/games#translate', as: :game_translate
+  put 'translate/update' => 'game_translator/games#translate_update', as: :game_translate_update
   
   get 'review' => 'game_translator/reviews#index', as: :review
   get 'review/:id/edit' => 'game_translator/reviews#edit', as: :review_edit

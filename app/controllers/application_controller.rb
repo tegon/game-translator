@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     case current_user.role
     when 'translator'
-      redirect_to game_edit_multiple_path
+      redirect_to game_translate_path
     when 'reviser'
       redirect_to user_index_path
     end

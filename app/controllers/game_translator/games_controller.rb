@@ -1,13 +1,13 @@
 class GameTranslator::GamesController < ApplicationController
   load_and_authorize_resource
 
-  def edit_multiple
+  def translate
     @languages = GameTranslator::Language.all
     @games = GameTranslator::Game.not_translated.random
     @games.map { |game| game.update_attribute(:status, 'translating') }
   end
 
-  def update_multiple
+  def translate_update
     params['game'].keys.each do |id|
       @game = GameTranslator::Game.find(id.to_i)
       if @game.update_attributes(params['game'][id])
@@ -20,9 +20,9 @@ class GameTranslator::GamesController < ApplicationController
 
         flash[:sucess] = 'Game traduzido com sucesso!'
       else
-        redirect_to game_edit_multiple_path
+        redirect_to game_translate_path
       end
     end
-    redirect_to game_edit_multiple_path
+    redirect_to game_translate_path
   end
 end
