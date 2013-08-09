@@ -2,7 +2,7 @@ GameTranslator::Application.routes.draw do
 
   root to: 'game_translator/games#translate'
 
-  devise_for :users, class_name: 'GameTranslator::User', path_names: { 
+  devise_for :users, skip: [:registrations], class_name: 'GameTranslator::User', path_names: { 
     sign_in: 'login', sign_out: 'logout' 
     }, controllers: { 
       registrations: 'game_translator/registrations', 

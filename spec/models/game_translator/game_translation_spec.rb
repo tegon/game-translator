@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe GameTranslator::GameTranslation do
-  before(:all) do
+  before do
     @translation = create(:game_translator_game_translation)
+    @not_revised = create(:game_translator_game_translation, revised: false, review_id: nil)
   end
 
   it 'should have a valid generator' do
@@ -23,10 +24,9 @@ describe GameTranslator::GameTranslation do
     end
 
     it 'should return only not revised translations' do
-      not_revised = create(:game_translator_game_translation, revised: false)
       not_revised_translations = GameTranslator::GameTranslation.not_revised
       not_revised_translations.should_not include @translation
-      not_revised_translations.should include not_revised
+      not_revised_translations.should include @not_revised
     end
   end
 
@@ -36,9 +36,8 @@ describe GameTranslator::GameTranslation do
     end
 
     it 'should return only revised translations' do
-      not_revised = create(:game_translator_game_translation, revised: false)
       revised_translations = GameTranslator::GameTranslation.revised
-      revised_translations.should_not include not_revised
+      revised_translations.should_not include @not_revised
       revised_translations.should include @translation
     end
   end

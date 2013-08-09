@@ -17,21 +17,21 @@ describe GameTranslator::GamesController do
     end
   end
 
-  describe 'GET edit_multiple' do
-    it 'should render the games/translate' do
+  describe 'GET translate' do
+    it 'should render the translate games page' do
       sign_in @translator
-      get :edit_multiple
-      response.should render_template :edit_multiple
+      get :translate
+      response.should render_template :translate
     end
 
     it 'should not get same games' do
       sign_in @translator
-      get :edit_multiple
+      get :translate
       assigns(@games)
 
       20.times do
         sign_in @translator2
-        get :edit_multiple
+        get :translate
         response.should_not include @games
       end
     end

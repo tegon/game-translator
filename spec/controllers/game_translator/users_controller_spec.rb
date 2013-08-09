@@ -7,6 +7,10 @@ describe GameTranslator::UsersController do
     @user = create(:game_translator_user, name: 'Test', password: '123123123', password_confirmation: '123123123')
   end
 
+  it 'should not get a sign_up route' do
+    expect { get '/users/sign_up' }.to raise_error(ActionController::RoutingError) 
+  end
+
   describe 'GET index' do
     context 'when not logged in' do
       it 'should redirect_to login page' do
@@ -24,10 +28,10 @@ describe GameTranslator::UsersController do
     end
 
     context 'when user is translator' do
-      it 'should redirect to games/translate' do
+      it 'should redirect to translate games page' do
         sign_in @translator
         get :index
-        response.should redirect_to game_edit_multiple_path
+        response.should redirect_to game_translate_path
       end
     end
   end
@@ -41,10 +45,10 @@ describe GameTranslator::UsersController do
     end
 
     context 'when user is translator' do
-      it 'should redirect to games/translate' do
+      it 'should redirect to translate games page' do
         sign_in @translator
         get :new
-        response.should redirect_to game_edit_multiple_path
+        response.should redirect_to game_translate_path
       end
     end
 
@@ -74,10 +78,10 @@ describe GameTranslator::UsersController do
     end
 
     context 'when user is translator' do
-      it 'should redirect to games/translate' do
+      it 'should redirect to translate games page' do
         sign_in @translator
         post :create, game_translator_user: FactoryGirl.attributes_for(:game_translator_user)
-        response.should redirect_to game_edit_multiple_path
+        response.should redirect_to game_translate_path
       end
     end
 
@@ -108,10 +112,10 @@ describe GameTranslator::UsersController do
     end
 
     context 'when user is translator' do
-      it 'should redirect to games/translate' do
+      it 'should redirect to translate games page' do
         sign_in @translator
         get :edit, id: @translator.id
-        response.should redirect_to game_edit_multiple_path
+        response.should redirect_to game_translate_path
       end
     end
 

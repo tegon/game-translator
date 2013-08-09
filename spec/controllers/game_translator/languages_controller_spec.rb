@@ -3,23 +3,18 @@ require 'spec_helper'
 describe GameTranslator::LanguagesController do
   before do 
     @reviser = create(:game_translator_user, role: 'reviser')
-    @translator = create(:game_translator_user, role: 'translator')
     @language = create(:game_translator_language, name: 'Language', abbreviation: 'te')
+    sign_in @reviser
   end
 
   describe 'GET index' do
     it 'should render the users index' do 
-      sign_in @reviser
       get :index
       response.should render_template :index
     end
   end
 
   describe 'GET new' do
-    before do
-      sign_in @reviser
-    end
-
     it 'assigns a new object to the language' do
       get :new
       assigns(:language).should be_new_record
@@ -32,10 +27,6 @@ describe GameTranslator::LanguagesController do
   end
 
   describe 'POST create' do
-    before do
-      sign_in @reviser
-    end
-
     it 'create language with valid attributes' do 
       post :create, game_translator_language: FactoryGirl.attributes_for(:game_translator_language)
       response.should redirect_to languages_path
@@ -49,10 +40,6 @@ describe GameTranslator::LanguagesController do
   end
 
   describe 'GET edit' do
-    before do 
-      sign_in @reviser
-    end
-
     it 'should render the edit view' do
       get :edit, id: @language.id
       response.should render_template :edit
@@ -65,10 +52,6 @@ describe GameTranslator::LanguagesController do
   end
 
   describe 'PUT update' do
-    before do
-      sign_in @reviser
-    end
-
     context 'with valid attributes' do
       it 'redirects to the index view' do
         put :update, { id: @language.id, game_translator_language: { abbreviation: 'te-st' } }
@@ -98,10 +81,6 @@ describe GameTranslator::LanguagesController do
 
 
   describe 'DELETE destroy' do
-    before do
-      sign_in @reviser
-    end
-
     it 'redirects to the index page' do
       delete :destroy, id: @language.id
       response.should redirect_to languages_path

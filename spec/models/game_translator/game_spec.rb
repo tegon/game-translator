@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe GameTranslator::Game do
-	before(:all) do
+	before do
 		@game = create(:game_translator_game)
+		@not_translated = create(:game_translator_game, status: 'not_translated')
 	end	
 
 	it 'should have a valid generator' do
@@ -31,9 +32,8 @@ describe GameTranslator::Game do
 		end
 
 		it 'should return only translated games' do
-			not_translated_game = create(:game_translator_game, status: 'not_translated')
 			translated = GameTranslator::Game.translated
-			translated.should_not include not_translated_game
+			translated.should_not include @not_translated
 			translated.should include @game
 		end
 	end
@@ -44,10 +44,9 @@ describe GameTranslator::Game do
 		end
 
 		it 'should return only not translated games' do
-			not_translated_game = create(:game_translator_game, status: 'not_translated')
 			not_translated = GameTranslator::Game.not_translated
 			not_translated.should_not include @game
-			not_translated.should include not_translated_game
+			not_translated.should include @not_translated
 		end
 	end
 
