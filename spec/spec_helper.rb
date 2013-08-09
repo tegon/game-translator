@@ -15,7 +15,6 @@ RSpec.configure do |config|
   Capybara.javascript_driver = :webkit
   config.include FactoryGirl::Syntax::Methods
   config.include Devise::TestHelpers, type: :controller
-  config.include Devise::TestHelpers, type: :integration
   config.include Capybara::DSL
 
   config.infer_base_class_for_anonymous_controllers = false
