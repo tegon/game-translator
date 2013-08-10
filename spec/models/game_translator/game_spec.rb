@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe GameTranslator::Game do
 	before do
-		@game = create(:game_translator_game)
+		@game = create(:game_translator_game, status: 'translated')
 		@not_translated = create(:game_translator_game, status: 'not_translated')
 	end	
 

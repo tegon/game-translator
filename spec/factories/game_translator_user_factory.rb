@@ -4,6 +4,6 @@ FactoryGirl.define do
 		email { Faker::Internet.email }
 		password { '123123123' }
 		password_confirmation { '123123123' }
-		role { 'translator' }
+		role { %w(translator reviser).sample }
 	end
 end

@@ -5,6 +5,6 @@ FactoryGirl.define do
 		long_description { Faker::Lorem.paragraphs.join }
 		wide_description { Faker::Lorem.paragraph }
     instructions { Faker::Lorem.paragraph }
-    status { 'translated' }
+    status { %w(not_translated translated translating).sample }
 	end
 end

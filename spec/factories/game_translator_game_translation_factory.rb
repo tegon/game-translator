@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :game_translator_game_translation, class: GameTranslator::GameTranslation do
-    game_id { 1 }
-    user_id { 1 }
+    game { create(:game_translator_game) }
+    user { create(:game_translator_user) }
     revised { true }
     rejected { false }
     locale { 'en' }

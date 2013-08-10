@@ -1,8 +1,8 @@
 class GameTranslator::ReviewsController < ApplicationController
-  before_filter :to_review, only: [:index]
   load_and_authorize_resource
 
   def index
+    GameTranslator::Review.to_review
     @reviews = GameTranslator::Review.where(status: 'pending')
   end
 
@@ -42,16 +42,5 @@ class GameTranslator::ReviewsController < ApplicationController
     @review.update_attribute(:status, 'rejected')
 
     redirect_to review_path
-  end
-
-  private
-
-  def to_review
-    GameTranslator::User.translators.map do |user|
-      if user.game_translations.not_revised.count >= 100
-        review = GameTranslator::Review.create(user: user, status: 'pending')
-        user.game_translations.not_revised.map { |t| t.update_attribute(:review, review) }
-      end
-    end
   end
 end
