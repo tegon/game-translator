@@ -18,6 +18,9 @@ describe 'Authorization' do
       page.should have_content('Cadastro de Idiomas')
       page.should have_content('Estatísticas')
       page.should have_content('Revisões')
+    end
+
+    it 'should not give access to translate page' do
       page.should_not have_content('Traduzir')
     end
   end
@@ -34,6 +37,9 @@ describe 'Authorization' do
 
     it 'should give access to translate page' do
       page.should have_content('Traduzir')
+    end
+
+    it 'should not give access to users, languages, stats, and reviews page' do
       page.should_not have_content('Cadastro de Usuários')
       page.should_not have_content('Cadastro de Idiomas')
       page.should_not have_content('Estatísticas')

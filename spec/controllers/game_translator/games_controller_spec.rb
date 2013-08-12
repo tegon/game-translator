@@ -18,19 +18,19 @@ describe GameTranslator::GamesController do
 
     @params_game = {
       @game1.id.to_s => {
-        name: 'foo'
+        name: @game1.name
       },
 
       @game2.id.to_s => {
-        name: 'bar'
+        name: @game2.name
       },
 
       @game3.id.to_s => {
-        name: 'test'
+        name: @game3.name
       },
 
       @game4.id.to_s => {
-        name: 'game'
+        name: @game4.name
       }
     }
   end
@@ -44,16 +44,6 @@ describe GameTranslator::GamesController do
     it 'should should change games status' do
       get :translate
       assigns(:games).each { |game| game.status.should == 'translating' }
-    end
-
-    it 'should not get same games' do
-      get :translate, games: @games
-
-      10.times do
-        sign_in @translator2
-        get :translate
-        assigns(:games).should_not == @games
-      end
     end
   end
 
