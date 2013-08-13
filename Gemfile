@@ -22,6 +22,7 @@ gem 'rspec-rails', '2.8', group: [:test, :development]
 gem 'click_jogos_base', path: '../../clickjogos/clickjogos-base'
 gem 'paperclip_interpolations', path: '../../clickjogos/paperclip-interpolations'
 gem 'file_helper', git: 'git@github.com:clickjogos/file-helper.git'
+gem 'bootstrap', path: '../../clickjogos/bootstrap'
 
 group :development do
   gem 'capistrano', '2.12.0'

@@ -3,8 +3,9 @@
 @import blueprint/buttons
 @import compass/css3
 @import compass/utilities
-@import compass/css3/transition
 @import compass/css3/inline-block
+//@import mixings
+@import bootstrap.control-sprite
 
 #games
   form
@@ -39,3 +40,18 @@
       +inline-block
     a
       +inline-block
+
+  .instructions
+    dt
+      +clearfix
+      span.label
+        float: left
+      a
+        +control-sprite
+        vertical-align: middle
+        margin: 0 3px 0 3px
+        text-indent: -9999px
+        display: block
+        float: left
+    dd
+      clear: both

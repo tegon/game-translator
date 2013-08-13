@@ -44,9 +44,14 @@
               %dt Descrição Wide
               %dd= game_fields.text_area "wide_description_#{ language.abbreviation }".to_sym
 
-            %dt Instruções
-            %dd= game_fields.text_area "instructions_#{ language.abbreviation }".to_sym
+            %dd.instructions
+              %dl
+                %dt
+                  Instruções
+                %dt
+                  = instruction_icons.html_safe
+                = game_fields.text_area "instructions_#{ language.abbreviation }".to_sym
 
   = submit_tag 'Traduzir!', class: 'button'
 
-  = javascript_tag 'new Game()'
+  = javascript_tag 'var game = new Game()'
