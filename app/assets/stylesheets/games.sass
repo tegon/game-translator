@@ -4,7 +4,6 @@
 @import compass/css3
 @import compass/utilities
 @import compass/css3/inline-block
-//@import mixings
 @import bootstrap.control-sprite
 
 #games
@@ -42,6 +41,9 @@
       +inline-block
 
   .instructions
+    dl
+      border: none
+      
     dt
       +clearfix
       span.label
@@ -53,5 +55,6 @@
         text-indent: -9999px
         display: block
         float: left
+        cursor: pointer
     dd
       clear: both
