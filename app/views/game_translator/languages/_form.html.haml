@@ -10,9 +10,9 @@
   %dd= f.text_field :name, autofocus: true
 
   %dt Sigla
-  %dd= f.text_field :abbreviation
+  %dd= f.text_field :code
 
-  = link_to 'Referência', 'http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements', target: '_blank'
+  = link_to 'Referência', 'https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale', target: '_blank'
 
   %br
   = f.submit 'Salvar', class: 'button'

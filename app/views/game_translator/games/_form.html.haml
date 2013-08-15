@@ -21,28 +21,28 @@
             %dd= game_fields.text_area :wide_description, disabled: true
 
           %dt Instruções
-          %dd= game_fields.text_area :instructions, disabled: true
+          %dd= game_fields.text_area :instructions, disabled: true, class: 'instructions br'
 
           = hidden_field_tag :user_id, current_user.id
           
         - @languages.each do |language|
           %dl
             .flag
-              = flag(language.abbreviation)
+              = flag(language.code)
               %p= "Traduzir para #{ language.name }" 
             
             %dt Nome
-            %dd= game_fields.text_field "name_#{ language.abbreviation }".to_sym
+            %dd= game_fields.text_field "name_#{ language.code }".to_sym
 
             %dt Descrição Curta
-            %dd= game_fields.text_field "short_description_#{ language.abbreviation }".to_sym
+            %dd= game_fields.text_field "short_description_#{ language.code }".to_sym
 
             %dt Descrição Longa
-            %dd= game_fields.text_area "long_description_#{ language.abbreviation }".to_sym
+            %dd= game_fields.text_area "long_description_#{ language.code }".to_sym
 
             - if game.wide_description.present?
               %dt Descrição Wide
-              %dd= game_fields.text_area "wide_description_#{ language.abbreviation }".to_sym
+              %dd= game_fields.text_area "wide_description_#{ language.code }".to_sym
 
             %dd.instructions
               %dl
@@ -50,7 +50,7 @@
                   Instruções
                 %dt
                   = instruction_icons.html_safe
-                = game_fields.text_area "instructions_#{ language.abbreviation }".to_sym
+                = game_fields.text_area "instructions_#{ language.code }".to_sym
 
   = submit_tag 'Traduzir!', class: 'button'
 

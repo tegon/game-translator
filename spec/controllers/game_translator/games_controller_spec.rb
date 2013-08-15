@@ -3,10 +3,9 @@ require 'spec_helper'
 describe GameTranslator::GamesController do
   before do
     @translator = create(:game_translator_user, role: 'translator')
-    @translator2 = create(:game_translator_user, role: 'translator')
     sign_in @translator
 
-    create(:game_translator_language, abbreviation: 'en')
+    create(:game_translator_language, code: 'en')
 
     10.times { create(:game_translator_game, status: 'not_translated') }
 
@@ -18,19 +17,19 @@ describe GameTranslator::GamesController do
 
     @params_game = {
       @game1.id.to_s => {
-        name: @game1.name
+        name_en: @game1.name
       },
 
       @game2.id.to_s => {
-        name: @game2.name
+        name_en: @game2.name
       },
 
       @game3.id.to_s => {
-        name: @game3.name
+        name_en: @game3.name
       },
 
       @game4.id.to_s => {
-        name: @game4.name
+        name_en: @game4.name
       }
     }
   end
@@ -49,14 +48,15 @@ describe GameTranslator::GamesController do
 
   describe 'PUT translate_update' do
     it 'redirects to the translate page' do
-      put :translate_update, { user_id: @translator.id, game: @params_game }
+      put :translate_update, { game: @params_game }
       response.should redirect_to game_translate_path
     end
 
     it 'changes the game attributes' do
-      put :translate_update, { user_id: @translator.id, game: @params_game }
+      put :translate_update, { game: @params_game }
       @game1.reload
       @game1.status.should == 'translated'
+      @game1.translations.with_locale('en').map { |t| t.user_id.should == @translator.id }
     end
   end
 end

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe GameTranslator::LanguagesController do
   before do 
     @reviser = create(:game_translator_user, role: 'reviser')
-    @language = create(:game_translator_language, name: 'Language', abbreviation: 'te')
+    @language = create(:game_translator_language, name: 'Language', code: 'de')
     sign_in @reviser
   end
 
@@ -54,25 +54,25 @@ describe GameTranslator::LanguagesController do
   describe 'PUT update' do
     context 'with valid attributes' do
       it 'redirects to the index view' do
-        put :update, { id: @language.id, game_translator_language: { abbreviation: 'te-st' } }
+        put :update, { id: @language.id, game_translator_language: { code: 'zh-CN' } }
         response.should redirect_to languages_path
       end
 
       it 'changes the language attributes' do
-        put :update, { id: @language.id, game_translator_language: { abbreviation: 'st-te' } }
+        put :update, { id: @language.id, game_translator_language: { code: 'zh-CN' } }
         @language.reload
-        @language.abbreviation.should == 'st-te'
+        @language.code.should == 'zh-CN'
       end
     end
   
     context 'with invalid attributes' do
       it 'render the edit view' do
-        put :update, { id: @language.id, game_translator_language: { abbreviation: 'abcdef' } }
+        put :update, { id: @language.id, game_translator_language: { code: 'abcdef' } }
         response.should render_template :edit
       end
 
       it 'not changes the language attributes' do 
-        put :update, { id: @language.id, game_translator_language: { abbreviation: 'abcdef', name: 'Language2' } }
+        put :update, { id: @language.id, game_translator_language: { code: 'abcdef', name: 'Language2' } }
         @language.reload
         @language.name.should == 'Language'
       end

@@ -14,6 +14,8 @@ module GameTranslator
 
     config.i18n.default_locale = 'pt-BR'
     
+    config.i18n.available_locales = YAML.load(File.open("#{ Rails.root }/config/language_codes.yml"))
+
     config.encoding = "utf-8"
 
     config.filter_parameters += [:password]

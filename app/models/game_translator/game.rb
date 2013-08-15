@@ -3,7 +3,7 @@ module GameTranslator
     # translated fields
     translates :name, :short_description, :long_description, :wide_description, 
     	:instructions
-    globalize_accessors locales: GameTranslator::Language.abbreviations if ActiveRecord::Base.connection.table_exists? 'languages'
+    globalize_accessors
     
     # relationship 
     has_many :game_translations

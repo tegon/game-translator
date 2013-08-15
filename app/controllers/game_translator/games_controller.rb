@@ -14,13 +14,14 @@ class GameTranslator::GamesController < ApplicationController
 
         @game.update_attribute(:status, 'translated')
         
-        @game.translations.map do |t| 
-          t.update_attribute(:user_id, params[:user_id]) unless t.locale == :'pt-BR'
+        @game.translations.with_locale(GameTranslator::Language.codes).map do |translation| 
+          translation.update_attribute(:user_id, current_user.id)
         end
 
         flash[:sucess] = 'Game traduzido com sucesso!'
       else
-        redirect_to game_translate_path
+        flash[:error] = 'Erro ao traduzir o game'
+        @game.update_attribute(:status, 'not_translated')
       end
     end
     redirect_to game_translate_path

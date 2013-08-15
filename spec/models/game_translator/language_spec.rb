@@ -10,27 +10,27 @@ describe GameTranslator::Language do
 		build(:game_translator_language, name: '').should_not be_valid
 	end
 
-	it 'should have a abbreviation' do
-		build(:game_translator_language, abbreviation: nil).should_not be_valid
-		build(:game_translator_language, abbreviation: '').should_not be_valid
+	it 'should have a code' do
+		build(:game_translator_language, code: nil).should_not be_valid
+		build(:game_translator_language, code: '').should_not be_valid
 	end
 
-	it 'should have a valid abbreviation' do
-		build(:game_translator_language, abbreviation: 'a').should_not be_valid
-		build(:game_translator_language, abbreviation: 'abcdef').should_not be_valid
-		build(:game_translator_language, abbreviation: 'ab-cd').should be_valid
+	it 'should have a valid code' do
+		build(:game_translator_language, code: 'foo').should_not be_valid
+		build(:game_translator_language, code: 'bar').should_not be_valid
+		build(:game_translator_language, code: 'de').should be_valid
 	end
 
-	describe '#abbreviations' do 
-		it 'should have a abbreviations method' do
-			GameTranslator::Language.should respond_to :abbreviations		
+	describe '#codes' do 
+		it 'should have a codes method' do
+			GameTranslator::Language.should respond_to :codes		
 		end
 
-		it 'should return an array of abbreviations' do 
-			create(:game_translator_language, name: 'English', abbreviation: 'en')
-			abbreviations = GameTranslator::Language.abbreviations
-			abbreviations.should_not include 'English'
-			abbreviations.should include 'en'
+		it 'should return an array of codes' do 
+			create(:game_translator_language, name: 'English', code: 'en')
+			codes = GameTranslator::Language.codes
+			codes.should_not include 'English'
+			codes.should include 'en'
 		end
 	end
 end

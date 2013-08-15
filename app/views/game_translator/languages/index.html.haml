@@ -8,8 +8,8 @@
   - @languages.each do |language|
     #wrap
       %p= "Nome: #{ language.name }"
-      %p= "Sigla: #{ language.abbreviation }"
-      = flag(language.abbreviation)
+      %p= "Sigla: #{ language.code }"
+      = flag(language.code)
       %br
       %br
       = link_to 'Editar', language_edit_path(language.id)
