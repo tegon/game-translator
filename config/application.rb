@@ -12,6 +12,8 @@ module GameTranslator
       require File.expand_path('../../lib/model_alias.rb',  __FILE__)
     end
 
+    config.time_zone = 'Brasilia'
+    
     config.i18n.default_locale = 'pt-BR'
     
     config.i18n.available_locales = YAML.load(File.open("#{ Rails.root }/config/language_codes.yml"))

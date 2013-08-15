@@ -13,7 +13,6 @@ describe GameTranslator::GamesController do
     @game2 = create(:game_translator_game, status: 'not_translated')
     @game3 = create(:game_translator_game, status: 'not_translated')
     @game4 = create(:game_translator_game, status: 'not_translated')
-    @games = @game1, @game2, @game3, @game4
 
     @params_game = {
       @game1.id.to_s => {

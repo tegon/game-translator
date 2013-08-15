@@ -36,7 +36,7 @@ class GameTranslator::ReviewsController < ApplicationController
     @review = GameTranslator::Review.find(params[:id])
 
     @review.game_translations.map do |t|
-      t.update_attributes(revised: true, rejected: true)
+      t.update_attribute(:revised, true)
     end
 
     @review.update_attribute(:status, 'rejected')

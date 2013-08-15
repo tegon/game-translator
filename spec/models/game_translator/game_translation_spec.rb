@@ -41,17 +41,4 @@ describe GameTranslator::GameTranslation do
       revised_translations.should include @translation
     end
   end
-
-  describe 'rejected scope' do
-    it 'should have a scope to rejected translations' do
-      GameTranslator::GameTranslation.should respond_to :rejected
-    end
-
-    it 'should return only rejected translations' do
-      rejected = create(:game_translator_game_translation, rejected: true)
-      rejected_translations = GameTranslator::GameTranslation.rejected
-      rejected_translations.should_not include @translation
-      rejected_translations.should include rejected
-    end
-  end
 end

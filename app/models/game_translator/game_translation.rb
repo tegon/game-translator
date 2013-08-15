@@ -8,6 +8,5 @@ module GameTranslator
     # scopes
     scope :not_revised, conditions: { revised: false, review_id: nil }
     scope :revised, conditions: { revised: true }
-    scope :rejected, conditions: { rejected: true }
   end
 end

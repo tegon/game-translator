@@ -3,7 +3,6 @@ FactoryGirl.define do
     game { create(:game_translator_game) }
     user { create(:game_translator_user) }
     revised { true }
-    rejected { false }
     locale { 'en' }
     name { Faker::Name.name }
     short_description { Faker::Lorem.sentence }

@@ -45,7 +45,6 @@ describe GameTranslator::ReviewsController do
         @review.status.should == 'accepted'
         @review.game_translations.map do |t|
           t.revised.should be_true
-          t.rejected.should be_false
         end
       end
     end
@@ -61,7 +60,6 @@ describe GameTranslator::ReviewsController do
         @review.reload
         @review.status.should == 'rejected'
         @review.game_translations.map do |t|
-          t.rejected.should be_true
           t.revised.should be_true
         end
       end
