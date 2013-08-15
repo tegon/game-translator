@@ -15,9 +15,5 @@ module GameTranslator
 		scope :not_translated, conditions: { status: 'not_translated' }
 		scope :translated, conditions: { status: 'translated' }
 		scope :random, order: 'RAND()', limit: '4'
-
-		def locales
-			self.translations.map { |translation| translation.locale }
-		end
 	end
 end
