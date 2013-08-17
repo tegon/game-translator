@@ -27,10 +27,13 @@ class GameTranslator::GamesController < ApplicationController
     redirect_to game_translate_path
   end
 
-  def idle
+  def stop_translation
     @games = params[:games]
     @games.each do |game|
       Game.find(game).update_attribute(:status, 'not_translated')
     end
+  end
+
+  def idle
   end
 end
