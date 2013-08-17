@@ -15,6 +15,6 @@ class window.Game
     field.val val.substring(0, start) + tag + val.substring(end, val.length)
     field[0].selectionStart = field.val().length
     field.focus()
-
+  
   firstFocus: ->
     $('input:visible:enabled:first').focus()

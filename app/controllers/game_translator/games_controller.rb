@@ -7,7 +7,7 @@ class GameTranslator::GamesController < ApplicationController
     @games.map { |game| game.update_attribute(:status, 'translating') }
   end
 
-  def translate_update
+  def update
     params['game'].keys.each do |id|
       @game = GameTranslator::Game.find(id.to_i)
       if @game.update_attributes(params['game'][id])
@@ -25,5 +25,8 @@ class GameTranslator::GamesController < ApplicationController
       end
     end
     redirect_to game_translate_path
+  end
+
+  def idle
   end
 end

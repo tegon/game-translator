@@ -8,7 +8,8 @@
             %p= 'Português'
 
           %dt Nome
-          %dd= game_fields.text_field :name, disabled: true
+          %dd.name
+            = game_fields.text_field :name, disabled: true, data: { game: game.id }
 
           %dt Descrição Curta
           %dd= game_fields.text_field :short_description, disabled: true
@@ -52,4 +53,4 @@
 
   = submit_tag 'Traduzir!', class: 'button'
 
-  = javascript_tag 'var game = new Game()'
+  = javascript_tag 'var game = new Game(); new Idle()'

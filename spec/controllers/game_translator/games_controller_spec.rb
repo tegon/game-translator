@@ -45,14 +45,14 @@ describe GameTranslator::GamesController do
     end
   end
 
-  describe 'PUT translate_update' do
+  describe 'PUT update' do
     it 'redirects to the translate page' do
-      put :translate_update, { game: @params_game }
+      put :update, { game: @params_game }
       response.should redirect_to game_translate_path
     end
 
     it 'changes the game attributes' do
-      put :translate_update, { game: @params_game }
+      put :update, { game: @params_game }
       @game1.reload
       @game1.status.should == 'translated'
       @game1.translations.with_locale('en').map { |t| t.user_id.should == @translator.id }
