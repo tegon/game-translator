@@ -1,11 +1,13 @@
 class window.Idle
   constructor: ->
-    console.log @gameIds()
-
     $(document).idle
       onIdle: ->
-        console.log 'idle'
-        window.location = '/translate/idle'
+        $.ajax
+          type: 'GET'
+          url: '/translate/idle' 
+          data: { 'games' : Idle.prototype.gameIds() } 
+          success: (data) =>
+            $('body').html(data) 
       idle: 900000
 
   gameIds: ->

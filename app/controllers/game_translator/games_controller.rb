@@ -28,5 +28,9 @@ class GameTranslator::GamesController < ApplicationController
   end
 
   def idle
+    @games = params[:games]
+    @games.each do |game|
+      Game.find(game).update_attribute(:status, 'not_translated')
+    end
   end
 end
