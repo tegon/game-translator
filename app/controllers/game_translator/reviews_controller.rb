@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class GameTranslator::ReviewsController < ApplicationController
   load_and_authorize_resource
 
