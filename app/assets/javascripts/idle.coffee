@@ -6,6 +6,9 @@ class window.Idle
       idle: 900000
 
     $(window).bind 'beforeunload', ->
+      'A Tradução está em andamento. Tem certeza que deseja sair?'
+
+    $(window).bind 'unload', ->
       Idle.prototype.stopTranslation()
 
     $('form').submit ->

@@ -64,4 +64,19 @@ describe GameTranslator::GamesController do
       @game1.name.should == 'bar'
     end
   end
-end
+
+  describe 'GET stop_translation' do
+    it 'should change games status to not translated' do
+      get :stop_translation, { games: [@game1.id, @game2.id, @game3.id, @game4.id] }
+      @game1.reload
+      @game1.status.should == 'not_translated'
+    end
+  end
+
+  describe 'GET idle' do
+    it 'should render the idle page' do
+      get :idle
+      response.should render_template :idle
+    end
+  end
+end 

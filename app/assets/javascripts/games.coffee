@@ -5,9 +5,9 @@ class window.Game
     $('dd.instructions dl dt a').click -> 
       field = $(this).parent().next()
       tag = "[#{ $(this).data('key') }]"
-      Game.insertInstructionTag(tag, field)
+      Game.prototype.insertInstructionTag(tag, field)
 
-  @insertInstructionTag: (tag, field) ->
+  insertInstructionTag: (tag, field) ->
     end = field[0].selectionEnd
     start = field[0].selectionStart
     val = field.val()
