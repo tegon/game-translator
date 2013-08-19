@@ -29,4 +29,5 @@ class window.Game
         $(this).addClass('invalid')
         validate = false
         $('.alert').show()
+        $('html, body').animate(scrollTop: 0, 'slow')
     validate

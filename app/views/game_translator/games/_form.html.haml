@@ -1,4 +1,7 @@
 #games
+  .alert
+    Preencha todos os campos!
+    
   - @games.each do |game|
     = fields_for 'game[]', game do |game_fields|
       %fieldset
@@ -52,8 +55,5 @@
                 = game_fields.text_area "instructions_#{ language.code }".to_sym
 
   = submit_tag 'Traduzir!', class: 'button'
-
-  .alert
-    Preencha todos os campos!
 
   = javascript_tag 'new Game(); new Idle()'
