@@ -11,6 +11,7 @@ module GameTranslator
     # validates
     validates :status, presence: true, inclusion: { in: %w(not_translated translated translating) }
 
+    
     GameTranslator::Language.codes.each do |locale|
       validates "name_#{ locale }".to_sym, presence: true, allow_blank: false 
       validates "short_description_#{ locale }".to_sym, presence: true, allow_blank: false 

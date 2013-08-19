@@ -7,6 +7,9 @@ class window.Game
       tag = "[#{ $(this).data('key') }]"
       Game.prototype.insertInstructionTag(tag, field)
 
+    $('form').submit ->
+      Game.prototype.validate()
+
   insertInstructionTag: (tag, field) ->
     end = field[0].selectionEnd
     start = field[0].selectionStart
@@ -18,3 +21,11 @@ class window.Game
   
   firstFocus: ->
     $('input:visible:enabled:first').focus()
+
+  validate: ->
+    validate = undefined
+    $('input:visible:enabled').each ->
+      if $(this).val() == null || $(this).val() == ''
+        $(this).addClass('invalid')
+        validate = false
+    validate
