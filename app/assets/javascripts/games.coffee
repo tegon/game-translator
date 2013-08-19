@@ -24,8 +24,9 @@ class window.Game
 
   validate: ->
     validate = undefined
-    $('input:visible:enabled').each ->
+    $('form :input:visible:enabled').each ->
       if $(this).val() == null || $(this).val() == ''
         $(this).addClass('invalid')
         validate = false
+        $('.alert').show()
     validate
