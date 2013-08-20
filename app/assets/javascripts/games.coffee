@@ -23,11 +23,11 @@ class window.Game
     $('input:visible:enabled:first').focus()
 
   validate: ->
-    validate = undefined
+    validate = true
     $('form :input:visible:enabled').each ->
       if $(this).val() == null || $(this).val() == ''
-        $(this).addClass('invalid')
         validate = false
         $('.alert').show()
         $('html, body').animate(scrollTop: 0, 'slow')
+        false
     validate
