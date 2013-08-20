@@ -26,7 +26,7 @@ namespace :games do
 
   desc "Stop Translating"
   task :stop_translating => :environment do
-    GameTranslator::Game.where("updated_at > ?", 1.day.ago.at_beginning_of_day).where(status: 'translating').map do |game|
+    GameTranslator::Game.where("updated_at < ?", 1.day.ago.at_beginning_of_day).where(status: 'translating').map do |game|
       game.update_attribute(:status, 'not_translated')
       puts "Game #{ game.id } setado como not_translated!"
     end
