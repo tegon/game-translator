@@ -7,20 +7,20 @@
 
 %dl
   %dt Nome
-  %dd= f.text_field :name, autofocus: true
+  %dd= f.text_field :name, autofocus: true, required: true
 
   %dt Email
-  %dd= f.email_field :email
+  %dd= f.email_field :email, required: true
 
   - unless @user.new_record? 
     %dt Senha Atual
-    %dd= f.password_field :current_password
+    %dd= f.password_field :current_password, required: true
   
   %dt Senha
-  %dd= f.password_field :password
+  %dd= f.password_field :password, required: true
 
   %dt Confirmação da Senha
-  %dd= f.password_field :password_confirmation
+  %dd= f.password_field :password_confirmation, required: true
 
   %dt Função
   %dt= f.collection_select :role, GameTranslator::User::ROLES, :to_s, :humanize

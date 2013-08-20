@@ -7,10 +7,10 @@
 
 %dl
   %dt Nome
-  %dd= f.text_field :name, autofocus: true
+  %dd= f.text_field :name, autofocus: true, required: true
 
   %dt Sigla
-  %dd= f.text_field :code
+  %dd= f.text_field :code, required: true
 
   = link_to 'Referência', 'https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale', target: '_blank'
 

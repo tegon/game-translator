@@ -34,17 +34,17 @@
               %p= "Traduzir para #{ language.name }" 
             
             %dt Nome
-            %dd= game_fields.text_field "name_#{ language.code }".to_sym
+            %dd= game_fields.text_field "name_#{ language.code }".to_sym, required: true
 
             %dt Descrição Curta
-            %dd= game_fields.text_field "short_description_#{ language.code }".to_sym
+            %dd= game_fields.text_field "short_description_#{ language.code }".to_sym, required: true
 
             %dt Descrição Longa
-            %dd= game_fields.text_area "long_description_#{ language.code }".to_sym
+            %dd= game_fields.text_area "long_description_#{ language.code }".to_sym, required: true
 
             - if game.wide_description.present?
               %dt Descrição Wide
-              %dd= game_fields.text_area "wide_description_#{ language.code }".to_sym
+              %dd= game_fields.text_area "wide_description_#{ language.code }".to_sym, required: true
 
             %dd.instructions
               %dl
@@ -52,7 +52,7 @@
                   Instruções
                 %dt
                   = instruction_icons.html_safe
-                = game_fields.text_area "instructions_#{ language.code }".to_sym
+                = game_fields.text_area "instructions_#{ language.code }".to_sym, required: true
 
   = submit_tag 'Traduzir!', class: 'button'
 
