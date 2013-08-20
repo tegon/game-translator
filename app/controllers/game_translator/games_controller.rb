@@ -14,9 +14,7 @@ class GameTranslator::GamesController < ApplicationController
 
         @game.update_attribute(:status, 'translated')
         
-        @game.translations.with_locale(GameTranslator::Language.codes).map do |translation| 
-          translation.update_attribute(:user_id, current_user.id)
-        end
+        set_user(@game.translations)
 
         flash[:sucess] = 'Game traduzido com sucesso!'
       else
@@ -35,5 +33,13 @@ class GameTranslator::GamesController < ApplicationController
   end
 
   def idle
+  end
+
+  private
+
+  def set_user(translations)
+    translations.with_locale(GameTranslator::Language.codes).map do |translation| 
+      translation.update_attribute(:user_id, current_user.id)
+    end
   end
 end
