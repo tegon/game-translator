@@ -2,10 +2,10 @@
   %h1 Login 
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     %dt Email
-    %dt= f.email_field :email, autofocus: true, required: true
+    %dd= f.email_field :email, autofocus: true, required: true
 
-    %div Senha
-    = f.password_field :password, required: true
-    %div #{ f.check_box :remember_me } Mantenha-me conectado
+    %dt Senha
+    %dd= f.password_field :password, required: true
+    %dd #{ f.check_box :remember_me } Mantenha-me conectado
     
     = f.submit 'Entrar', class: 'button'
