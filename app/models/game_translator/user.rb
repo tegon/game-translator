@@ -25,4 +25,6 @@ class GameTranslator::User < ActiveRecord::Base
   def translator?
   	self.role == 'translator'
   end
+
+  self.per_page = 10
 end

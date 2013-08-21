@@ -8,6 +8,9 @@
       %p.title Traduções: #{ review.game_translations.count }
       
       = link_to 'Revisar', review_edit_path(review.id), class: 'link'
+
+  = will_paginate @reviews
+
 - else
   
   %h1 Nenhuma Revisão Disponível

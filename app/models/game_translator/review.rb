@@ -15,5 +15,6 @@ module GameTranslator
         end
       end
     end
+    self.per_page = 10
   end
 end

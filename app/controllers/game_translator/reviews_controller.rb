@@ -4,7 +4,7 @@ class GameTranslator::ReviewsController < ApplicationController
 
   def index
     GameTranslator::Review.to_review
-    @reviews = GameTranslator::Review.where(status: 'pending')
+    @reviews = GameTranslator::Review.where(status: 'pending').paginate(page: params[:page])
   end
 
   def edit
