@@ -1,16 +1,14 @@
-%h1
-  %span Idiomas cadastrados
+%h1 Idiomas cadastrados
 
-%h3 
-  = link_to 'Novo idioma', language_new_path
+= link_to 'Novo idioma', language_new_path, class: 'link'
 
 - unless @languages.blank?
   - @languages.each do |language|
     #wrap
-      %p= "Nome: #{ language.name }"
-      %p= "Sigla: #{ language.code }"
-      = flag(language.code)
-      %br
-      %br
-      = link_to 'Editar', language_edit_path(language.id)
-      = link_to 'Deletar', language_destroy_path(language.id), method: :delete, confirm: 'Tem certeza?'
+      %p.title Nome: #{ language.name }
+      %p.title Sigla: #{ language.code }
+      
+      %div= flag(language.code)
+
+      = link_to 'Editar', language_edit_path(language.id), class: 'link'
+      = link_to 'Deletar', language_destroy_path(language.id), method: :delete, confirm: 'Tem certeza?', class: 'link'

@@ -6,9 +6,8 @@
     = fields_for 'game[]', game do |game_fields|
       %fieldset
         %dl
-          .flag
-            = flag('pt-BR')
-            %p= 'Português'
+          .flag= flag('pt-BR')
+          %p.language= 'Português'
 
           %dt Nome
           %dd.name
@@ -29,9 +28,8 @@
           
         - @languages.each do |language|
           %dl
-            .flag
-              = flag(language.code)
-              %p= "Traduzir para #{ language.name }" 
+            .flag= flag(language.code)
+            %p.language= "Traduzir para #{ language.name }" 
             
             %dt Nome
             %dd= game_fields.text_field "name_#{ language.code }".to_sym, required: true
@@ -48,10 +46,8 @@
 
             %dd.instructions
               %dl
-                %dt
-                  Instruções
-                %dt
-                  = instruction_icons.html_safe
+                %dt Instruções
+                %dt= instruction_icons.html_safe
                 = game_fields.text_area "instructions_#{ language.code }".to_sym, required: true
 
   = submit_tag 'Traduzir!', class: 'button'

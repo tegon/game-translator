@@ -1,6 +1,4 @@
 /*
- *= require_self
- *= require_tree .
   = require games 
   = require global
   = require login

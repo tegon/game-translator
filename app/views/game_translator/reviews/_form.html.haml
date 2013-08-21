@@ -1,9 +1,8 @@
 #games
   %fieldset
     %dl
-      .flag
-        = flag('pt-BR')
-        %p Português
+      .flag= flag('pt-BR')
+      %p.language Português
 
       %dt Nome
       %dd= f.text_field :name, disabled: true
@@ -22,9 +21,8 @@
       %dd= f.text_area :instructions, disabled: true
 
     %dl
-      .flag
-        = flag(@sample.locale)
-        %p= "Traduzido para #{ @sample.locale }, por #{ @review.user.name }"
+      .flag= flag(@sample.locale)
+      %p.language= "Traduzido para #{ @sample.locale }, por #{ @review.user.name }"
       
       %dt Nome
       %dd= f.text_field "name_#{ @sample.locale }".to_sym, disabled: true

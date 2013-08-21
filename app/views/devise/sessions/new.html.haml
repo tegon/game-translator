@@ -6,7 +6,6 @@
 
     %div Senha
     = f.password_field :password, required: true
-    - if devise_mapping.rememberable?
-      %div #{ f.check_box :remember_me } Mantenha-me conectado
-    %br
-    %div= f.submit 'Entrar', class: 'button'
+    %div #{ f.check_box :remember_me } Mantenha-me conectado
+    
+    = f.submit 'Entrar', class: 'button'

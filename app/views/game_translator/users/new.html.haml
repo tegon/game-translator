@@ -1,5 +1,4 @@
-%h1
-	%span Novo usuário
+%h1 Novo usuário
 
 = form_for @user, url: user_create_path, html:{ multipart: true } do |f|
 	= render partial: 'form', locals:{ f:f }

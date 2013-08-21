@@ -1,5 +1,4 @@
-%h1
-  %span Editar o idioma
+%h1 Editar o idioma
 
 = form_for @language, url: language_update_path, html:{ multipart: true } do |f|
   = render partial: 'form', locals:{ f:f }

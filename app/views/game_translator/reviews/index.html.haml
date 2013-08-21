@@ -1,15 +1,13 @@
 - if @reviews.present?
   
-  %h1
-    %span Revisões Disponíveis
+  %h1 Revisões Disponíveis
 
   - @reviews.each do |review|
     #wrap
-      %p= "Tradutor: #{ review.user.name }"
-      %p= "Traduções: #{ review.game_translations.count }"
-      %br
-      = link_to 'Revisar', review_edit_path(review.id)
+      %p.title Tradutor: #{ review.user.name }
+      %p.title Traduções: #{ review.game_translations.count }
+      
+      = link_to 'Revisar', review_edit_path(review.id), class: 'link'
 - else
   
-  %h1
-    %span Nenhuma Revisão Disponível
+  %h1 Nenhuma Revisão Disponível

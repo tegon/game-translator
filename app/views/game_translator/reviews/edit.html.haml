@@ -1,5 +1,4 @@
-%h1
-  %span Revisar
+%h1 Revisar
 
 = form_for @game, url: review_update_path, html:{ multipart: true } do |f|
   = render partial: 'form', locals:{ f:f }
