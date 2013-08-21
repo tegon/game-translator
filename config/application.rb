@@ -29,5 +29,7 @@ module GameTranslator
     config.assets.enabled = true
 
     config.assets.version = '1.0'
+
+    WillPaginate.per_page = 10
   end
 end

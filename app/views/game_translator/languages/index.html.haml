@@ -12,3 +12,5 @@
 
       = link_to 'Editar', language_edit_path(language.id), class: 'link'
       = link_to 'Deletar', language_destroy_path(language.id), method: :delete, confirm: 'Tem certeza?', class: 'link'
+      
+= will_paginate @languages

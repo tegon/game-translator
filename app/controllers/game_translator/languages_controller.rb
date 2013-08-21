@@ -2,7 +2,7 @@ class GameTranslator::LanguagesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @languages = GameTranslator::Language.all
+    @languages = GameTranslator::Language.paginate(page: params[:page])
   end
 
   def new

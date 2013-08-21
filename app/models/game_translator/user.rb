@@ -26,7 +26,5 @@ module GameTranslator
     def translator?
       self.role == 'translator'
     end
-
-    self.per_page = 10
   end
 end
