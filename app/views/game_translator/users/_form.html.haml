@@ -14,13 +14,13 @@
 
   - unless @user.new_record? 
     %dt Senha Atual
-    %dd= f.password_field :current_password, required: true
+    %dd= f.password_field :current_password
   
   %dt Senha
-  %dd= f.password_field :password, required: true
+  %dd= f.password_field :password
 
   %dt Confirmação da Senha
-  %dd= f.password_field :password_confirmation, required: true
+  %dd= f.password_field :password_confirmation
 
   %dt Função
   %dt= f.collection_select :role, GameTranslator::User::ROLES, :to_s, :humanize
