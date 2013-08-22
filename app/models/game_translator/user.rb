@@ -7,6 +7,7 @@ module GameTranslator
     # relationship  
     has_many :game_translations
     has_many :reviews
+    has_many :games, through: :game_translations
 
     # validates
     validates :name, presence: true, allow_blank: false, length: { minimum: 3 }

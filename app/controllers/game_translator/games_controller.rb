@@ -1,10 +1,13 @@
 class GameTranslator::GamesController < ApplicationController
   load_and_authorize_resource
 
+  before_filter :stop_translating, only: :translate
+  
   def translate
     @languages = GameTranslator::Language.all
     @games = GameTranslator::Game.not_translated.random
     @games.map { |game| game.update_attribute(:status, 'translating') }
+    current_user.games << @games
   end
 
   def update
@@ -36,6 +39,16 @@ class GameTranslator::GamesController < ApplicationController
   end
 
   private
+
+  def stop_translating
+    p 'stop'*250
+    if current_user.games.where(status: 'translating').size > 0
+      p 'translating'*250
+      current_user.games.where(status: 'translating').map do |game|
+        game.update_attribute(:status, 'not_translated')
+      end
+    end
+  end
 
   def set_user(translations)
     translations.with_locale(GameTranslator::Language.codes).map do |translation| 
