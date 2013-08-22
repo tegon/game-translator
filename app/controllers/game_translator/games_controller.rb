@@ -1,11 +1,14 @@
 class GameTranslator::GamesController < ApplicationController
   load_and_authorize_resource
 
+  before_filter :stop_translating, only: :translate
+
   def translate
     @languages = GameTranslator::Language.all
     @games = GameTranslator::Game.not_translated.random
     @games.map { |game| game.update_attribute(:status, 'translating') }
-  end
+    cookies[:translating] = @games.map { |game| game.id }
+  end 
 
   def update
     params['game'].keys.each do |id|
@@ -36,6 +39,15 @@ class GameTranslator::GamesController < ApplicationController
   end
 
   private
+
+  def stop_translating
+    cookies[:translating].split('&').each do |id|
+      game = Game.find(id)
+      if game.status == 'translating'
+        game.update_attribute(:status, 'not_translated')
+      end
+    end
+  end
 
   def set_user(translations)
     translations.with_locale(GameTranslator::Language.codes).map do |translation| 
