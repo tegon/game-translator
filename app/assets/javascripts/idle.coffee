@@ -15,7 +15,7 @@ class window.Idle
     $.ajax
       type: 'GET'
       url: '/translate/stop' 
-      data: { 'games' : @gameIds() } 
+      data: { games : @gameIds() } 
       success: (data) =>
         window.location = '/translate/idle'
 
