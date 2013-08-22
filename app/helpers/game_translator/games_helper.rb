@@ -6,4 +6,19 @@ module GameTranslator::GamesHelper
     end
     icon_links.join
   end
+
+  def process_instructions(instructions)
+    i = [] 
+    instructions.split(/\n/).each do |line|
+      tags = line.split(/(\[\w+\])/).map do |r|
+        if key = r.match(/(\[(\w+)\])/)
+          "[#{ key[2] }]"
+        else
+          #r
+        end
+      end
+      i << tags.join
+    end
+    i.join("\n")
+  end
 end

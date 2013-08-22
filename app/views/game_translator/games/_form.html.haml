@@ -48,7 +48,7 @@
               %dl
                 %dt Instruções
                 %dt= instruction_icons.html_safe
-                = game_fields.text_area "instructions_#{ language.code }".to_sym, required: true
+                = game_fields.text_area "instructions_#{ language.code }".to_sym, required: true, value: process_instructions(game.instructions)
 
   = submit_tag 'Traduzir!', class: 'button'
 
