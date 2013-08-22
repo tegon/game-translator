@@ -13,8 +13,6 @@ module GameTranslator::GamesHelper
       tags = line.split(/(\[\w+\])/).map do |r|
         if key = r.match(/(\[(\w+)\])/)
           "[#{ key[2] }]"
-        else
-          #r
         end
       end
       i << tags.join
