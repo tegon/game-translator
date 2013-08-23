@@ -31,7 +31,7 @@ class GameTranslator::GamesController < ApplicationController
   def stop_translation
     @games = params[:games]
     @games.each do |game|
-      Game.find(game).update_attribute(:status, 'not_translated')
+      GameTranslator::Game.find(game).update_attribute(:status, 'not_translated')
     end
   end
 
@@ -41,10 +41,12 @@ class GameTranslator::GamesController < ApplicationController
   private
 
   def stop_translating
-    cookies[:translating].split('&').each do |id|
-      game = Game.find(id)
-      if game.status == 'translating'
-        game.update_attribute(:status, 'not_translated')
+    if cookies[:translating]
+      cookies[:translating].split('&').each do |id|
+        game = GameTranslator::Game.find(id)
+        if game.status == 'translating'
+          game.update_attribute(:status, 'not_translated')
+        end
       end
     end
   end
