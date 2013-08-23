@@ -21,6 +21,8 @@ class window.Idle
 
   gameIds: ->
     games = []
-    $('dd.name input').each ->
-      games.push $(this).data('game')
+    value = document.cookie.split('=')
+    ids = value[1].split('&')
+    for id in ids then do (id) =>
+      games.push id
     games
