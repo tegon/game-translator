@@ -1,7 +1,7 @@
 class GameTranslator::GamesController < ApplicationController
   load_and_authorize_resource
 
-  before_filter :stop_translating, only: :translate
+  before_filter :check_cookie, only: :translate
 
   def translate
     @languages = GameTranslator::Language.all
@@ -28,19 +28,13 @@ class GameTranslator::GamesController < ApplicationController
     redirect_to game_translate_path
   end
 
-  def stop_translation
-    @games = params[:games]
-    @games.each do |game|
-      GameTranslator::Game.find(game).update_attribute(:status, 'not_translated')
-    end
-  end
-
   def idle
+    check_cookie
   end
 
   private
 
-  def stop_translating
+  def check_cookie
     if cookies[:translating]
       cookies[:translating].split('&').each do |id|
         game = GameTranslator::Game.find(id)

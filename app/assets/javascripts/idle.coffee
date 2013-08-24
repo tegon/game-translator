@@ -14,15 +14,6 @@ class window.Idle
   stopTranslation: ->
     $.ajax
       type: 'GET'
-      url: '/translate/stop' 
-      data: { games : @gameIds() } 
+      url: '/translate/idle' 
       success: (data) =>
         window.location = '/translate/idle'
-
-  gameIds: ->
-    games = []
-    value = document.cookie.split('=')
-    ids = value[1].split('&')
-    for id in ids then do (id) =>
-      games.push id
-    games
