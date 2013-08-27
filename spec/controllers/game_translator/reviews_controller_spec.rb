@@ -61,6 +61,7 @@ describe GameTranslator::ReviewsController do
         @review.status.should == 'rejected'
         @review.game_translations.map do |t|
           t.revised.should be_true
+          t.game.status.should == 'not_translated'
         end
       end
     end
