@@ -10,10 +10,12 @@
   %dd= f.text_field :name, autofocus: true, required: true
 
   %dt Sigla
-  %dd= f.text_field :code, required: true, class: 'low'
+  %dd= f.text_field :code, required: true
 
   = link_to 'Referência', 'https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale', target: '_blank', class: 'link'
 
 = f.submit 'Salvar', class: 'button'
 
 = link_to 'Deletar', language_destroy_path(@language), method: :delete, confirm: 'Tem certeza?', class: 'button delete' unless @language.new_record?
+
+= javascript_tag 'new Language()'
