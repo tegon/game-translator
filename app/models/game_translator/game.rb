@@ -16,20 +16,17 @@ module GameTranslator
     scope :translated, conditions: { status: 'translated' }
     scope :random, order: 'RAND()', limit: '4'
 
-    translated_attribute_names.map do |attribute|
-      p '/'*200
-      p attribute
+    translated_attribute_names.each do |attribute|
       GameTranslator::Language.all.map do |language|
-        define_method "attribute_#{language.code}" do
-          p "attribute_#{language.code}"
+        define_method "#{attribute}_#{language.code}" do
           Globalize.with_locale(language.code) do
-            read_attribute :attribute
+            read_attribute attribute
           end
         end
 
-        define_method "attribute_#{language.code}=" do |value|
+        define_method "#{attribute}_#{language.code}=" do |value|
           Globalize.with_locale(language.code) do
-            write_attribute(:attribute, value)
+            write_attribute(attribute, value)
           end
         end
       end
