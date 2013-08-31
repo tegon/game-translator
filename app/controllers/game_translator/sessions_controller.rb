@@ -8,7 +8,7 @@ class GameTranslator::SessionsController < Devise::SessionsController
   private
 
   def stop_translating
-    cookies[:translating].split('&').each do |id|
+    session[:translating].each do |id|
       Game.find(id).update_attribute(:status, 'not_translated')
     end
   end

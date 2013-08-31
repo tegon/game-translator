@@ -7,7 +7,7 @@ class GameTranslator::GamesController < ApplicationController
     @languages = GameTranslator::Language.all
     @games = GameTranslator::Game.not_translated.random
     @games.map { |game| game.update_attribute(:status, 'translating') }
-    cookies[:translating] = @games.map { |game| game.id }
+    session[:translating] = @games.map { |game| game.id }
   end 
 
   def update
@@ -35,8 +35,8 @@ class GameTranslator::GamesController < ApplicationController
   private
 
   def check_cookie
-    if cookies[:translating]
-      cookies[:translating].split('&').each do |id|
+    if session[:translating]
+      session[:translating].each do |id|
         game = GameTranslator::Game.find(id)
         if game.status == 'translating'
           game.update_attribute(:status, 'not_translated')
