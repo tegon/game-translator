@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe GameTranslator::GamesController do
   before do
+    I18n.locale = :"pt-BR"
+
     @translator = create(:game_translator_user, role: 'translator')
     sign_in @translator
 
@@ -56,12 +58,9 @@ describe GameTranslator::GamesController do
       @game1.reload
       @game1.status.should == 'translated'
       @game1.translations.with_locale('en').map { |t| t.user_id.should == @translator.id }
-
-      Globalize.with_locale('en') do
-        @game1.name.should == 'foo'
-      end
-
       @game1.name.should == 'bar'
+      I18n.locale = :en
+      @game1.name.should == 'foo'
     end
   end
 

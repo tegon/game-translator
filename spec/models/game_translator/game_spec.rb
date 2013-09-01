@@ -56,4 +56,33 @@ describe GameTranslator::Game do
   it 'should have a random scope' do
     GameTranslator::Game.should respond_to :random
   end
+
+  describe 'translated accessors' do
+    before do
+      I18n.locale = :"pt-BR"
+      create(:game_translator_language, code: 'en')
+      @game1 = create(:game_translator_game, name: 'game 1')
+      @game1.update_attribute(:name_en, 'foo bar')
+    end
+
+    it 'should have translated accessors' do
+      @game1.should respond_to :name_en
+    end
+
+    it 'should write name in en locale' do
+      @game1.update_attribute(:name_en, 'foobarbaz')
+      I18n.locale = :en
+      @game1.name.should == 'foobarbaz'
+    end
+
+    it 'should read name in en locale' do
+      @game1.name_en.should == 'foo bar'
+    end
+
+    it 'should read the name in actual locale' do
+      @game1.name.should == 'game 1'
+      I18n.locale = :en
+      @game1.name.should == 'foo bar'
+    end
+  end
 end

@@ -3,7 +3,6 @@ module GameTranslator
     # translated fields
     translates :name, :short_description, :long_description, :wide_description, 
       :instructions
-    globalize_accessors
     
     # relationship 
     has_many :game_translations
@@ -15,5 +14,21 @@ module GameTranslator
     scope :not_translated, conditions: { status: 'not_translated' }
     scope :translated, conditions: { status: 'translated' }
     scope :random, order: 'RAND()', limit: '4'
+
+    translated_attribute_names.each do |attribute|
+      I18n.available_locales.map do |language|
+        define_method "#{ attribute }_#{ language }" do
+          Globalize.with_locale(language) do
+            read_attribute attribute
+          end
+        end
+
+        define_method "#{ attribute }_#{ language }=" do |value|
+          Globalize.with_locale(language) do
+            write_attribute(attribute, value)
+          end
+        end
+      end
+    end
   end
 end

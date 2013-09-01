@@ -1,7 +1,7 @@
 class GameTranslator::GamesController < ApplicationController
   load_and_authorize_resource
 
-  before_filter :check_cookie, only: :translate
+  before_filter :check_games, only: :translate
 
   def translate
     @languages = GameTranslator::Language.all
@@ -29,12 +29,12 @@ class GameTranslator::GamesController < ApplicationController
   end
 
   def idle
-    check_cookie
+    check_games
   end
 
   private
 
-  def check_cookie
+  def check_games
     if session[:translating]
       session[:translating].each do |id|
         game = GameTranslator::Game.find(id)
