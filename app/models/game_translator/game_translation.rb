@@ -1,5 +1,5 @@
 module GameTranslator 
-  class GameTranslation < ActiveRecord::Base
+  class Game::Translation < ActiveRecord::Base
     # relationship
     belongs_to :game
     belongs_to :user
