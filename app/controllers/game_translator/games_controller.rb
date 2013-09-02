@@ -8,7 +8,7 @@ class GameTranslator::GamesController < ApplicationController
     @games = GameTranslator::Game.not_translated.random
     @games.map { |game| game.update_attribute(:status, 'translating') }
     session[:translating] = @games.map { |game| game.id }
-  end 
+  end
 
   def update
     params['game'].keys.each do |id|
@@ -16,7 +16,7 @@ class GameTranslator::GamesController < ApplicationController
       if @game.update_attributes(params['game'][id])
 
         @game.update_attribute(:status, 'translated')
-        
+
         set_user(@game.translations)
 
         flash[:sucess] = 'Game traduzido com sucesso!'
@@ -46,8 +46,8 @@ class GameTranslator::GamesController < ApplicationController
   end
 
   def set_user(translations)
-    translations.with_locale(GameTranslator::Language.codes).map do |translation| 
-      translation.update_attribute(:user_id, current_user.id)
+    translations.map do |translation|
+      translation.update_attribute(:user_id, current_user.id) unless translation.locale == :"pt-BR"
     end
   end
 end

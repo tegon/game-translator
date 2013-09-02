@@ -1,11 +1,8 @@
 module GameTranslator
   class Game < ActiveRecord::Base
     # translated fields
-    translates :name, :short_description, :long_description, :wide_description, 
+    translates :name, :short_description, :long_description, :wide_description,
       :instructions
-    
-    # relationship 
-    has_many :game_translations
 
     # validates
     validates :status, presence: true, inclusion: { in: %w(not_translated translated translating) }
@@ -18,13 +15,13 @@ module GameTranslator
     translated_attribute_names.each do |attribute|
       I18n.available_locales.map do |language|
         define_method "#{ attribute }_#{ language }" do
-          Globalize.with_locale(language) do
+          I18n.with_locale(language) do
             read_attribute attribute
           end
         end
 
         define_method "#{ attribute }_#{ language }=" do |value|
-          Globalize.with_locale(language) do
+          I18n.with_locale(language) do
             write_attribute(attribute, value)
           end
         end
