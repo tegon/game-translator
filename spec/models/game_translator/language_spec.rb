@@ -21,7 +21,7 @@ describe GameTranslator::Language do
     build(:game_translator_language, code: 'de').should be_valid
   end
 
-  describe '#codes' do 
+  describe '.codes' do 
     it 'should have a codes method' do
       GameTranslator::Language.should respond_to :codes   
     end

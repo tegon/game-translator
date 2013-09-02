@@ -1,11 +1,12 @@
 require 'spec_helper'
 
 describe GameTranslator::GamesController do
+  let(:translator) { create(:game_translator_user, role: 'translator') }
   before do
     I18n.locale = :"pt-BR"
 
-    @translator = create(:game_translator_user, role: 'translator')
-    sign_in @translator
+    #@translator = create(:game_translator_user, role: 'translator')
+    sign_in translator
 
     create(:game_translator_language, code: 'en')
 
@@ -18,19 +19,23 @@ describe GameTranslator::GamesController do
 
     @params_game = {
       @game1.id.to_s => {
-        name_en: 'foo'
+        name_en: 'foo', short_description_en: Faker::Lorem.sentence, 
+        long_description_en: Faker::Lorem.paragraphs.join, instructions_en: Faker::Lorem.paragraph
       },
 
       @game2.id.to_s => {
-        name_en: Faker::Name.name
+        name_en: Faker::Name.name, short_description_en: Faker::Lorem.sentence, 
+        long_description_en: Faker::Lorem.paragraphs.join, instructions_en: Faker::Lorem.paragraph
       },
 
       @game3.id.to_s => {
-        name_en: Faker::Name.name
+        name_en: Faker::Name.name, short_description_en: Faker::Lorem.sentence, 
+        long_description_en: Faker::Lorem.paragraphs.join, instructions_en: Faker::Lorem.paragraph
       },
 
       @game4.id.to_s => {
-        name_en: Faker::Name.name
+        name_en: Faker::Name.name, short_description_en: Faker::Lorem.sentence, 
+        long_description_en: Faker::Lorem.paragraphs.join, instructions_en: Faker::Lorem.paragraph
       }
     }
   end
@@ -57,7 +62,7 @@ describe GameTranslator::GamesController do
       put :update, { game: @params_game }
       @game1.reload
       @game1.status.should == 'translated'
-      @game1.translations.with_locale('en').map { |t| t.user_id.should == @translator.id }
+      @game1.translations.with_locale('en').map { |t| t.user_id.should == translator.id }
       @game1.name.should == 'bar'
       I18n.locale = :en
       @game1.name.should == 'foo'

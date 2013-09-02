@@ -14,7 +14,7 @@ describe GameTranslator::Stat do
     5.times { create(:game_translator_game_translation, user_id: @user2.id) }
   end
 
-  describe '#total' do
+  describe '.total' do
     it 'should have a method for count games' do
       GameTranslator::Stat.should respond_to :total
     end
@@ -24,7 +24,7 @@ describe GameTranslator::Stat do
     end
   end
 
-  describe '#translated' do
+  describe '.translated' do
     it 'should have a method for count translated games' do
       GameTranslator::Stat.should respond_to :translated
     end
@@ -34,7 +34,7 @@ describe GameTranslator::Stat do
     end
   end
 
-  describe '#revised' do
+  describe '.revised' do
     it 'should have a method for count revised translations' do
       GameTranslator::Stat.should respond_to :revised
     end
@@ -44,7 +44,7 @@ describe GameTranslator::Stat do
     end
   end
 
-  describe '#percentage' do
+  describe '.percentage' do
     it 'should have a method for percentage of translated games' do
       GameTranslator::Stat.should respond_to :percentage
     end
@@ -57,7 +57,7 @@ describe GameTranslator::Stat do
     end
   end
 
-  describe '#greatest_translator' do
+  describe '.greatest_translator' do
     it 'should have a method for get the greatest translator' do
       GameTranslator::Stat.should respond_to :greatest_translator
     end
@@ -67,7 +67,7 @@ describe GameTranslator::Stat do
     end
   end
 
-  describe '#count_translations' do
+  describe '.count_translations' do
     it 'should have a method for count user translations' do
       GameTranslator::Stat.should respond_to :count_translations
     end

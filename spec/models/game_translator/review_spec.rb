@@ -17,7 +17,7 @@ describe GameTranslator::Review do
     end
   end
 
-  describe '#to_review' do
+  describe '.to_review' do
     it 'should have a method to create reviews' do
       GameTranslator::Review.should respond_to :to_review
     end
