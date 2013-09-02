@@ -1,10 +1,10 @@
 module GameTranslator
   class Game < ActiveRecord::Base
     # translated fields
-    translates :name, :short_description, :long_description, :wide_description, 
+    translates :name, :short_description, :long_description, :wide_description,
       :instructions
-    
-    # relationship 
+
+    # relationship
     has_many :game_translations
 
     # validates
@@ -29,6 +29,17 @@ module GameTranslator
           end
         end
       end
+    end
+
+    Game::Translation.class_eval do
+      # relationship
+      belongs_to :game
+      belongs_to :user
+      belongs_to :review
+
+      # scopes
+      scope :not_revised, conditions: { revised: false, review_id: nil }
+      scope :revised, conditions: { revised: true }
     end
   end
 end
