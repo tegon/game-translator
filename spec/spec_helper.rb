@@ -1,9 +1,7 @@
 require 'spork'
-require 'simplecov'
 
 Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
-  SimpleCov.start
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require 'rspec/autorun'
@@ -22,7 +20,7 @@ Spork.prefork do
     config.include Capybara::DSL
 
     config.infer_base_class_for_anonymous_controllers = false
-    
+
     config.before(:suite) do
       DatabaseCleaner.strategy = :truncation
       DatabaseCleaner.clean_with(:truncation)
