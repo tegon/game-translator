@@ -6,11 +6,14 @@ module GameTranslator
 
     # validates
     validates :status, presence: true, inclusion: { in: %w(not_translated translated translating) }
-
+    belongs_to :user
+    belongs_to :review
     # scopes
     scope :not_translated, conditions: { status: 'not_translated' }
     scope :translated, conditions: { status: 'translated' }
     scope :random, order: 'RAND()', limit: '4'
+    scope :not_revised, conditions: { revised: false, review_id: nil }
+    scope :revised, conditions: { revised: true }
 
     translated_attribute_names.each do |attribute|
       I18n.available_locales.map do |language|

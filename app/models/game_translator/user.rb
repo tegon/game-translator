@@ -5,7 +5,8 @@ module GameTranslator
            :rememberable, :trackable, :validatable
 
     # relationship
-    has_many :game_translations, through: :game
+    has_many :games
+    has_many :game_translations, through: :game_id
     has_many :reviews
 
     # validates
