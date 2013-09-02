@@ -63,11 +63,4 @@ describe GameTranslator::GamesController do
       @game1.name.should == 'foo'
     end
   end
-
-  describe 'GET idle' do
-    it 'should render the idle page' do
-      get :idle
-      response.should render_template :idle
-    end
-  end
 end 

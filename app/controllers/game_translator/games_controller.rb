@@ -28,10 +28,6 @@ class GameTranslator::GamesController < ApplicationController
     redirect_to game_translate_path
   end
 
-  def idle
-    check_games
-  end
-
   private
 
   def check_games
