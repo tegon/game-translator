@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :game_translator_game_translation, class: GameTranslator::GameTranslation do
+  factory :game_translator_game_translation, class: GameTranslator::Game::Translation do
     game { create(:game_translator_game) }
     user { create(:game_translator_user) }
     revised { true }

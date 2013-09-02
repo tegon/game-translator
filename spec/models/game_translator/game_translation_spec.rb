@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe GameTranslator::GameTranslation do
+describe GameTranslator::Game::Translation do
   before do
     @translation = create(:game_translator_game_translation)
     @not_revised = create(:game_translator_game_translation, revised: false, review_id: nil)
@@ -20,11 +20,11 @@ describe GameTranslator::GameTranslation do
 
   describe 'not_revised scope' do
     it 'should have a scope to not revised translations' do
-      GameTranslator::GameTranslation.should respond_to :not_revised
+      GameTranslator::Game::Translation.should respond_to :not_revised
     end
 
     it 'should return only not revised translations' do
-      not_revised_translations = GameTranslator::GameTranslation.not_revised
+      not_revised_translations = GameTranslator::Game::Translation.not_revised
       not_revised_translations.should_not include @translation
       not_revised_translations.should include @not_revised
     end
@@ -32,11 +32,11 @@ describe GameTranslator::GameTranslation do
 
   describe 'revised scope' do
     it 'should have a scope to revised translations' do
-      GameTranslator::GameTranslation.should respond_to :revised
+      GameTranslator::Game::Translation.should respond_to :revised
     end
 
     it 'should return only revised translations' do
-      revised_translations = GameTranslator::GameTranslation.revised
+      revised_translations = GameTranslator::Game::Translation.revised
       revised_translations.should_not include @not_revised
       revised_translations.should include @translation
     end
