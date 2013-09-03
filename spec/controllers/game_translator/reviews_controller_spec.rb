@@ -1,14 +1,12 @@
 require 'spec_helper'
 
 describe GameTranslator::ReviewsController do
+  let(:reviser) { create(:game_translator_user, role: 'reviser') }
+  let(:user) { create(:game_translator_user, role: 'translator') }
+
   before do
-    @reviser = create(:game_translator_user, role: 'reviser')
-    sign_in @reviser
-
-    @user = create(:game_translator_user, role: 'translator')
-    @user2 = create(:game_translator_user, role: 'translator')
-
-    100.times { create(:game_translator_game_translation, user: @user, revised: false) }
+    sign_in reviser
+    100.times { create(:game_translator_game_translation, user: user, revised: false) }
     GameTranslator::Review.to_review
     @review = GameTranslator::Review.all.sample
   end
@@ -26,7 +24,7 @@ describe GameTranslator::ReviewsController do
       response.should render_template :edit
     end
 
-    it 'assignses a review to the review variable' do
+    it 'assigns a review to the review variable' do
       get :edit, id: @review.id
       assigns(:review).should == @review
     end

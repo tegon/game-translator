@@ -1,14 +1,15 @@
 require 'spec_helper'
 
 describe GameTranslator::LanguagesController do
-  before do 
-    @reviser = create(:game_translator_user, role: 'reviser')
+  let(:reviser) { create(:game_translator_user, role: 'reviser') }
+
+  before do
     @language = create(:game_translator_language, name: 'Language', code: 'de')
-    sign_in @reviser
+    sign_in reviser
   end
 
   describe 'GET index' do
-    it 'renders the users index' do 
+    it 'renders the users index' do
       get :index
       response.should render_template :index
     end
@@ -21,13 +22,13 @@ describe GameTranslator::LanguagesController do
     end
 
     it 'renders the new view' do
-      get :new 
+      get :new
       response.should render_template :new
     end
   end
 
   describe 'POST create' do
-    it 'create language with valid attributes' do 
+    it 'create language with valid attributes' do
       post :create, game_translator_language: FactoryGirl.attributes_for(:game_translator_language)
       response.should redirect_to languages_path
     end
@@ -45,7 +46,7 @@ describe GameTranslator::LanguagesController do
       response.should render_template :edit
     end
 
-    it 'assignses a language to the language variable' do
+    it 'assigns a language to the language variable' do
       get :edit, id: @language.id
       assigns(:language).should == @language
     end
@@ -64,14 +65,14 @@ describe GameTranslator::LanguagesController do
         @language.code.should == 'zh-CN'
       end
     end
-  
+
     context 'with invalid attributes' do
       it 'render the edit view' do
         put :update, { id: @language.id, game_translator_language: { code: 'abcdef' } }
         response.should render_template :edit
       end
 
-      it 'not changes the language attributes' do 
+      it 'does not changes the language attributes' do
         put :update, { id: @language.id, game_translator_language: { code: 'abcdef', name: 'Language2' } }
         @language.reload
         @language.name.should == 'Language'
@@ -89,5 +90,5 @@ describe GameTranslator::LanguagesController do
     it 'deletes the language' do
       expect{ delete :destroy, id: @language.id }.to change(GameTranslator::Language, :count).by(-1)
     end
-  end  
+  end
 end
