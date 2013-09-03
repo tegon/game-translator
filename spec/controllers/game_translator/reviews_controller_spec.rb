@@ -43,7 +43,7 @@ describe GameTranslator::ReviewsController do
         put :update, { id: @review.id }
         @review.reload
         @review.status.should == 'accepted'
-        @review.game_translations.map do |t|
+        @review.translations.map do |t|
           t.revised.should be_true
         end
       end
@@ -59,7 +59,7 @@ describe GameTranslator::ReviewsController do
         put :update, { id: @review.id, delete: 'Recusar' }
         @review.reload
         @review.status.should == 'rejected'
-        @review.game_translations.map do |t|
+        @review.translations.map do |t|
           t.revised.should be_true
           t.game.status.should == 'not_translated'
         end

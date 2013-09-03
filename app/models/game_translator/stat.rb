@@ -29,7 +29,7 @@ module GameTranslator
       end
 
       def count_translations(user)
-        user.game_translations.count
+        user.translations.count
       end
     end
   end

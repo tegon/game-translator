@@ -4,9 +4,6 @@ module GameTranslator
     translates :name, :short_description, :long_description, :wide_description,
       :instructions
 
-    # relationship
-    has_many :game_translations
-
     # validates
     validates :status, presence: true, inclusion: { in: %w(not_translated translated translating) }
 
