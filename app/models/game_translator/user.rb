@@ -1,8 +1,7 @@
 module GameTranslator
   class User < ActiveRecord::Base
     # devise
-    devise :database_authenticatable, :registerable,
-           :rememberable, :trackable, :validatable
+    devise :database_authenticatable, :registerable, :rememberable, :trackable, :validatable
 
     # relationship
     has_many :translations, class_name: Game::Translation
