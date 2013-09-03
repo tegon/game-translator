@@ -15,7 +15,7 @@ describe GameTranslator::StatsController do
   end
 
   describe 'GET index' do
-    it 'should render the stats index' do 
+    it 'renders the stats index' do 
       get :index
       response.should render_template :index
     end

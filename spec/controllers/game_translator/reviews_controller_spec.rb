@@ -14,19 +14,19 @@ describe GameTranslator::ReviewsController do
   end
 
   describe 'GET index' do
-    it 'should render the reviews index' do
+    it 'renders the reviews index' do
       get :index
       response.should render_template :index
     end
   end
 
   describe 'GET edit' do
-    it 'should render the edit view' do
+    it 'renders the edit view' do
       get :edit, id: @review.id
       response.should render_template :edit
     end
 
-    it 'should assigns a review to the review variable' do
+    it 'assignses a review to the review variable' do
       get :edit, id: @review.id
       assigns(:review).should == @review
     end

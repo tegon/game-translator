@@ -7,13 +7,13 @@ describe 'Authentication' do
   end
 
   context 'User not logged in' do
-    it 'should open the login path' do
+    it 'opens the login path' do
       visit('/')
 
       current_path.should == '/users/login'
     end
 
-    it 'should not log in if email is invalid' do
+    it 'does not log in if email is invalid' do
       visit('/')
 
       fill_in 'user_email', with: 'foo@bar.com'
@@ -23,7 +23,7 @@ describe 'Authentication' do
       current_path.should == '/users/login'
     end
 
-    it 'should not log in if password is invalid' do
+    it 'does not log in if password is invalid' do
       visit('/')
 
       fill_in 'user_email', with: @reviser.email
@@ -42,13 +42,13 @@ describe 'Authentication' do
       click_button 'Entrar'
     end
 
-    it 'should be redirected to the users path' do
+    it 'is redirected to the users path' do
       visit('/')
 
       current_path.should == '/users'
     end
 
-    it 'should be able to access users root' do
+    it 'is able to access users root' do
       visit('/languages')
 
       current_path.should == '/languages'
@@ -63,7 +63,7 @@ describe 'Authentication' do
       click_button 'Entrar'
     end
 
-    it 'should be able to open the root path' do
+    it 'is able to open the root path' do
       visit('/')
 
       current_path.should == '/'

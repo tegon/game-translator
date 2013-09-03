@@ -42,12 +42,12 @@ describe GameTranslator::GamesController do
   end
 
   describe 'GET translate' do
-    it 'should render the edit view' do
+    it 'renders the edit view' do
       get :translate
       response.should render_template :translate
     end
 
-    it 'should should change games status' do
+    it 'shoulds change games status' do
       get :translate
       assigns(:games).each { |game| game.status.should == 'translating' }
     end

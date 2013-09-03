@@ -1,24 +1,24 @@
 require 'spec_helper'
 
 describe GameTranslator::Review do
-  it 'should have a valid generator' do
+  it 'has a valid generator' do
     create(:game_translator_review).should be_valid
   end
 
   describe 'status' do
-    it 'should have an status' do
+    it 'has an status' do
       build(:game_translator_review, status: nil).should_not be_valid
       build(:game_translator_review, status: '').should_not be_valid
     end
 
-    it 'should be a valid status' do
+    it 'is a valid status' do
       build(:game_translator_review, status: 'foo').should_not be_valid
       build(:game_translator_review, status: %w(pending accepted rejected).sample).should be_valid
     end
   end
 
   describe '.to_review' do
-    it 'should have a method to create reviews' do
+    it 'has a method to create reviews' do
       GameTranslator::Review.should respond_to :to_review
     end
 
@@ -28,7 +28,7 @@ describe GameTranslator::Review do
         100.times { create(:game_translator_game_translation, user: @user, revised: false) }
       end
 
-      it 'should create review for user translations' do
+      it 'creates review for user translations' do
         expect{ GameTranslator::Review.to_review }.to change{ GameTranslator::Review.count }.by(1)
       end
     end
@@ -39,7 +39,7 @@ describe GameTranslator::Review do
         10.times { create(:game_translator_game_translation, user: @user, revised: false) }
       end
 
-      it 'should not create review for user translations' do
+      it 'does not create review for user translations' do
         expect{ GameTranslator::Review.to_review }.to_not change{ GameTranslator::Review.count }.by(1)
       end
     end

@@ -8,7 +8,7 @@ describe GameTranslator::LanguagesController do
   end
 
   describe 'GET index' do
-    it 'should render the users index' do 
+    it 'renders the users index' do 
       get :index
       response.should render_template :index
     end
@@ -40,12 +40,12 @@ describe GameTranslator::LanguagesController do
   end
 
   describe 'GET edit' do
-    it 'should render the edit view' do
+    it 'renders the edit view' do
       get :edit, id: @language.id
       response.should render_template :edit
     end
 
-    it 'should assigns a language to the language variable' do
+    it 'assignses a language to the language variable' do
       get :edit, id: @language.id
       assigns(:language).should == @language
     end
