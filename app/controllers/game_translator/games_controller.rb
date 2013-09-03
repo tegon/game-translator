@@ -43,7 +43,7 @@ class GameTranslator::GamesController < ApplicationController
 
   def set_user(translations)
     translations.with_locale(GameTranslator::Language.codes).map do |translation|
-      translation.update_attribute(:user_id, current_user.id)
+      translation.update_attribute(:user, current_user)
     end
   end
 end

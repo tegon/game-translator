@@ -62,7 +62,7 @@ describe GameTranslator::GamesController do
       put :update, { game: @params_game }
       game1.reload
       game1.status.should == 'translated'
-      game1.translations.with_locale('en').map { |t| t.user_id.should == translator.id }
+      game1.translations.with_locale('en').map { |t| t.user.should == translator }
       game1.name.should == 'bar'
       I18n.locale = :en
       game1.name.should == 'foo'
