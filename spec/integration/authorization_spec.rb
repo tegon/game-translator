@@ -4,9 +4,10 @@ require 'spec_helper'
 
 describe 'Authorization' do
   context 'when user is reviser' do
+    let(:reviser) { create(:game_translator_user, role: 'reviser') }
+
     before do
-      reviser = create(:game_translator_user, password: '123123123', password_confirmation: '123123123', role: 'reviser')
-      visit('/')
+      visit root_path
 
       fill_in 'user_email', with: reviser.email
       fill_in 'user_password', with: reviser.password
@@ -26,9 +27,10 @@ describe 'Authorization' do
   end
 
   context 'when user is translator' do
+    let(:translator) { create(:game_translator_user, role: 'translator') }
+
     before do
-      translator = create(:game_translator_user, password: '123123123', password_confirmation: '123123123', role: 'translator')
-      visit('/')
+      visit root_path
 
       fill_in 'user_email', with: translator.email
       fill_in 'user_password', with: translator.password
