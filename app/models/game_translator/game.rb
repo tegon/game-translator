@@ -28,7 +28,7 @@ module GameTranslator
       end
     end
 
-    Game::Translation.class_eval do
+    Translation.class_eval do
       # relationship
       belongs_to :game
       belongs_to :user

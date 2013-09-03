@@ -9,7 +9,7 @@ module GameTranslator
     has_many :reviews
 
     # validates
-    validates :name, presence: true, allow_blank: false, length: { minimum: 3 }
+    validates :name, presence: true, length: { minimum: 3 }
     validates :role, presence: true, inclusion: { in: %w(translator reviser) }
 
     # scopes

@@ -1,8 +1,8 @@
 module GameTranslator
 	class Language < ActiveRecord::Base
 		# validates
-		validates :name, presence: true, allow_blank: false
-		validates :code, presence: true, allow_blank: false, 
+		validates :name, presence: true
+		validates :code, presence: true,
 			inclusion: { in: I18n.available_locales.map { |locale| locale.to_s } }
 
 		def self.codes
