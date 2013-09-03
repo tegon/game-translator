@@ -1,12 +1,11 @@
 module GameTranslator
-	class Language < ActiveRecord::Base
-		# validates
-		validates :name, presence: true
-		validates :code, presence: true,
-			inclusion: { in: I18n.available_locales.map { |locale| locale.to_s } }
+  class Language < ActiveRecord::Base
+    # validates
+    validates :name, presence: true
+    validates :code, presence: true, inclusion: { in: I18n.available_locales.map { |locale| locale.to_s } }
 
-		def self.codes
-			GameTranslator::Language.all.map { |l| l.code }
-		end
-	end
+    def self.codes
+      GameTranslator::Language.all.map { |l| l.code }
+    end
+  end
 end
