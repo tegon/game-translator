@@ -10,12 +10,16 @@ describe GameTranslator::Game::Translation do
     create(:game_translator_game_translation).should be_valid
   end
 
-  it 'belongses to game' do
+  it 'belongs to game' do
     @translation.should respond_to :game
   end
 
-  it 'belongses to user' do
+  it 'belongs to user' do
     @translation.should respond_to :user
+  end
+
+  it 'belongs to review' do
+    @translation.should respond_to :review
   end
 
   describe 'not_revised scope' do

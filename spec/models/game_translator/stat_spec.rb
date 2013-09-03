@@ -1,17 +1,17 @@
 require 'spec_helper'
 
 describe GameTranslator::Stat do
-  before do
-    @user = create(:game_translator_user, role: 'translator')
-    @user2 = create(:game_translator_user, role: 'translator')
+  let(:user) { create(:game_translator_user, role: 'translator') }
+  let(:user2) { create(:game_translator_user, role: 'translator') }
 
+  before do
     10.times { create(:game_translator_game, status: 'translated') }
 
     10.times { create(:game_translator_game, status: 'not_translated') }
 
-    10.times { create(:game_translator_game_translation, revised: true, user_id: @user.id) }
+    10.times { create(:game_translator_game_translation, revised: true, user: user) }
 
-    5.times { create(:game_translator_game_translation, user_id: @user2.id) }
+    5.times { create(:game_translator_game_translation, revised: false, user: user2) }
   end
 
   describe '.total' do
@@ -30,7 +30,7 @@ describe GameTranslator::Stat do
     end
 
     it 'returns total of translated games' do
-      GameTranslator::Stat.translated.should == GameTranslator::Game.translated.count
+      GameTranslator::Stat.translated.should == 10
     end
   end
 
@@ -40,12 +40,12 @@ describe GameTranslator::Stat do
     end
 
     it 'returns total of revised translations' do
-      GameTranslator::Stat.revised.should == Translation.revised.count
+      GameTranslator::Stat.revised.should == 10
     end
   end
 
   describe '.percentage' do
-    it 'has a method for percentage of translated games' do
+    it 'has a method for get percentage of translated games' do
       GameTranslator::Stat.should respond_to :percentage
     end
 
@@ -63,7 +63,7 @@ describe GameTranslator::Stat do
     end
 
     it 'returns the user with more translations' do
-      GameTranslator::Stat.greatest_translator.should == @user
+      GameTranslator::Stat.greatest_translator.should == user
     end
   end
 
@@ -73,7 +73,7 @@ describe GameTranslator::Stat do
     end
 
     it 'returns total of user translations' do
-      GameTranslator::Stat.count_translations(@user2).should == 5
+      GameTranslator::Stat.count_translations(user2).should == 5
     end
   end
 end

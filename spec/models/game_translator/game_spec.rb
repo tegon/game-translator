@@ -1,18 +1,12 @@
 require 'spec_helper'
 
 describe GameTranslator::Game do
-  before do
-    @game = create(:game_translator_game, status: 'translated')
-    @not_translated = create(:game_translator_game, status: 'not_translated')
-    @translating = create(:game_translator_game, status: 'translating')
-  end 
-
   it 'has a valid generator' do
     create(:game_translator_game).should be_valid
   end
 
-  it 'has many translations' do 
-    @game.should respond_to :translations
+  it 'has many translations' do
+    create(:game_translator_game).should respond_to :translations
   end
 
   describe 'status' do
@@ -27,7 +21,13 @@ describe GameTranslator::Game do
     end
   end
 
-  describe 'translated scope' do 
+  describe 'scopes' do
+    before do
+      @translated = create(:game_translator_game, status: 'translated')
+      @not_translated = create(:game_translator_game, status: 'not_translated')
+      @translating = create(:game_translator_game, status: 'translating')
+    end
+
     it 'has scope for translated games' do
       GameTranslator::Game.should respond_to :translated
     end
@@ -36,18 +36,16 @@ describe GameTranslator::Game do
       translated = GameTranslator::Game.translated
       translated.should_not include @not_translated
       translated.should_not include @translating
-      translated.should include @game
+      translated.should include @translated
     end
-  end
 
-  describe 'not_translated scope' do 
-    it 'has a scope for not translated games' do 
+    it 'has a scope for not translated games' do
       GameTranslator::Game.should respond_to :not_translated
     end
 
     it 'returns only not translated games' do
       not_translated = GameTranslator::Game.not_translated
-      not_translated.should_not include @game
+      not_translated.should_not include @translated
       not_translated.should_not include @translating
       not_translated.should include @not_translated
     end
@@ -61,28 +59,28 @@ describe GameTranslator::Game do
     before do
       I18n.locale = :"pt-BR"
       create(:game_translator_language, code: 'en')
-      @game1 = create(:game_translator_game, name: 'game 1')
-      @game1.update_attribute(:name_en, 'foo bar')
+      @game = create(:game_translator_game, name: 'game 1')
+      @game.update_attribute(:name_en, 'foo bar')
     end
 
     it 'has translated accessors' do
-      @game1.should respond_to :name_en
+      @game.should respond_to :name_en
     end
 
     it 'writes name in en locale' do
-      @game1.update_attribute(:name_en, 'foobarbaz')
+      @game.update_attribute(:name_en, 'foobarbaz')
       I18n.locale = :en
-      @game1.name.should == 'foobarbaz'
+      @game.name.should == 'foobarbaz'
     end
 
     it 'reads name in en locale' do
-      @game1.name_en.should == 'foo bar'
+      @game.name_en.should == 'foo bar'
     end
 
-    it 'reads the name in actual locale' do
-      @game1.name.should == 'game 1'
+    it 'reads name in actual locale' do
+      @game.name.should == 'game 1'
       I18n.locale = :en
-      @game1.name.should == 'foo bar'
+      @game.name.should == 'foo bar'
     end
   end
 end
