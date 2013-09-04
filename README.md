@@ -16,7 +16,7 @@ Then import the games
 rake games:import
 ```
 
-You can change attributes in specifics locales calling the method like this: 
+You can change attributes in specific locales calling the method like this: 
 ```ruby
 attribute_locale
 ```
