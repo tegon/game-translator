@@ -4,6 +4,6 @@ class AddRevisedToGameTranslation < ActiveRecord::Migration
 
     add_column :game_translations, :revised, :boolean, default: false
 
-    change_column :games, :translated, :boolean, default: false
+    # change_column :games, :translated, :boolean, default: false
   end
 end
