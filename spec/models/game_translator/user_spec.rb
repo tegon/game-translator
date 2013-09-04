@@ -23,7 +23,7 @@ describe GameTranslator::User do
   	build(:game_translator_user, name: '').should_not be_valid
   end
 
-  it 'should have a valid name' do 
+  it 'should have a valid name' do
   	build(:game_translator_user, name: 'a').should_not be_valid
   	build(:game_translator_user, name: 'ab').should_not be_valid
   	build(:game_translator_user, name: 'abc').should be_valid
@@ -35,8 +35,8 @@ describe GameTranslator::User do
   	build(:game_translator_user, password: '1234567').should_not be_valid
   end
 
-  it 'password should match with password confirmation' do 
-  	build(:game_translator_user, password: '12345678', 
+  it 'password should match with password confirmation' do
+  	build(:game_translator_user, password: '12345678',
   		password_confirmation: '12345679').should_not be_valid
   	build(:game_translator_user, password: '12345678',
   		password_confirmation: '12345678').should be_valid
@@ -46,13 +46,13 @@ describe GameTranslator::User do
   	build(:game_translator_user, role: nil).should_not be_valid
   	build(:game_translator_user, role: '').should_not be_valid
   end
- 
-  it 'should have a valid role' do 
+
+  it 'should have a valid role' do
   	build(:game_translator_user, role: 'foo').should_not be_valid
   end
-	
-	describe '#reviser?' do 
-		it 'should be a reviser' do 
+
+	describe '#reviser?' do
+		it 'should be a reviser' do
 			user = create(:game_translator_user, role: 'reviser')
 			user.reviser?.should be_true
 			user.role = 'translator'
@@ -60,8 +60,8 @@ describe GameTranslator::User do
 		end
 	end
 
-	describe '#translator?' do 
-		it 'should be a translator' do 
+	describe '#translator?' do
+		it 'should be a translator' do
 			user = create(:game_translator_user, role: 'translator')
 			user.translator?.should be_true
 			user.role = 'reviser'
@@ -69,8 +69,8 @@ describe GameTranslator::User do
 		end
 	end
 
-  it 'should have many games translations' do 
+  it 'should have many games translations' do
     user = create(:game_translator_user)
-    user.should respond_to :game_translations
+    user.should respond_to :translations
   end
 end

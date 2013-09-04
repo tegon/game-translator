@@ -6,7 +6,6 @@ module GameTranslator
 
     # relationship
     has_many :games
-    has_many :game_translations, through: :game_id
     has_many :reviews
 
     # validates

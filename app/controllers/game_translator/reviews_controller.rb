@@ -9,7 +9,7 @@ class GameTranslator::ReviewsController < ApplicationController
 
   def edit
     @review = GameTranslator::Review.find(params[:id])
-    @sample = @review.game_translations.sample
+    @sample = @review.games.sample
     @game = @sample.game
   end
 
@@ -23,20 +23,20 @@ class GameTranslator::ReviewsController < ApplicationController
 
   def accept
     @review = GameTranslator::Review.find(params[:id])
-    
-    set_revised(@review.game_translations, 'accepted')
-    
+
+    set_revised(@review.games, 'accepted')
+
     @review.update_attribute(:status, 'accepted')
 
     flash[:success] = 'Tradução aceita com sucesso!'
-    
+
     redirect_to review_path
   end
 
   def reject
     @review = GameTranslator::Review.find(params[:id])
 
-    set_revised(@review.game_translations, 'rejected')
+    set_revised(@review.games, 'rejected')
 
     @review.update_attribute(:status, 'rejected')
 
@@ -47,10 +47,10 @@ class GameTranslator::ReviewsController < ApplicationController
 
   private
 
-  def set_revised(translations, status)
-    translations.map do |translation|
-      translation.update_attribute(:revised, true)
-      translation.game.update_attribute(:status, 'not_translated') if status == 'rejected'
+  def set_revised(games, status)
+    games.map do |game|
+      game.update_attribute(:revised, true)
+      game.game.update_attribute(:status, 'not_translated') if status == 'rejected'
     end
   end
 end

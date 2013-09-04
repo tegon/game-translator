@@ -15,9 +15,7 @@ class GameTranslator::GamesController < ApplicationController
       @game = GameTranslator::Game.find(id.to_i)
       if @game.update_attributes(params['game'][id])
 
-        @game.update_attribute(:status, 'translated')
-
-        set_user(@game.translations)
+        @game.update_attributes(status: 'translated', user: current_user)
 
         flash[:sucess] = 'Game traduzido com sucesso!'
       else
@@ -42,12 +40,6 @@ class GameTranslator::GamesController < ApplicationController
           game.update_attribute(:status, 'not_translated')
         end
       end
-    end
-  end
-
-  def set_user(translations)
-    translations.map do |translation|
-      translation.update_attribute(:user_id, current_user.id) unless translation.locale == :"pt-BR"
     end
   end
 end
