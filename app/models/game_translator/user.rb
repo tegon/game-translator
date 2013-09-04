@@ -4,7 +4,7 @@ module GameTranslator
     devise :database_authenticatable, :registerable, :rememberable, :trackable, :validatable
 
     # relationship
-    has_many :translations, class_name: Game::Translation
+    has_many :translations, class_name: GameTranslator::Game::Translation
     has_many :reviews
 
     # validates

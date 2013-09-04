@@ -2,7 +2,7 @@ module GameTranslator
   class Review < ActiveRecord::Base
     # relationship
     belongs_to :user
-    has_many :translations, class_name: Game::Translation
+    has_many :translations, class_name: GameTranslator::Game::Translation
 
     # validates
     validates :status, presence: true, inclusion: { in: %w(pending accepted rejected) }
