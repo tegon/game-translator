@@ -1,7 +1,7 @@
 #games
   .alert
     Preencha todos os campos!
-    
+
   - @games.each do |game|
     = fields_for 'game[]', game do |game_fields|
       %fieldset
@@ -24,13 +24,13 @@
             %dd= game_fields.text_area :wide_description, disabled: true
 
           %dt Instruções
-          %dd= game_fields.text_area :instructions, disabled: true, class: 'instructions br'
-          
+          %dd= game_fields.text_area :instructions, disabled: true
+
         - @languages.each do |language|
           %dl
             .flag= flag(language.code)
-            %p.language= "Traduzir para #{ language.name }" 
-            
+            %p.language= "Traduzir para #{ language.name }"
+
             %dt Nome
             %dd= game_fields.text_field "name_#{ language.code }".to_sym, required: true
 
@@ -47,7 +47,6 @@
             %dd.instructions
               %dl
                 %dt Instruções
-                %dt= instruction_icons.html_safe
                 = game_fields.text_area "instructions_#{ language.code }".to_sym, required: true, value: process_instructions(game.instructions)
 
   = submit_tag 'Traduzir!', class: 'button'
