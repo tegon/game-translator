@@ -1,5 +1,5 @@
 development:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   reconnect: false
   database: game_translator_development
@@ -7,7 +7,7 @@ development:
   username: root
 
 test:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   reconnect: false
   database: game_translator_test
