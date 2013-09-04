@@ -29,7 +29,7 @@ module GameTranslator
     end
 
     # extending globalize3 class
-    Translation.class_eval do
+    Game::Translation.class_eval do
       # relationship
       belongs_to :game
       belongs_to :user
