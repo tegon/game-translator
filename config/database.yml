@@ -4,7 +4,7 @@ development:
   reconnect: false
   database: game_translator_development
   pool: 5
-  username: root
+  username: gametranslator
 
 test:
   adapter: postgresql
@@ -12,4 +12,4 @@ test:
   reconnect: false
   database: game_translator_test
   pool: 5
-  username: root
+  username: gametranslator
