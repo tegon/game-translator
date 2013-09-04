@@ -1,5 +1,5 @@
 class AddTranslatedToGames < ActiveRecord::Migration
   def change
-  	add_column :games, :translated, :integer, default: 0
+  	add_column :games, :translated, :boolean, default: false
   end
 end
