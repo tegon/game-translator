@@ -8,16 +8,24 @@ describe 'Authorization' do
 
     before do
       visit root_path
-
       fill_in 'user_email', with: reviser.email
       fill_in 'user_password', with: reviser.password
       click_button 'Entrar'
     end
 
-    it 'gives access to users, languages, stats, and reviews page' do
+    it 'gives access to users page' do
       page.should have_content('Cadastro de Usuários')
+    end
+
+    it 'gives access to languages page' do
       page.should have_content('Cadastro de Idiomas')
+    end
+
+    it 'gives access to stats page' do
       page.should have_content('Estatísticas')
+    end
+
+    it 'gives access to reviews page' do
       page.should have_content('Revisões')
     end
 
@@ -31,7 +39,6 @@ describe 'Authorization' do
 
     before do
       visit root_path
-
       fill_in 'user_email', with: translator.email
       fill_in 'user_password', with: translator.password
       click_button 'Entrar'
@@ -41,11 +48,20 @@ describe 'Authorization' do
       page.should have_content('Traduzir')
     end
 
-    it 'does not give access to users, languages, stats, and reviews page' do
-      page.should_not have_content('Cadastro de Usuários')
+    it 'does not give access to languages page' do
       page.should_not have_content('Cadastro de Idiomas')
+    end
+
+    it 'does not give access to stats page' do
       page.should_not have_content('Estatísticas')
+    end
+
+    it 'does not give access to reviews page' do
       page.should_not have_content('Revisões')
+    end
+
+    it 'does not give access to users page' do
+      page.should_not have_content('Cadastro de Usuários')
     end
   end
 end
