@@ -1,3 +1,25 @@
+GIT
+  remote: git@github.com:clickjogos/file-helper.git
+  revision: 2e129baf81fd6e90d13c5966f4713ba3154f0b83
+  specs:
+    file_helper (0.0.1)
+
+PATH
+  remote: ../../clickjogos/clickjogos-base
+  specs:
+    click_jogos_base (0.0.1)
+      activerecord (= 3.2.12)
+      activesupport (= 3.2.12)
+      memcached (= 1.4.3)
+      mysql2 (= 0.3.11)
+
+PATH
+  remote: ../../clickjogos/paperclip-interpolations
+  specs:
+    paperclip_interpolations (0.0.1)
+      cocaine (= 0.3.2)
+      paperclip (= 3.1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -231,12 +253,14 @@ DEPENDENCIES
   capistrano-ext (= 1.2.1)
   capybara (= 2.1.0)
   capybara-webkit (= 1.0.0)
+  click_jogos_base!
   coffee-rails (= 3.2.2)
   compass-rails (= 1.0.3)
   database_cleaner (= 0.8.0)
   devise (= 3.0.0)
   factory_girl_rails (= 4.1.0)
   ffaker (= 1.15.0)
+  file_helper!
   globalize3 (= 0.3.0)
   growl (= 1.0.3)
   guard (= 1.2.3)
@@ -247,6 +271,7 @@ DEPENDENCIES
   jquery-rails (= 2.0.2)
   jquery-ui-rails (= 4.0.1)
   mysql2 (= 0.3.11)
+  paperclip_interpolations!
   passenger (= 3.0.13)
   pg (= 0.13.2)
   quiet_assets (= 1.0.1)
