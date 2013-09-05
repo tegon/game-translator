@@ -5,7 +5,7 @@ class GameTranslator::GamesController < ApplicationController
 
   def translate
     @languages = GameTranslator::Language.all
-    @games = GameTranslator::Game.not_translated.sample(4)
+    @games = GameTranslator::Game.not_translated.random
     @games.map { |game| game.update_attribute(:status, 'translating') }
     session[:translating] = @games.map { |game| game.id }
   end
