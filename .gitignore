@@ -13,7 +13,7 @@ test/version_tmp
 tmp
 log/*.log
 db/schema.rb
-config/server/development/database.yml
+config/server/development/
 # Gemfile.lock
 
 # YARD artifacts
