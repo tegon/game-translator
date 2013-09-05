@@ -15,6 +15,10 @@ Then import the games
 ```bash
 rake games:import
 ```
+Or
+```bash
+rake db:seed
+```
 
 You can change attributes in specific locales calling the method like this: 
 ```ruby
