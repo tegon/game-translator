@@ -1,5 +1,5 @@
 - if @games.present?
   = form_for :game, url: game_update_path, html: { method: :put } do |f|
-  	= render partial: 'form', locals:{ f:f }
+    = render partial: 'form', locals:{ f:f }
 - else
   %h1 Nenhum Game Não Traduzido
