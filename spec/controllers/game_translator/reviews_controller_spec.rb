@@ -8,7 +8,7 @@ describe GameTranslator::ReviewsController do
     sign_in reviser
     100.times { create(:game_translator_game_translation, user: user, revised: false) }
     GameTranslator::Review.to_review
-    @review = GameTranslator::Review.all.sample
+    @review = GameTranslator::Review.first
   end
 
   describe 'GET index' do
