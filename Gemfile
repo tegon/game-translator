@@ -18,6 +18,7 @@ gem 'will_paginate', '3.0.3'
 
 gem 'mysql2', '0.3.11', group: [:test, :development]
 gem 'pg', '0.13.2', group: :production
+gem 'thin', group: :production
 gem 'rspec-rails', '2.8', group: [:test, :development]
 
 group :development do
