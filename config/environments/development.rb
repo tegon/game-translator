@@ -1,4 +1,5 @@
 GameTranslator::Application.configure do
+  echo "RACK_ENV=development" >>.env
   config.cache_classes = true
 
   # Log error messages when you accidentally call methods on nil.
