@@ -21,9 +21,6 @@ gem 'pg', '0.13.2', group: :production
 gem 'rspec-rails', '2.8', group: [:test, :development]
 
 group :development do
-  gem 'click_jogos_base', path: '../../clickjogos/clickjogos-base', require: false
-  gem 'paperclip_interpolations', path: '../../clickjogos/paperclip-interpolations', require: false
-  gem 'file_helper', git: 'git@github.com:clickjogos/file-helper.git', require: false
   gem 'capistrano', '2.12.0'
   gem 'capistrano-ext', '1.2.1'
   gem 'passenger', '3.0.13'
