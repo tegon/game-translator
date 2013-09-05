@@ -18,11 +18,11 @@ describe GameTranslator::Review do
   end
 
   describe '.to_review' do
-    let(:user) { create(:game_translator_user, role: 'translator') }
+    subject { GameTranslator::Review }
 
-    it 'has a method to create reviews' do
-      GameTranslator::Review.should respond_to :to_review
-    end
+    it { should respond_to :to_review }
+
+    let(:user) { create(:game_translator_user, role: 'translator') }
 
     context 'when user has at least 100 translations' do
       before do

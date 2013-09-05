@@ -52,32 +52,20 @@ describe GameTranslator::User do
   end
 
   describe '#reviser?' do
-    let(:user) { create(:game_translator_user, role: 'reviser') }
+    subject { create(:game_translator_user, role: 'reviser') }
 
-    it 'is a reviser' do
-      user.should be_reviser
-    end
+    it { should be_reviser }
 
-    it 'is not a reviser' do
-      user.role = 'translator'
-      user.should_not be_reviser
-    end
+    it { should_not be_translator }
   end
 
   describe '#translator?' do
-    let(:user) { create(:game_translator_user, role: 'translator') }
+    subject { create(:game_translator_user, role: 'translator') }
 
-    it 'is a translator' do
-      user.should be_translator
-    end
+    it { should be_translator }
 
-    it 'is not a translator' do
-      user.role = 'reviser'
-      user.should_not be_translator
-    end
+    it { should_not be_reviser }
   end
 
-  it 'has many translations' do
-    create(:game_translator_user).should respond_to :translations
-  end
+  it { should respond_to :translations }
 end
