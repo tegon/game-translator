@@ -5,7 +5,6 @@ gem 'rails', '3.2.12'
 
 gem 'jquery-rails', '2.0.2'
 gem 'jquery-ui-rails', '4.0.1'
-gem 'mysql2', '0.3.11'
 gem 'devise', '3.0.0'
 gem 'cancan', '1.6.10'
 gem 'globalize3', '0.3.0'
@@ -17,14 +16,14 @@ gem 'coffee-rails', '3.2.2'
 gem 'uglifier', '1.2.6'
 gem 'will_paginate', '3.0.3'
 
+gem 'mysql2', '0.3.11', group: [:test, :development]
+gem 'pg', '0.13.2', group: :production
 gem 'rspec-rails', '2.8', group: [:test, :development]
 
-gem 'click_jogos_base', path: '../../clickjogos/clickjogos-base'
-gem 'paperclip_interpolations', path: '../../clickjogos/paperclip-interpolations'
-gem 'file_helper', git: 'git@github.com:clickjogos/file-helper.git'
-gem 'bootstrap', path: '../../clickjogos/bootstrap'
-
 group :development do
+  gem 'click_jogos_base', path: '../../clickjogos/clickjogos-base', require: false
+  gem 'paperclip_interpolations', path: '../../clickjogos/paperclip-interpolations', require: false
+  gem 'file_helper', git: 'git@github.com:clickjogos/file-helper.git', require: false
   gem 'capistrano', '2.12.0'
   gem 'capistrano-ext', '1.2.1'
   gem 'passenger', '3.0.13'

@@ -6,6 +6,14 @@ development:
   pool: 5
   username: root
 
+click_jogos_development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: clickjogos_development
+  pool: 5
+  username: root
+
 test:
   adapter: mysql2
   encoding: utf8
@@ -14,10 +22,10 @@ test:
   pool: 5
   username: root
 
-production:
-  adapter: postgresql
+click_jogos_test:
+  adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: game_translator_production
+  database: clickjogos_test
   pool: 5
-  username: gametranslator
+  username: root
