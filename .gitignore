@@ -14,7 +14,7 @@ tmp
 log/*.log
 db/schema.rb
 # Gemfile.lock
-
+.DS_Store
 # YARD artifacts
 .yardoc
 _yardoc
