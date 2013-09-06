@@ -16,11 +16,11 @@ gem 'coffee-rails', '3.2.2'
 gem 'uglifier', '1.2.6'
 gem 'will_paginate', '3.0.3'
 
-gem 'mysql2', '0.3.11', group: [:test, :development]
+gem 'mysql2', '0.3.11'
 gem 'rspec-rails', '2.8', group: [:test, :development]
 
 group :production do
-  gem 'pg', '0.13.2'
+  # gem 'pg', '0.13.2'
   gem 'thin'
 end
 
@@ -33,8 +33,8 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '2.1.0'
-  gem 'capybara-webkit', '1.0.0'
+  # gem 'capybara', '2.1.0'
+  # gem 'capybara-webkit', '1.0.0'
   gem 'spork', '0.9.2'
   gem 'database_cleaner', '0.8.0'
   gem 'ffaker', '1.15.0'
