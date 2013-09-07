@@ -20,7 +20,7 @@ gem 'mysql2', '0.3.11'
 gem 'rspec-rails', '2.8', group: [:test, :development]
 
 group :production do
-  # gem 'pg', '0.13.2'
+  gem 'pg', '0.13.2'
   gem 'thin'
 end
 
