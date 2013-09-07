@@ -33,8 +33,8 @@ group :development do
 end
 
 group :test do
-  # gem 'capybara', '2.1.0'
-  # gem 'capybara-webkit', '1.0.0'
+  gem 'capybara', '2.1.0'
+  gem 'capybara-webkit', '1.0.0'
   gem 'spork', '0.9.2'
   gem 'database_cleaner', '0.8.0'
   gem 'ffaker', '1.15.0'
