@@ -14,40 +14,22 @@ describe GameTranslator::Stat do
     5.times { create(:game_translator_game_translation, revised: false, user: user2) }
   end
 
-  describe '.total' do
-    it 'has a method for count games' do
-      GameTranslator::Stat.should respond_to :total
-    end
+  subject { GameTranslator::Stat }
 
-    it 'returns total of games' do
-      GameTranslator::Stat.total.should == GameTranslator::Game.count
-    end
-  end
+  it { should respond_to :total }
 
-  describe '.translated' do
-    it 'has a method for count translated games' do
-      GameTranslator::Stat.should respond_to :translated
-    end
+  its(:total) { should eq(GameTranslator::Game.count) }
 
-    it 'returns total of translated games' do
-      GameTranslator::Stat.translated.should == 10
-    end
-  end
+  it { should respond_to :translated }
 
-  describe '.revised' do
-    it 'has a method for count revised translations' do
-      GameTranslator::Stat.should respond_to :revised
-    end
+  its(:translated) { should eq(10) }
 
-    it 'returns total of revised translations' do
-      GameTranslator::Stat.revised.should == 10
-    end
-  end
+  it { should respond_to :revised }
+
+  its(:revised) { should eq(10) }
 
   describe '.percentage' do
-    it 'has a method for get percentage of translated games' do
-      GameTranslator::Stat.should respond_to :percentage
-    end
+    it { should respond_to :percentage }
 
     it 'returns percentage of translated games' do
       total = GameTranslator::Game.count
@@ -57,20 +39,12 @@ describe GameTranslator::Stat do
     end
   end
 
-  describe '.greatest_translator' do
-    it 'has a method for get the greatest translator' do
-      GameTranslator::Stat.should respond_to :greatest_translator
-    end
+  it { should respond_to :greatest_translator }
 
-    it 'returns the user with more translations' do
-      GameTranslator::Stat.greatest_translator.should == user
-    end
-  end
+  its(:greatest_translator) { should eq(user) }
 
   describe '.count_translations' do
-    it 'has a method for count user translations' do
-      GameTranslator::Stat.should respond_to :count_translations
-    end
+    it { should respond_to :count_translations }
 
     it 'returns total of user translations' do
       GameTranslator::Stat.count_translations(user2).should == 5

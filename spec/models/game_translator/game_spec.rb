@@ -5,9 +5,7 @@ describe GameTranslator::Game do
     create(:game_translator_game).should be_valid
   end
 
-  it 'has many translations' do
-    create(:game_translator_game).should respond_to :translations
-  end
+  it { should respond_to :translations }
 
   describe 'status' do
     it 'is present' do

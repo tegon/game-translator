@@ -22,9 +22,9 @@ describe GameTranslator::Language do
   end
 
   describe '.codes' do
-    it 'has a codes method' do
-      GameTranslator::Language.should respond_to :codes
-    end
+    subject { GameTranslator::Language }
+
+    it { should respond_to :codes }
 
     it 'returns an array of codes' do
       create(:game_translator_language, name: 'English', code: 'en')
