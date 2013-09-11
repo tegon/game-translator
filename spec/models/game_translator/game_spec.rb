@@ -80,5 +80,13 @@ describe GameTranslator::Game do
       I18n.locale = :en
       @game.name.should == 'foo bar'
     end
+
+    it 'does not change with blank' do
+      expect { @game.update_attributes(name_en: '') }.to_not change { @game.name_en }
+    end
+
+    it 'does not change with nil' do
+      expect { @game.update_attributes(name_en: nil) }.to_not change { @game.name_en }
+    end
   end
 end

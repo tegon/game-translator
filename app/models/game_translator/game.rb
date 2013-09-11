@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 module GameTranslator
   class Game < ActiveRecord::Base
     # translated fields
@@ -21,6 +23,7 @@ module GameTranslator
         end
 
         define_method "#{ attribute }_#{ language }=" do |value|
+          return errors[:base] << "#{ attribute } não pode ficar em branco" unless value.present?
           I18n.with_locale(language) do
             write_attribute(attribute, value)
           end
