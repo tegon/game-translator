@@ -1,3 +1,6 @@
+user = User.create(name: 'Reviser', email: 'reviser@domain.com', password: '123123123', password_confirmation: '123123123', role: 'reviser')
+puts "Reviser-#{user.id} criado!"
+
 5000.times do |i|
   Game.create(name: "Game #{ i }",
     short_description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod

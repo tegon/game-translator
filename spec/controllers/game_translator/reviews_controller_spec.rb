@@ -2,14 +2,9 @@ require 'spec_helper'
 
 describe GameTranslator::ReviewsController do
   let(:reviser) { create(:game_translator_user, role: 'reviser') }
-  let(:user) { create(:game_translator_user, role: 'translator') }
+  let(:review) { create(:game_translator_review) }
 
-  before do
-    sign_in reviser
-    100.times { create(:game_translator_game_translation, user: user, revised: false) }
-    GameTranslator::Review.to_review
-    @review = GameTranslator::Review.first
-  end
+  before { sign_in reviser }
 
   describe 'GET index' do
     it 'renders the reviews index' do
@@ -20,28 +15,28 @@ describe GameTranslator::ReviewsController do
 
   describe 'GET edit' do
     it 'renders the edit view' do
-      get :edit, id: @review.id
+      get :edit, id: review.id
       response.should render_template :edit
     end
 
     it 'assigns a review to the review variable' do
-      get :edit, id: @review.id
-      assigns(:review).should == @review
+      get :edit, id: review.id
+      assigns(:review).should == review
     end
   end
 
   describe 'PUT update' do
     context 'when accepted' do
       it 'redirects to the reviews index' do
-        put :update, { id: @review.id }
+        put :update, { id: review.id }
         response.should redirect_to review_path
       end
 
       it 'changes the review attributes' do
-        put :update, { id: @review.id }
-        @review.reload
-        @review.status.should == 'accepted'
-        @review.translations.map do |t|
+        put :update, { id: review.id }
+        review.reload
+        review.status.should == 'accepted'
+        review.translations.map do |t|
           t.revised.should be_true
         end
       end
@@ -49,15 +44,15 @@ describe GameTranslator::ReviewsController do
 
     context 'when rejected' do
       it 'redirects to the reviews index' do
-        put :update, { id: @review.id, delete: 'Recusar' }
+        put :update, { id: review.id, delete: 'Recusar' }
         response.should redirect_to review_path
       end
 
       it 'changes the review attributes' do
-        put :update, { id: @review.id, delete: 'Recusar' }
-        @review.reload
-        @review.status.should == 'rejected'
-        @review.translations.map do |t|
+        put :update, { id: review.id, delete: 'Recusar' }
+        review.reload
+        review.status.should == 'rejected'
+        review.translations.map do |t|
           t.revised.should be_true
           t.game.status.should == 'not_translated'
         end
