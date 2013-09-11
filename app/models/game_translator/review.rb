@@ -9,7 +9,10 @@ module GameTranslator
 
     def self.to_review
       GameTranslator::User.translators.map do |user|
-        if user.translations.not_revised.count >= 100
+        p '/'*100
+        p user.not_revised_count
+        if user.not_revised_count >= 100
+          p '/'*200
           review = GameTranslator::Review.create(user: user, status: 'pending')
           user.translations.not_revised.first(100).map { |t| t.update_attribute(:review, review) }
         end

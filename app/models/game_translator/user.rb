@@ -25,5 +25,9 @@ module GameTranslator
     def translator?
       self.role == 'translator'
     end
+
+    def not_revised_count
+      translations.not_revised.count
+    end
   end
 end

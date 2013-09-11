@@ -4,7 +4,7 @@ describe GameTranslator::Stat do
   let(:user) { create(:game_translator_user, role: 'translator') }
   let(:user2) { create(:game_translator_user, role: 'translator') }
 
-  before do
+  before(:all) do
     10.times { create(:game_translator_game, status: 'translated') }
 
     10.times { create(:game_translator_game, status: 'not_translated') }
