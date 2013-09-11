@@ -13,9 +13,7 @@ class GameTranslator::GamesController < ApplicationController
   def update
     params['game'].keys.each do |id|
       @game = GameTranslator::Game.find(id.to_i)
-      if @game.update_attributes(params['game'][id])
-
-        @game.update_attribute(:status, 'translated')
+      if @game.update_attributes(params['game'][id].merge(status: 'translated'))
 
         set_user(@game.translations)
 
