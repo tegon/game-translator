@@ -20,6 +20,11 @@ or
 rake db:seed
 ```
 
+Authentication is required to use the site, so you can log in with a user that is created on the seed:
+```ruby
+email: 'reviser@domain.com', password: '123123123'
+```
+
 You can change attributes in specific locales calling the method like this:
 ```ruby
 attribute_locale
