@@ -19,11 +19,11 @@ module GameTranslator
     ROLES = %w[translator reviser]
 
     def reviser?
-      self.role == 'reviser'
+      role == 'reviser'
     end
 
     def translator?
-      self.role == 'translator'
+      role == 'translator'
     end
   end
 end
