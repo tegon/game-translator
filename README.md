@@ -20,9 +20,9 @@ or
 rake db:seed
 ```
 
-Authentication is required to use the site, so you need create an user via console:
+Authentication is required to use the site, so you can log in with a user that is created on the seed:
 ```ruby
-User.create(name: 'John Doe', email: 'john@test.com', password: '123123123', password_confirmation: '123123123', role: 'reviser')
+email: 'reviser@domain.com', password: '123123123'
 ```
 
 You can change attributes in specific locales calling the method like this:
