@@ -4,7 +4,7 @@ class GameTranslator::GamesController < ApplicationController
   before_filter :check_games, only: :translate
 
   def translate
-    @languages = GameTranslator::Language.all
+    @languages = GameTranslator::Language.codes
     @games = GameTranslator::Game.not_translated.sample(4)
     @games.map { |game| game.update_attribute(:status, 'translating') }
     session[:translating] = @games.map { |game| game.id }
