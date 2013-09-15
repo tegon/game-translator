@@ -1,7 +1,7 @@
 #games
   %fieldset
     - @game.translations.each do |translation|
-      = render 'shared/translation_form', f: f, language: translation.locale, translation: translation, disabled: true
+      = render 'shared/translation_form', f: f, language: translation.locale, translation: translation, disabled: true, parse_instructions: false, required: false
 
   = f.submit 'Aceitar', class: 'button', confirm: 'Certeza?'
 
