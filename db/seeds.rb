@@ -1,4 +1,6 @@
-user = User.create(name: 'Reviser', email: 'reviser@domain.com', password: '123123123', password_confirmation: '123123123', role: 'reviser')
+user = User.create(name: 'Reviser', email: 'reviser@domain.com', 
+                    password: '123123123', password_confirmation: '123123123', 
+                    role: 'reviser')
 puts "Reviser-#{user.id} criado!"
 
 5000.times do |i|

@@ -5,49 +5,10 @@
   - @games.each do |game|
     = fields_for 'game[]', game do |game_fields|
       %fieldset
-        %dl
-          .flag= flag('pt-BR')
-          %p.language= 'Português'
-
-          %dt Nome
-          %dd.name
-            = game_fields.text_field :name, disabled: true
-
-          %dt Descrição Curta
-          %dd= game_fields.text_field :short_description, disabled: true
-
-          %dt Descrição Longa
-          %dd= game_fields.text_area :long_description, disabled: true
-
-          - if game.wide_description.present?
-            %dt Descrição Wide
-            %dd= game_fields.text_area :wide_description, disabled: true
-
-          %dt Instruções
-          %dd= game_fields.text_area :instructions, disabled: true
+        = render 'shared/translation_form', f: game_fields, language: :"pt-BR", translation: game, disabled: true, parse_instructions: false, required: false
 
         - @languages.each do |language|
-          %dl
-            .flag= flag(language.code)
-            %p.language= "Traduzir para #{ language.name }"
-
-            %dt Nome
-            %dd= game_fields.text_field "name_#{ language.code }".to_sym, required: true
-
-            %dt Descrição Curta
-            %dd= game_fields.text_field "short_description_#{ language.code }".to_sym, required: true
-
-            %dt Descrição Longa
-            %dd= game_fields.text_area "long_description_#{ language.code }".to_sym, required: true
-
-            - if game.wide_description.present?
-              %dt Descrição Wide
-              %dd= game_fields.text_area "wide_description_#{ language.code }".to_sym, required: true
-
-            %dd.instructions
-              %dl
-                %dt Instruções
-                = game_fields.text_area "instructions_#{ language.code }".to_sym, required: true, value: process_instructions(game.instructions)
+          = render 'shared/translation_form', f: game_fields, language: language, translation: game, disabled: false, parse_instructions: true, required: true
 
   = submit_tag 'Traduzir!', class: 'button'
 

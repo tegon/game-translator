@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title GameTranslator
+    %title Game Translator
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
@@ -9,16 +9,16 @@
     #nav
       .content
         %ul
-          %li GameTranslator
+          %li Game Translator
           - if can? :manage, GameTranslator::Game
             .divider
             %li= link_to 'Traduzir', game_translate_path
           - if can? :manage, GameTranslator::User
             .divider
-            %li= link_to 'Cadastro de Usuários', user_index_path
+            %li= link_to 'Usuários', user_index_path
           - if can? :manage, GameTranslator::Language
             .divider
-            %li= link_to 'Cadastro de Idiomas', languages_path
+            %li= link_to 'Idiomas', languages_path
           - if can? :manage, GameTranslator::Stat
             .divider
             %li= link_to 'Estatísticas', stats_path

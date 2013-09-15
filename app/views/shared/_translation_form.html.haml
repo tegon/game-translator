@@ -1,0 +1,22 @@
+%dl
+  .flag= flag(language)
+  %p.language= full_name(language)
+
+  %dt Nome
+  %dd= f.text_field "name_#{ language.to_s.underscore }", disabled: disabled, required: required
+  
+  %dt Descrição Curta
+  %dd= f.text_field "short_description_#{ language.to_s.underscore }", disabled: disabled, required: required
+  
+  %dt Descrição Longa
+  %dd= f.text_area "long_description_#{ language.to_s.underscore }", disabled: disabled, required: required
+  
+  - if translation.wide_description.present?
+    %dt Descrição Wide
+    %dd= f.text_area "wide_description_#{ language.to_s.underscore }", disabled: disabled, required: required
+  
+  %dt Instruções
+  - if parse_instructions
+    %dd= f.text_area "instructions_#{ language.to_s.underscore }", required: required, value: process_instructions(translation.instructions)
+  - else
+    %dd= f.text_area "instructions_#{ language.to_s.underscore }", disabled: disabled, required: required

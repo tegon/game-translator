@@ -16,14 +16,14 @@ module GameTranslator
     # defining accessors for translated fields ex:(name_en)
     translated_attribute_names.each do |attribute|
       I18n.available_locales.map do |language|
-        define_method "#{ attribute }_#{ language }" do
+        define_method "#{ attribute }_#{ language.to_s.underscore }" do
           I18n.with_locale(language) do
             read_attribute attribute
           end
         end
 
-        define_method "#{ attribute }_#{ language }=" do |value|
-          return errors[:base] << "#{ attribute } não pode ficar em branco" unless value.present?
+        define_method "#{ attribute }_#{ language.to_s.underscore }=" do |value|
+          return false if value.nil? || value.blank?
           I18n.with_locale(language) do
             write_attribute(attribute, value)
           end
@@ -32,7 +32,7 @@ module GameTranslator
     end
 
     # extending globalize3 class
-    GameTranslator::Game::Translation.class_eval do
+    class Translation < Globalize::ActiveRecord::Translation
       # relationship
       belongs_to :game
       belongs_to :user

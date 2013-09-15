@@ -14,11 +14,11 @@ describe 'Authorization' do
     end
 
     it 'gives access to users page' do
-      page.should have_content('Cadastro de Usuários')
+      page.should have_content('Usuários')
     end
 
     it 'gives access to languages page' do
-      page.should have_content('Cadastro de Idiomas')
+      page.should have_content('Idiomas')
     end
 
     it 'gives access to stats page' do
