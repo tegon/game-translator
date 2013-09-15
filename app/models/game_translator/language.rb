@@ -5,7 +5,7 @@ module GameTranslator
     validates :code, presence: true, inclusion: { in: I18n.available_locales.map { |locale| locale.to_s } }
 
     def self.codes
-      GameTranslator::Language.all.map { |l| l.code }
+      GameTranslator::Language.pluck(:code)
     end
   end
 end
