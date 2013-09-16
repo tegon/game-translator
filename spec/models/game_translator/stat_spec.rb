@@ -18,15 +18,15 @@ describe GameTranslator::Stat do
 
   it { should respond_to :total }
 
-  its(:total) { should eq(GameTranslator::Game.count) }
+  its(:total) { should eql(GameTranslator::Game.count) }
 
   it { should respond_to :translated }
 
-  its(:translated) { should eq(10) }
+  its(:translated) { should eql(10) }
 
   it { should respond_to :revised }
 
-  its(:revised) { should eq(10) }
+  its(:revised) { should eql(10) }
 
   describe '.percentage' do
     it { should respond_to :percentage }
@@ -41,7 +41,7 @@ describe GameTranslator::Stat do
 
   it { should respond_to :greatest_translator }
 
-  its(:greatest_translator) { should eq(user) }
+  its(:greatest_translator) { should eql(user) }
 
   describe '.count_translations' do
     it { should respond_to :count_translations }

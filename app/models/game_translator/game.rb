@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 module GameTranslator
   class Game < ActiveRecord::Base
     # translated fields
