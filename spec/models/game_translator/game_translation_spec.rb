@@ -17,9 +17,7 @@ describe GameTranslator::Game::Translation do
     translation.user.should eql(user)
   end
 
-  it 'belongs to review' do
-    translation.should respond_to :review
-  end
+  it { should respond_to :review }
 
   it 'updates review' do
     review = create(:game_translator_review)
