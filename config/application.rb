@@ -8,10 +8,6 @@ end
 
 module GameTranslator
   class Application < Rails::Application
-    config.after_initialize do
-      require File.expand_path('../../lib/model_alias.rb',  __FILE__)
-    end
-
     config.time_zone = 'Brasilia'
     
     config.i18n.default_locale = 'pt-BR'
