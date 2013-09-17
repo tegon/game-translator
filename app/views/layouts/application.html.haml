@@ -31,16 +31,17 @@
 
           .flags
             %li
-              = link_to '/en/', title: 'English' do
+              = link_to '/en/', title: 'English', id: 'en' do
                 = flag('en')
 
             %li
-              = link_to '/es/', title: 'Español' do
+              = link_to '/es/', title: 'Español', id: 'es' do
                 = flag('es')
 
             %li
-              = link_to '/', title: 'Português' do
+              = link_to '/', title: 'Português', id: 'pt-BR' do
                 = flag('pt-BR')
     #container
       = render 'shared/flash_messages'
       = yield
+    = javascript_tag 'new ChangeLocale();'
