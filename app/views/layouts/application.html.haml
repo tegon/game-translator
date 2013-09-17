@@ -26,12 +26,21 @@
             .divider
             %li= link_to t('nav.links.reviews'), review_path
 
-          %li= link_to 'English', '/en/'
-          %li= link_to 'Español', '/es/'
-          %li= link_to 'Português', '/'
-
           - if signed_in?
             = render 'layouts/nav'
+
+          .flags
+            %li
+              = link_to '/en/', title: 'English' do
+                = flag('en')
+
+            %li
+              = link_to '/es/', title: 'Español' do
+                = flag('es')
+
+            %li
+              = link_to '/', title: 'Português' do
+                = flag('pt-BR')
     #container
       - unless flash[:error].blank?
         .error= flash[:error].html_safe
