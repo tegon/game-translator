@@ -1,16 +1,6 @@
 - if @reviews.present?
-
   %h1 Revisões Disponíveis
-
-  - @reviews.each do |review|
-    #wrap
-      %p.title Tradutor: #{ review.user.name }
-      %p.title Traduções: #{ review.translations.count }
-
-      = link_to 'Revisar', review_edit_path(review.id), class: 'link'
-
+  = render @reviews
   = will_paginate @reviews
-
 - else
-
   %h1 Nenhuma Revisão Disponível

@@ -1,9 +1,4 @@
-- if @language.errors.size > 0
-
-  - for error in @language.errors.full_messages
-    .error
-      %ul
-        %li= error
+= render 'shared/error_messages', record: @language
 
 %dl
   %dt Nome

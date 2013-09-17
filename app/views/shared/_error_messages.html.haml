@@ -1,0 +1,6 @@
+- if record.errors.size > 0
+
+  - for error in record.errors.full_messages
+    .error
+      %ul
+        %li= error
