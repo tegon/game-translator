@@ -18,3 +18,9 @@ pt-BR:
         code: Sigla
       game_translator/review:
         status: Status
+      game_translator/game:
+        name: Nome
+        short_description: Descrição Curta
+        long_description: Descrição
+        wide_description: Descrição Wide
+        instructions: Instruções
