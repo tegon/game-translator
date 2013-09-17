@@ -1,9 +1,0 @@
-es:
-  nav:
-    links:
-      users: Usuarios
-      languages: Idiomas
-      stats: Estadísticas
-      reviews: Revisiones
-    greeting: "Hola, %{user}!"
-    logout: Logout
