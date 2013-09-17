@@ -1,0 +1,9 @@
+pt-BR:
+  nav:
+    links:
+      users: Usuários
+      languages: Idiomas
+      stats: Estatísticas
+      reviews: Revisões
+    greeting: "Olá, %{user}!"
+    logout: Sair

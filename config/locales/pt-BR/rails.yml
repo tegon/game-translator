@@ -1,4 +1,4 @@
-"pt-BR":
+pt-BR:
   # formatos de data e hora
   date:
     formats:
@@ -174,16 +174,3 @@
         even: "deve ser par"
         record_invalid: "A validação falhou: %{errors}"
         permission_denied: Você não tem permissão para acessar essa página
-    models:
-      user: Usuário
-      language: Idioma
-      stat: Estatística
-    attributes:
-      user:
-        name: Nome
-        email: Email
-        password: Senha
-        remember_me: Mantenha-me conectado
-      language:
-        name: Nome
-        code: Sigla

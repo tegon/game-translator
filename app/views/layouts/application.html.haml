@@ -15,16 +15,21 @@
             %li= link_to 'Traduzir', game_translate_path
           - if can? :manage, GameTranslator::User
             .divider
-            %li= link_to 'Usuários', user_index_path
+            %li= link_to t('nav.links.users'), user_index_path
           - if can? :manage, GameTranslator::Language
             .divider
-            %li= link_to 'Idiomas', languages_path
+            %li= link_to t('nav.links.languages'), languages_path
           - if can? :manage, GameTranslator::Stat
             .divider
-            %li= link_to 'Estatísticas', stats_path
+            %li= link_to t('nav.links.stats'), stats_path
           - if can? :manage, GameTranslator::Review
             .divider
-            %li= link_to 'Revisões', review_path
+            %li= link_to t('nav.links.reviews'), review_path
+
+          %li= link_to 'English', '/en/'
+          %li= link_to 'Español', '/es/'
+          %li= link_to 'Português', '/'
+
           - if signed_in?
             = render 'layouts/nav'
     #container

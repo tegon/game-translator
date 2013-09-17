@@ -13,9 +13,11 @@ module GameTranslator
     end
 
     config.time_zone = 'Brasilia'
-    
+
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.yml').to_s]
+
     config.i18n.default_locale = 'pt-BR'
-    
+
     config.i18n.available_locales = YAML.load(File.open("#{ Rails.root }/config/language_codes.yml"))
 
     config.encoding = "utf-8"
