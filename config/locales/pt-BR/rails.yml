@@ -173,4 +173,3 @@ pt-BR:
         odd: "deve ser ímpar"
         even: "deve ser par"
         record_invalid: "A validação falhou: %{errors}"
-        permission_denied: Você não tem permissão para acessar essa página

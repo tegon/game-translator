@@ -1,4 +1,4 @@
-%h1 Novo idioma
+%h1= t('titles.languages.new')
 
 = form_for @language, url: language_create_path, html:{ multipart: true } do |f|
 	= render partial: 'form', locals:{ f:f }

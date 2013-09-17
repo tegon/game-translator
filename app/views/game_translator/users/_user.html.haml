@@ -1,7 +1,13 @@
 #wrap
-  %p.title Nome: #{ user.name }
-  %p.title Email: #{ user.email }
-  %p.title Função: #{ user.role.humanize }
-  
-  = link_to 'Editar', user_edit_path(user.id), class: 'link'
-  = link_to 'Deletar',  user_destroy_path(user.id), method: :delete, confirm: 'Tem certeza?', class: 'link'
+  %p.title
+    = t('activerecord.attributes.game_translator/user.name')
+    = ": #{ user.name }"
+  %p.title
+    = t('activerecord.attributes.game_translator/user.email')
+    = ": #{ user.email }"
+  %p.title
+    = t('activerecord.attributes.game_translator/user.role')
+    = ": #{ user.role.humanize }"
+
+  = link_to t('links.edit'), user_edit_path(user), class: 'link'
+  = link_to t('links.delete'),  user_destroy_path(user), method: :delete, confirm: t('links.confirm'), class: 'link'

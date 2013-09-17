@@ -12,19 +12,19 @@
           %li Game Translator
           - if can? :manage, GameTranslator::Game
             .divider
-            %li= link_to 'Traduzir', game_translate_path
+            %li= link_to t('links.nav.translate'), game_translate_path
           - if can? :manage, GameTranslator::User
             .divider
-            %li= link_to t('nav.links.users'), user_index_path
+            %li= link_to t('links.nav.users'), user_index_path
           - if can? :manage, GameTranslator::Language
             .divider
-            %li= link_to t('nav.links.languages'), languages_path
+            %li= link_to t('links.nav.languages'), languages_path
           - if can? :manage, GameTranslator::Stat
             .divider
-            %li= link_to t('nav.links.stats'), stats_path
+            %li= link_to t('links.nav.stats'), stats_path
           - if can? :manage, GameTranslator::Review
             .divider
-            %li= link_to t('nav.links.reviews'), review_path
+            %li= link_to t('links.nav.reviews'), review_path
 
           - if signed_in?
             = render 'layouts/nav'

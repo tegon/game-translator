@@ -1,6 +1,6 @@
 - if @reviews.present?
-  %h1 Revisões Disponíveis
+  %h1= t('titles.review.all')
   = render @reviews
   = will_paginate @reviews
 - else
-  %h1 Nenhuma Revisão Disponível
+  %h1= t('titles.review.none')

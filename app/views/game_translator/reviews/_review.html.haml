@@ -1,5 +1,5 @@
 #wrap
-  %p.title Tradutor: #{ review.user.name }
-  %p.title Traduções: #{ review.translations.count }
+  %p.title= t('titles.review.translator', name: review.user.name)
+  %p.title= t('titles.review.translations', count: review.translations.count)
 
-  = link_to 'Revisar', review_edit_path(review.id), class: 'link'
+  = link_to t('links.review.revise'), review_edit_path(review), class: 'link'

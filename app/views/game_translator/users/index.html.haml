@@ -1,5 +1,5 @@
-%h1 Usuários cadastrados
- 
-= link_to 'Novo usuário', user_new_path, class: 'link'
+%h1= t('titles.users.all')
+
+= link_to t('links.user.new'), user_new_path, class: 'link'
 = render @users
 = will_paginate @users
