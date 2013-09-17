@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      game_translator/user: Usuário
+    attributes:
+      game_translator/user:
+        email: Email
+        password: Senha
+        remember_me: Mantenha-me conectado
