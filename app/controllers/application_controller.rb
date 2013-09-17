@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :authenticate_user!
   before_filter :set_locale
+  before_filter :authenticate_user!
 
   rescue_from CanCan::AccessDenied do |exception|
     case current_user.role
@@ -15,8 +15,6 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
-    p '/'*100
-    p I18n.locale
   end
 
   def default_url_options(options={})
