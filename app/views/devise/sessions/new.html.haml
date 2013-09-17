@@ -1,5 +1,5 @@
 #login
-  %h1 Login
+  %h1= t('titles.login')
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     %dt= f.label :email
     %dd= f.email_field :email, autofocus: true, required: true
