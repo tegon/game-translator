@@ -1,0 +1,5 @@
+#wrap
+  %p.title Tradutor: #{ review.user.name }
+  %p.title Traduções: #{ review.translations.count }
+
+  = link_to 'Revisar', review_edit_path(review.id), class: 'link'

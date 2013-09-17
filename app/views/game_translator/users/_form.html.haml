@@ -1,9 +1,4 @@
-- if @user.errors.size > 0
-
-  - for error in @user.errors.full_messages
-    .error
-      %ul
-        %li= error
+= render 'shared/error_messages', record: @user
 
 %dl
   %dt Nome

@@ -10,7 +10,7 @@ module GameTranslator
       end
 
       def revised
-        Translation.revised.count
+        GameTranslator::Game::Translation.revised.count
       end
 
       def greatest_translator

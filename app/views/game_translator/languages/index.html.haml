@@ -1,16 +1,5 @@
 %h1 Idiomas cadastrados
 
 = link_to 'Novo idioma', language_new_path, class: 'link'
-
-- unless @languages.blank?
-  - @languages.each do |language|
-    #wrap
-      %p.title Nome: #{ language.name }
-      %p.title Sigla: #{ language.code }
-      
-      %div= flag(language.code)
-
-      = link_to 'Editar', language_edit_path(language.id), class: 'link'
-      = link_to 'Deletar', language_destroy_path(language.id), method: :delete, confirm: 'Tem certeza?', class: 'link'
-      
+= render @languages
 = will_paginate @languages

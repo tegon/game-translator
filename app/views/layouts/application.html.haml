@@ -42,10 +42,5 @@
               = link_to '/', title: 'Português' do
                 = flag('pt-BR')
     #container
-      - unless flash[:error].blank?
-        .error= flash[:error].html_safe
-      - unless flash[:success].blank?
-        .success= flash[:success].html_safe
-      - unless flash[:alert].blank?
-        .error= flash[:alert].html_safe
+      = render 'shared/flash_messages'
       = yield
