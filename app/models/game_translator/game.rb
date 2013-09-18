@@ -17,7 +17,6 @@ module GameTranslator
 
     # extending globalize3 class
     class Translation < Globalize::ActiveRecord::Translation
-      # attr_accessible :game
       # relationship
       belongs_to :game
       belongs_to :user
