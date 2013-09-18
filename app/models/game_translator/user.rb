@@ -1,5 +1,8 @@
 module GameTranslator
   class User < ActiveRecord::Base
+    # attr
+    attr_accessible :name, :email, :password, :password_confirmation, :role, :remember_me
+
     # devise
     devise :database_authenticatable, :rememberable, :trackable, :validatable
 
