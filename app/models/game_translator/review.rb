@@ -1,5 +1,8 @@
 module GameTranslator
   class Review < ActiveRecord::Base
+    # attr
+    attr_accessible :user, :status
+
     # relationship
     belongs_to :user
     has_many :translations, class_name: GameTranslator::Game::Translation

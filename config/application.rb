@@ -9,9 +9,9 @@ end
 module GameTranslator
   class Application < Rails::Application
     config.time_zone = 'Brasilia'
-    
+
     config.i18n.default_locale = 'pt-BR'
-    
+
     config.i18n.available_locales = YAML.load(File.open("#{ Rails.root }/config/language_codes.yml"))
 
     config.encoding = "utf-8"
@@ -20,7 +20,7 @@ module GameTranslator
 
     config.active_support.escape_html_entities_in_json = true
 
-    config.active_record.whitelist_attributes = false
+    config.active_record.whitelist_attributes = true
 
     config.assets.enabled = true
 

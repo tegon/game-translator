@@ -1,7 +1,11 @@
 module GameTranslator
   class Game < ActiveRecord::Base
+    # attr
+    attr_accessible :name, :short_description, :long_description, :wide_description, :instructions, :status
+
     # translated fields
     translates :name, :short_description, :long_description, :wide_description, :instructions
+    globalize_accessors
 
     # validates
     validates :status, presence: true, inclusion: { in: %w(not_translated translated translating) }
@@ -11,26 +15,9 @@ module GameTranslator
     scope :translated, conditions: { status: 'translated' }
     scope :random, order: 'RAND()', limit: '4'
 
-    # defining accessors for translated fields ex:(name_en)
-    translated_attribute_names.each do |attribute|
-      I18n.available_locales.map do |language|
-        define_method "#{ attribute }_#{ language.to_s.underscore }" do
-          I18n.with_locale(language) do
-            read_attribute attribute
-          end
-        end
-
-        define_method "#{ attribute }_#{ language.to_s.underscore }=" do |value|
-          return false if value.nil? || value.blank?
-          I18n.with_locale(language) do
-            write_attribute(attribute, value)
-          end
-        end
-      end
-    end
-
     # extending globalize3 class
     class Translation < Globalize::ActiveRecord::Translation
+      # attr_accessible :game
       # relationship
       belongs_to :game
       belongs_to :user
