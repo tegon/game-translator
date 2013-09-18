@@ -1,4 +1,6 @@
-%h1 Estatísticas
+%h1 Estatísticas Gerais
+
+= link_to 'Estatísticas por usuário', stats_users_index_path, class: 'link'
 
 %h1 Total de games: #{ number_with_delimiter @total }
 %h1 Traduzidos: #{ number_with_delimiter @translated }

@@ -25,6 +25,10 @@ module GameTranslator
       # scopes
       scope :not_revised, conditions: { revised: false, review_id: nil }
       scope :revised, conditions: { revised: true }
+
+      def self.of_date(start_date, end_date)
+        where(created_at: start_date..end_date)
+      end
     end
   end
 end
