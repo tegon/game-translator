@@ -2,11 +2,11 @@ pt-BR:
   titles:
     login: Login
     users:
-      all: Usuários cadastrados
+      all: Usuários
       edit: Editar usuário
       new: Novo usuário
     languages:
-      all: Idiomas cadastrados
+      all: Idiomas
       edit: Editar o idioma
       new: Novo idioma
     review:

@@ -1,6 +1,5 @@
 GameTranslator::Application.routes.draw do
-
-  scope "(:locale)", :locale => /pt-BR|en|es/ do
+  scope "(:locale)", :locale => /en|es/ do
     root to: 'game_translator/games#translate'
 
     devise_for :users, skip: [:registrations], class_name: 'GameTranslator::User', path_names: {
