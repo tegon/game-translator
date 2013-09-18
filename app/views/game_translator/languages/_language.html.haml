@@ -1,7 +1,7 @@
 #wrap
   %p.title
     = t('activerecord.attributes.game_translator/language.name')
-    = ": #{ language.name }"
+    = ": #{ truncate language.name, length: 20 }"
   %p.title
     = t('activerecord.attributes.game_translator/language.code')
     = ": #{ language.code }"

@@ -1,6 +1,7 @@
 - if @reviews.present?
   %h1= t('titles.review.all')
   = render @reviews
-  = will_paginate @reviews
+.page_wraper
+  = will_paginate @reviews, inner_window: 10
 - else
   %h1= t('titles.review.none')

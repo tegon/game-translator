@@ -1,6 +1,6 @@
 class GameTranslator::UsersController < ApplicationController
   load_and_authorize_resource
-  
+
   def index
     @users = GameTranslator::User.paginate(page: params[:page])
   end
@@ -24,8 +24,8 @@ class GameTranslator::UsersController < ApplicationController
   end
 
   def update
-    @user = GameTranslator::User.find(params[:id]) 
-    
+    @user = GameTranslator::User.find(params[:id])
+
     successfully_updated = if needs_password?(@user, params)
       @user.update_with_password(params[:game_translator_user])
     else

@@ -1,10 +1,10 @@
 #wrap
   %p.title
     = t('activerecord.attributes.game_translator/user.name')
-    = ": #{ user.name }"
+    = ": #{ truncate user.name, length: 20 }"
   %p.title
     = t('activerecord.attributes.game_translator/user.email')
-    = ": #{ user.email }"
+    = ": #{ truncate user.email, length: 20 }"
   %p.title
     = t('activerecord.attributes.game_translator/user.role')
     = ": #{ user.role.humanize }"
