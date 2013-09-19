@@ -12,7 +12,7 @@ class GameTranslator::UsersController < ApplicationController
   def create
     @user = GameTranslator::User.new(params[:game_translator_user])
     if @user.save
-      flash[:success] = 'Cadastrado com sucesso!'
+      flash[:success] = t('controllers.users.create')
       redirect_to user_index_path
     else
       render action: :new
@@ -34,7 +34,7 @@ class GameTranslator::UsersController < ApplicationController
     end
 
     if successfully_updated
-      flash[:sucess] = 'Cadastro atualizado com sucesso!'
+      flash[:sucess] = t('controllers.users.update')
       redirect_to user_index_path
     else
       render action: :edit
@@ -44,7 +44,7 @@ class GameTranslator::UsersController < ApplicationController
   def destroy
     user = GameTranslator::User.find(params[:id])
     if user.destroy
-      flash[:sucess] = 'Cadastro deletado!'
+      flash[:sucess] = t('controllers.users.destroy')
       redirect_to user_index_path
     else
       render action: :edit

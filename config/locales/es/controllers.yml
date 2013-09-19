@@ -1,0 +1,17 @@
+es:
+  controllers:
+    games:
+      update:
+        success: Juego traducido con successo!
+        error: Error al traducir el juego.
+    languages:
+      create: Idioma registrado correctamente!
+      update: Idioma actualizado correctamente!
+      destroy: Idioma borrado!
+    reviews:
+      accepted: Traducciones aceptados con éxito!
+      rejected: Traducciones rechazaron con éxito!
+    users:
+      create: Usuario registrado correctamente!
+      update: Usuario actualizado correctamente!
+      destroy: Usuario borrado!
