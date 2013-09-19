@@ -26,7 +26,7 @@ class GameTranslator::ReviewsController < ApplicationController
 
     set_revised(@review.translations, 'accepted')
 
-    @review.update_attribute(:status, 'accepted')
+    @review.update_attributes(status: 'accepted', user: current_user)
 
     flash[:success] = 'Tradução aceita com sucesso!'
 
@@ -38,7 +38,7 @@ class GameTranslator::ReviewsController < ApplicationController
 
     set_revised(@review.translations, 'rejected')
 
-    @review.update_attribute(:status, 'rejected')
+    @review.update_attributes(status: 'rejected', user: current_user)
 
     flash[:success] = 'Tradução rejeitada com sucesso!'
 
