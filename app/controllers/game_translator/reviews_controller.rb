@@ -4,7 +4,21 @@ class GameTranslator::ReviewsController < ApplicationController
 
   def index
     GameTranslator::Review.to_review
-    @reviews = GameTranslator::Review.paginate(page: params[:page])
+
+    reviews = GameTranslator::Review.scoped
+
+    case params[:filter]
+    when 'accepted'
+      @reviews = reviews.accepted
+    when 'rejected'
+      @reviews = reviews.rejected
+    when 'pending'
+      @reviews = reviews.pending
+    else
+      @reviews = reviews
+    end
+
+    @reviews = @reviews.paginate(page: params[:page])
   end
 
   def edit

@@ -10,6 +10,11 @@ module GameTranslator
     # validates
     validates :status, presence: true, inclusion: { in: %w(pending accepted rejected) }
 
+    # scopes
+    scope :accepted, conditions: { status: 'accepted' }
+    scope :rejected, conditions: { status: 'rejected' }
+    scope :pending, conditions: { status: 'pending' }
+
     def self.to_review
       GameTranslator::User.translators.map do |user|
         if user.translations.not_revised.count >= 100

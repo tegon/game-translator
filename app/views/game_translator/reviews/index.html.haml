@@ -1,5 +1,11 @@
 - if @reviews.present?
   %h1 Revisões
+
+  = link_to 'Pendentes', review_path(filter: 'pending'), class: 'link'
+  = link_to 'Aprovadas', review_path(filter: 'accepted'), class: 'link'
+  = link_to 'Reprovadas', review_path(filter: 'rejected'), class: 'link'
+  = link_to 'Todas', review_path, class: 'link'
+
   = render @reviews
   = will_paginate @reviews
 - else
