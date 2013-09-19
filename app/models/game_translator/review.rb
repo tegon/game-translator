@@ -13,10 +13,22 @@ module GameTranslator
     def self.to_review
       GameTranslator::User.translators.map do |user|
         if user.translations.not_revised.count >= 100
-          review = GameTranslator::Review.create(user: user, status: 'pending')
+          review = GameTranslator::Review.create(status: 'pending')
           user.translations.not_revised.first(100).map { |t| t.update_attribute(:review, review) }
         end
       end
+    end
+
+    def pending?
+      status == 'pending'
+    end
+
+    def accepted?
+      status == 'accepted'
+    end
+
+    def rejected?
+      status == 'rejected'
     end
   end
 end

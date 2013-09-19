@@ -1,0 +1,6 @@
+= form_for @game, url: '#' do |f|
+  #games
+    %fieldset
+      = render 'shared/translation_form', f: f, language: :"pt-BR", translation: @game, disabled: true, parse_instructions: false, required: false
+
+      = render 'shared/translation_form', f: f, language: @translation.locale, translation: @translation, disabled: true, parse_instructions: false, required: false

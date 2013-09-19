@@ -1,5 +1,8 @@
 #wrap
-  %p.title Tradutor: #{ review.user.name }
-  %p.title Traduções: #{ review.translations.count }
+  %p.title Tradutor: #{ review.translations.first.user.name }
+  %p.title Status: #{ review.status.humanize }
 
-  = link_to 'Revisar', review_edit_path(review.id), class: 'link'
+- if review.pending?
+  = link_to 'Revisar', review_edit_path(review), class: 'link'
+- else
+  = link_to 'Mostrar mais', review_show_path(review), class: 'link'

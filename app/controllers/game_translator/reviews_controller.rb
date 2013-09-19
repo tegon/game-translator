@@ -4,7 +4,7 @@ class GameTranslator::ReviewsController < ApplicationController
 
   def index
     GameTranslator::Review.to_review
-    @reviews = GameTranslator::Review.where(status: 'pending').paginate(page: params[:page])
+    @reviews = GameTranslator::Review.paginate(page: params[:page])
   end
 
   def edit
@@ -43,6 +43,16 @@ class GameTranslator::ReviewsController < ApplicationController
     flash[:success] = 'Tradução rejeitada com sucesso!'
 
     redirect_to review_path
+  end
+
+  def show
+    @review = GameTranslator::Review.find(params[:id])
+    @translations = @review.translations.paginate(page: params[:page])
+  end
+
+  def translation
+    @translation = GameTranslator::Game::Translation.find(params[:translation_id])
+    @game = @translation.game
   end
 
   private
