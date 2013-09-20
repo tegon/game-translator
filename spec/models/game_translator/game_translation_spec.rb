@@ -14,7 +14,7 @@ describe GameTranslator::Game::Translation do
   it 'updates user' do
     user = create(:game_translator_user)
     translation.update_attribute(:user, user)
-    translation.user.should eql(user)
+    translation.user.should == user
   end
 
   it { should respond_to :review }
@@ -22,7 +22,7 @@ describe GameTranslator::Game::Translation do
   it 'updates review' do
     review = create(:game_translator_review)
     translation.update_attribute(:review, review)
-    translation.review.should eql(review)
+    translation.review.should == review
   end
 
   context 'scopes' do
