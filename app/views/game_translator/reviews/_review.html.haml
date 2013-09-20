@@ -5,4 +5,5 @@
 - if review.pending?
   = link_to 'Revisar', review_edit_path(review), class: 'link'
 - else
+  %p.title Revisor: #{ review.user.name }
   = link_to 'Mostrar mais', review_show_path(review), class: 'link'
