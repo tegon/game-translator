@@ -22,14 +22,10 @@ gem 'rspec-rails', '2.8', group: [:test, :development]
 
 group :production do
   gem 'pg', '0.13.2'
-  gem 'passenger', '3.0.13'
 end
 
-group :development do
-  gem 'capistrano', '2.12.0'
-  gem 'capistrano-ext', '1.2.1'
-  gem 'rvm-capistrano', '1.2.5'
-  gem 'quiet_assets', '1.0.1'
+group :development, :production do
+  gem 'passenger', '3.0.13'
 end
 
 group :test do
