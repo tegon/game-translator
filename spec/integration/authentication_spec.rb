@@ -41,12 +41,12 @@ describe 'Authentication' do
 
     it 'is redirected to the users path' do
       visit root_path
-      current_path.should eql(user_index_path)
+      current_path.should == user_index_path
     end
 
     it 'is able to access users root' do
       visit languages_path
-      current_path.should eql(languages_path)
+      current_path.should == languages_path
     end
   end
 
@@ -60,7 +60,7 @@ describe 'Authentication' do
 
     it 'is able to open the root path' do
       visit root_path
-      current_path.should eql(root_path)
+      current_path.should == root_path
     end
   end
 end
