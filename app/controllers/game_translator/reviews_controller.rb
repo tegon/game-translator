@@ -4,21 +4,7 @@ class GameTranslator::ReviewsController < ApplicationController
 
   def index
     GameTranslator::Review.to_review
-
-    reviews = GameTranslator::Review.scoped
-
-    case params[:filter]
-    when 'accepted'
-      @reviews = reviews.accepted
-    when 'rejected'
-      @reviews = reviews.rejected
-    when 'pending'
-      @reviews = reviews.pending
-    else
-      @reviews = reviews
-    end
-
-    @reviews = @reviews.paginate(page: params[:page])
+    @reviews = filter.paginate(page: params[:page])
   end
 
   def edit
@@ -67,6 +53,21 @@ class GameTranslator::ReviewsController < ApplicationController
   def translation
     @translation = GameTranslator::Game::Translation.find(params[:translation_id])
     @game = @translation.game
+  end
+
+  def filter
+    reviews = GameTranslator::Review.scoped
+
+    case params[:filter]
+    when 'accepted'
+      reviews.accepted
+    when 'rejected'
+      reviews.rejected
+    when 'pending'
+      reviews.pending
+    else
+      reviews
+    end
   end
 
   private
