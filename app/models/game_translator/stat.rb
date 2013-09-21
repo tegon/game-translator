@@ -11,7 +11,7 @@ module GameTranslator
       end
 
       def revised
-        GameTranslator::Game::Translation.revised.count
+        GameTranslator::Translation.revised.count
       end
 
       def greatest_translator

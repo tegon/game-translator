@@ -11,11 +11,11 @@ describe GameTranslator::Stat do
 
     10.times { create(:game_translator_game, status: 'not_translated') }
 
-    10.times { create(:game_translator_game_translation, revised: true, user: user, review: accepted) }
+    2.times { create(:game_translator_translation, revised: true, user: user2, review: rejected) }
 
-    5.times { create(:game_translator_game_translation, revised: false, user: user2) }
+    10.times { create(:game_translator_translation, revised: true, user: user, review: accepted) }
 
-    2.times { create(:game_translator_game_translation, revised: true, user: user2, review: rejected) }
+    5.times { create(:game_translator_translation, revised: false, user: user2) }
   end
 
   subject { GameTranslator::Stat }
@@ -30,7 +30,7 @@ describe GameTranslator::Stat do
 
   it { should respond_to :revised }
 
-  its(:revised) { should == GameTranslator::Game::Translation.revised.count }
+  its(:revised) { should == GameTranslator::Translation.revised.count }
 
   describe '.percentage' do
     it { should respond_to :percentage }
