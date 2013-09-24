@@ -36,10 +36,15 @@ describe GameTranslator::StatsController do
       get :user, id: @translator.id
       response.should render_template :user
     end
+  end
 
-    it 'accepts dates params' do
-      get :user, id: @translator.id, date_from: '11/09/2013', date_to: '18/09/2013'
-      response.should render_template :user
+  describe 'POST user_per_date' do
+    it 'returns json with translations per date' do
+      post :user_per_date, id: @translator.id, date_from: '11/09/2013', date_to: '18/09/2013'
+      json = JSON.parse(response.body)
+      json['translations'].should == 0
+      json['date_from'].should == '11/09/13'
+      json['date_to'].should == '18/09/13'
     end
   end
 end
