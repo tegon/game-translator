@@ -1,5 +1,4 @@
 @import blueprint/buttons
-@import blueprint/grid
 @import blueprint/interaction
 @import compass/css3/border-radius
 @import compass/css3/box-shadow
@@ -13,21 +12,20 @@ body
   font-size: 18px
 
 #container
-  @include container
-  margin: 50px auto 10px auto
+  margin: 60px auto
   width: 1360px
 
 #wrap
   border: 1px solid black
   float: left
-  margin: 20px 10px 10px 0
+  margin: 10px
   padding: 5px
   width: 240px
 
 #nav
   font-family: 'Open Sans', sans-serif
 
-.error
+.error, .alert
   +error
   margin-top: 15px
 
@@ -110,4 +108,4 @@ input, textarea
 .page_wraper
   clear: both
   margin: 0 auto
-  width: 600px
+  width: 325px
