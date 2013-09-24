@@ -34,4 +34,5 @@ GameTranslator::Application.routes.draw do
   get '/stats' => 'game_translator/stats#index', as: :stats
   get 'stats/users' => 'game_translator/stats#users_index', as: :stats_users_index
   get 'stats/user/:id' => 'game_translator/stats#user', as: :stats_user
+  post 'stats/user/:id/per_date' => 'game_translator/stats#user_per_date', as: :stats_user_per_date
 end

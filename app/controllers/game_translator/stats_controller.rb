@@ -20,11 +20,18 @@ class GameTranslator::StatsController < ApplicationController
       @rejected = GameTranslator::Stat.count_translations(@user, 'rejected')
       @accepted = GameTranslator::Stat.count_translations(@user, 'accepted')
     end
+  end
+
+  def user_per_date
+    @user = GameTranslator::User.find(params[:id])
 
     if params[:date_from] && params[:date_to]
       @date_from = Date.parse(params[:date_from])
       @date_to = Date.parse(params[:date_to])
       @translations_per_date = @user.translations.of_date(@date_from, @date_to).count
+      @date_from = @date_from.strftime '%d/%m/%y'
+      @date_to = @date_to.strftime '%d/%m/%y'
+      render json: { date_from: @date_from, date_to: @date_to, translations: @translations_per_date }
     end
   end
 end
