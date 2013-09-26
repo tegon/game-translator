@@ -9,9 +9,9 @@ describe GameTranslator::Stat do
 
     10.times { create(:game_translator_game, status: 'not_translated') }
 
-    10.times { create(:game_translator_game_translation, revised: true, user: user) }
+    10.times { create(:game_translator_translation, revised: true, user: user) }
 
-    5.times { create(:game_translator_game_translation, revised: false, user: user2) }
+    5.times { create(:game_translator_translation, revised: false, user: user2) }
   end
 
   subject { GameTranslator::Stat }
