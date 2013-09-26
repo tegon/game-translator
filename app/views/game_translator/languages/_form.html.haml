@@ -1,16 +1,16 @@
 = render 'shared/error_messages', record: @language
 
 %dl
-  %dt Nome
+  %dt= f.label :name
   %dd= f.text_field :name, autofocus: true, required: true
 
-  %dt Sigla
+  %dt= f.label :code
   %dd= f.text_field :code, required: true
 
-  = link_to 'Referência', 'https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale', target: '_blank', class: 'link'
+  = link_to t('links.language.reference'), 'https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale', target: '_blank', class: 'link'
 
-= f.submit 'Salvar', class: 'button'
+= f.submit t('links.save'), class: 'button'
 
-= link_to 'Deletar', language_destroy_path(@language), method: :delete, confirm: 'Tem certeza?', class: 'button delete' unless @language.new_record?
+= link_to t('links.delete'), language_destroy_path(@language), method: :delete, confirm: t('links.confirm'), class: 'button delete' unless @language.new_record?
 
 = javascript_tag 'new Language()'

@@ -1,0 +1,26 @@
+en:
+  links:
+    nav:
+      translate: Translate
+      users: Users
+      languages: Languages
+      stats: Stats
+      reviews: Reviews
+      greeting: "Hi, %{user}!"
+      logout: Logout
+    login: Login
+    edit: Edit
+    delete: Delete
+    confirm: Are you sure?
+    save: Save
+    user:
+      new: New User
+    language:
+      new: New Language
+      reference: Reference
+    review:
+      accept: Accept
+      reject: Reject
+      revise: Review
+    game:
+      translate: Translate!

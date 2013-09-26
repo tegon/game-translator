@@ -1,6 +1,6 @@
 #games
   .alert
-    Preencha todos os campos!
+    = t('titles.game.alert')
 
   - @games.each do |game|
     = fields_for 'game[]', game do |game_fields|
@@ -10,6 +10,6 @@
         - @languages.each do |language|
           = render 'shared/translation_form', f: game_fields, language: language, translation: game, disabled: false, parse_instructions: true, required: true
 
-  = submit_tag 'Traduzir!', class: 'button'
+  = submit_tag t('links.game.translate'), class: 'button'
 
   = javascript_tag 'new Game()'

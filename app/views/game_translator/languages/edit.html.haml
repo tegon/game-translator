@@ -1,4 +1,4 @@
-%h1 Editar o idioma
+%h1= t('titles.languages.edit')
 
 = form_for @language, url: language_update_path, html:{ multipart: true } do |f|
   = render partial: 'form', locals:{ f:f }

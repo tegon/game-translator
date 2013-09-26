@@ -1,7 +1,7 @@
-%h1 Estatísticas
+%h1= t('titles.stat.all')
 
-%h1 Total de games: #{ number_with_delimiter @total }
-%h1 Traduzidos: #{ number_with_delimiter @translated }
-%h1 Traduções Revisadas: #{ number_with_delimiter @revised }
-%h1 #{ @percentage }% de games traduzidos
-%h1 Usuário que mais traduziu: #{ @greatest_translator.name }, #{ @count_translations } traduções
+%h1= t('titles.stat.games.total', count: number_with_delimiter(@total) )
+%h1= t('titles.stat.games.translated', count: number_with_delimiter(@translated) )
+%h1= t('titles.stat.translations.revised', count: number_with_delimiter(@revised) )
+%h1= t('titles.stat.games.percentage', percentage: @percentage)
+%h1= t('titles.stat.greatest_translator', user: @greatest_translator.name, count: @count_translations)

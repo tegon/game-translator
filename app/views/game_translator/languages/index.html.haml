@@ -1,5 +1,6 @@
-%h1 Idiomas cadastrados
+%h1= t('titles.languages.all')
 
-= link_to 'Novo idioma', language_new_path, class: 'link'
+%p= link_to t('links.language.new'), language_new_path, class: 'link'
 = render @languages
-= will_paginate @languages
+.page_wraper
+  = will_paginate @languages, inner_window: 10

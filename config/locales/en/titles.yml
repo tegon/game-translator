@@ -1,0 +1,30 @@
+en:
+  titles:
+    login: Login
+    users:
+      all: Users
+      edit: Edit user
+      new: New user
+    languages:
+      all: Languages
+      edit: Edit language
+      new: New language
+    review:
+      all: Reviews
+      translator: "Translator: %{name}"
+      translations: "Translations: %{count}"
+      none: No Review Available
+      translated_by: "Translated by %{user}"
+      revise: Review
+    stat:
+      all: Stats
+      games:
+        total: "Total games: %{count}"
+        translated: "Translated: %{count}"
+        percentage: "%{percentage}% of games translated"
+      translations:
+        revised: "Revised translations: %{count}"
+      greatest_translator: "Greatest translator: %{user}, %{count} traduções"
+    game:
+      none: No Game untranslated
+      alert: Fill in all fields!

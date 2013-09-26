@@ -12,21 +12,36 @@
           %li Game Translator
           - if can? :manage, GameTranslator::Game
             .divider
-            %li= link_to 'Traduzir', game_translate_path
+            %li= link_to t('links.nav.translate'), game_translate_path
           - if can? :manage, GameTranslator::User
             .divider
-            %li= link_to 'Usuários', user_index_path
+            %li= link_to t('links.nav.users'), user_index_path
           - if can? :manage, GameTranslator::Language
             .divider
-            %li= link_to 'Idiomas', languages_path
+            %li= link_to t('links.nav.languages'), languages_path
           - if can? :manage, GameTranslator::Stat
             .divider
-            %li= link_to 'Estatísticas', stats_path
+            %li= link_to t('links.nav.stats'), stats_path
           - if can? :manage, GameTranslator::Review
             .divider
-            %li= link_to 'Revisões', review_path
+            %li= link_to t('links.nav.reviews'), review_path
+
           - if signed_in?
             = render 'layouts/nav'
+
+          .flags
+            %li
+              = link_to '/en/', title: 'English', id: 'en' do
+                = flag('en')
+
+            %li
+              = link_to '/es/', title: 'Español', id: 'es' do
+                = flag('es')
+
+            %li
+              = link_to '/', title: 'Português', id: 'pt-BR' do
+                = flag('pt-BR')
     #container
       = render 'shared/flash_messages'
       = yield
+    = javascript_tag 'new LinkHandler();'

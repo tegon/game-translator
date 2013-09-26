@@ -1,0 +1,30 @@
+pt-BR:
+  titles:
+    login: Login
+    users:
+      all: Usuários
+      edit: Editar usuário
+      new: Novo usuário
+    languages:
+      all: Idiomas
+      edit: Editar o idioma
+      new: Novo idioma
+    review:
+      all: Revisões
+      translator: "Tradutor: %{name}"
+      translations: "Traduções: %{count}"
+      none: Nenhuma Revisão Disponível
+      translated_by: "Traduzido por %{user}"
+      revise: Revisar
+    stat:
+      all: Estatísticas
+      games:
+        total: "Total de games: %{count}"
+        translated: "Traduzidos: %{count}"
+        percentage: "%{percentage}% de games traduzidos"
+      translations:
+        revised: "Traduções revisadas: %{count}"
+      greatest_translator: "Usuário que mais traduziu: %{user}, %{count} traduções"
+    game:
+      none: Nenhum Game Não Traduzido
+      alert: Preencha todos os campos!
