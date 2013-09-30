@@ -18,6 +18,7 @@ en:
       revise: Review
     stat:
       all: Stats
+      user: Stats per user
       games:
         total: "Total games: %{count}"
         translated: "Translated: %{count}"

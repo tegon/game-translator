@@ -23,6 +23,10 @@ GameTranslator::Application.routes.draw do
     get 'review/:id/edit' => 'game_translator/reviews#edit', as: :review_edit
     put 'review/:id' => 'game_translator/reviews#update', as: :review_update
 
+    get '/stats' => 'game_translator/stats#index', as: :stats
+    get 'stats/users' => 'game_translator/stats#users_index', as: :stats_users_index
+    get 'stats/user/:id' => 'game_translator/stats#user', as: :stats_user
+    post 'stats/user/:id/per_date' => 'game_translator/stats#user_per_date', as: :stats_user_per_date
 
     get '/languages' => 'game_translator/languages#index', as: :languages
     post '/languages' => 'game_translator/languages#create', as: :language_create
@@ -30,7 +34,5 @@ GameTranslator::Application.routes.draw do
     get '/languages/:id/edit' => 'game_translator/languages#edit', as: :language_edit
     put '/languages/:id' => 'game_translator/languages#update', as: :language_update
     delete '/languages/:id' => 'game_translator/languages#destroy', as: :language_destroy
-
-    get '/stats' => 'game_translator/stats#index', as: :stats
   end
 end

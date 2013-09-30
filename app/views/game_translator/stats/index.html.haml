@@ -1,5 +1,7 @@
 %h1= t('titles.stat.all')
 
+= link_to t('titles.stat.user'), stats_users_index_path, class: 'link'
+
 %h1= t('titles.stat.games.total', count: number_with_delimiter(@total) )
 %h1= t('titles.stat.games.translated', count: number_with_delimiter(@translated) )
 %h1= t('titles.stat.translations.revised', count: number_with_delimiter(@revised) )

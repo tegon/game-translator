@@ -33,6 +33,8 @@ describe GameTranslator::Translation do
       @not_revised = create(:game_translator_translation, revised: false, review_id: nil)
     end
 
+    it { should respond_to(:of_date) }
+
     describe 'not_revised scope' do
       it { should respond_to :not_revised }
 

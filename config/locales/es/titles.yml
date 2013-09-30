@@ -18,6 +18,7 @@ es:
       revise: Revisar
     stat:
       all: Estadísticas
+      user: Estadísticas usuarios
       games:
         total: "Total de juegos: %{count}"
         translated: "Traducido: %{count}"
