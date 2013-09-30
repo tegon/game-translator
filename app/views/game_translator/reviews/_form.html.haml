@@ -3,6 +3,6 @@
     - @game.translations.each do |translation|
       = render 'shared/translation_form', f: f, language: translation.locale, translation: translation, disabled: true, parse_instructions: false, required: false
 
-  = f.submit 'Aceitar', class: 'button', confirm: 'Certeza?'
+  = f.submit t('links.review.accept'), class: 'button', confirm: t('links.confirm')
 
-  = f.submit 'Recusar', name: 'delete', confirm: 'Certeza?', class: 'button refuse'
+  = f.submit t('links.review.reject'), name: 'delete', confirm: t('links.confirm'), class: 'button refuse'

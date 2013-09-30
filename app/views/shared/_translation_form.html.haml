@@ -2,21 +2,21 @@
   .flag= flag(language)
   %p.language= full_name(language)
 
-  %dt Nome
+  %dt= t('activerecord.attributes.game_translator/game.name')
   %dd= f.text_field "name_#{ language.to_s.underscore }", disabled: disabled, required: required
-  
-  %dt Descrição Curta
+
+  %dt= t('activerecord.attributes.game_translator/game.short_description')
   %dd= f.text_field "short_description_#{ language.to_s.underscore }", disabled: disabled, required: required
-  
-  %dt Descrição Longa
+
+  %dt= t('activerecord.attributes.game_translator/game.long_description')
   %dd= f.text_area "long_description_#{ language.to_s.underscore }", disabled: disabled, required: required
-  
+
   - if translation.wide_description.present?
-    %dt Descrição Wide
+    %dt= t('activerecord.attributes.game_translator/game.wide_description')
     %dd= f.text_area "wide_description_#{ language.to_s.underscore }", disabled: disabled, required: required
-  
-  %dt Instruções
+
+  %dt= t('activerecord.attributes.game_translator/game.instructions')
   - if parse_instructions
-    %dd= f.text_area "instructions_#{ language.to_s.underscore }", required: required, value: process_instructions(translation.instructions)
+    %dd= f.text_area "instructions_#{ language.to_s.underscore }", required: required, value: process_instructions(translation.instructions_pt_br)
   - else
     %dd= f.text_area "instructions_#{ language.to_s.underscore }", disabled: disabled, required: required

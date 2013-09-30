@@ -1,5 +1,8 @@
 pt-BR:
   devise:
+    sessions:
+      user:
+        signed_in: Logado com sucesso!
     failure:
       user:
         already_authenticated: "Você já está logado."

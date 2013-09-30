@@ -1,6 +1,6 @@
 class GameTranslator::UsersController < ApplicationController
   load_and_authorize_resource
-  
+
   def index
     @users = GameTranslator::User.paginate(page: params[:page])
   end
@@ -12,7 +12,7 @@ class GameTranslator::UsersController < ApplicationController
   def create
     @user = GameTranslator::User.new(params[:game_translator_user])
     if @user.save
-      flash[:success] = 'Cadastrado com sucesso!'
+      flash[:success] = t('controllers.users.create')
       redirect_to user_index_path
     else
       render action: :new
@@ -24,8 +24,8 @@ class GameTranslator::UsersController < ApplicationController
   end
 
   def update
-    @user = GameTranslator::User.find(params[:id]) 
-    
+    @user = GameTranslator::User.find(params[:id])
+
     successfully_updated = if needs_password?(@user, params)
       @user.update_with_password(params[:game_translator_user])
     else
@@ -34,7 +34,7 @@ class GameTranslator::UsersController < ApplicationController
     end
 
     if successfully_updated
-      flash[:sucess] = 'Cadastro atualizado com sucesso!'
+      flash[:sucess] = t('controllers.users.update')
       redirect_to user_index_path
     else
       render action: :edit
@@ -44,7 +44,7 @@ class GameTranslator::UsersController < ApplicationController
   def destroy
     user = GameTranslator::User.find(params[:id])
     if user.destroy
-      flash[:sucess] = 'Cadastro deletado!'
+      flash[:sucess] = t('controllers.users.destroy')
       redirect_to user_index_path
     else
       render action: :edit

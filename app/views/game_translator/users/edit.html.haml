@@ -1,4 +1,4 @@
-%h1 Editar usuário
+%h1= t('titles.users.edit')
 
 = form_for @user, url:  user_update_path(@user), html:{ multipart: true } do |f|
   = render partial: 'form', locals:{ f:f }
