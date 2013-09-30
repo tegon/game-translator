@@ -10,8 +10,12 @@ en:
       edit: Edit language
       new: New language
     review:
-      all: Reviews
-      translator: "Translator: %{name}"
+      all: All
+      index: Reviews
+      pending: Pending
+      accepted: Accepted
+      rejected: Rejected
+      reviser: "Reviser: %{name}"
       translations: "Translations: %{count}"
       none: No Review Available
       translated_by: "Translated by %{user}"

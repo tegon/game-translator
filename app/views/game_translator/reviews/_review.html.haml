@@ -1,5 +1,9 @@
 #wrap
-  %p.title= t('titles.review.translator', name: review.user.name)
-  %p.title= t('titles.review.translations', count: review.translations.count)
+  %p.title Tradutor: #{ review.translations.first.user.name }
+  %p.title Status: #{ review.status.humanize }
 
+- if review.pending?
   = link_to t('links.review.revise'), review_edit_path(review), class: 'link'
+- else
+  %p.title= t('titles.review.reviser', name: review.user.name)
+  = link_to t('links.review.more'), review_show_path(review), class: 'link'

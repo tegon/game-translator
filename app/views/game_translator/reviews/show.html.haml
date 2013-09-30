@@ -1,0 +1,9 @@
+%h1 Traduções
+
+- @translations.each do |translation|
+  #wrap
+    %p.title Tradutor: #{ translation.user.name }
+    %p.title Game: #{ translation.game.name }
+    %p.title Idioma: #{ translation.locale }
+    = link_to 'Mostrar mais', review_translation_path(@review, translation), class: 'link'
+= will_paginate @translations

@@ -9,12 +9,11 @@ GameTranslator::Application.routes.draw do
         sessions: 'game_translator/sessions'
         }
 
-    get 'users' => 'game_translator/users#index', as: :user_index
-    get 'users/new' => 'game_translator/users#new', as: :user_new
-    post 'users/create' => 'game_translator/users#create', as: :user_create
-    put 'users/:id' => 'game_translator/users#update', as: :user_update
-    get 'users/:id/edit' => 'game_translator/users#edit', as: :user_edit
-    delete 'users/:id' => 'game_translator/users#destroy', as: :user_destroy
+    get 'review' => 'game_translator/reviews#index', as: :review
+    get 'review/:id/edit' => 'game_translator/reviews#edit', as: :review_edit
+    put 'review/:id' => 'game_translator/reviews#update', as: :review_update
+    get 'review/:id' => 'game_translator/reviews#show', as: :review_show
+    get 'review/:id/translation/:translation_id' => 'game_translator/reviews#translation', as: :review_translation
 
     get 'translate' => 'game_translator/games#translate', as: :game_translate
     put 'translate/update' => 'game_translator/games#update', as: :game_update
