@@ -17,7 +17,8 @@ pt-BR:
       translated_by: "Traduzido por %{user}"
       revise: Revisar
     stat:
-      all: Estatísticas
+      all: Estatísticas gerais
+      user: Estatísticas por usuário
       games:
         total: "Total de games: %{count}"
         translated: "Traduzidos: %{count}"

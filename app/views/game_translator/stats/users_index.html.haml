@@ -1,0 +1,8 @@
+#wrap
+  - @users.each do |user|
+    %p.title= "Nome: #{user.name}"
+    %p.title= "Email: #{user.email}"
+
+    = link_to 'Mostrar mais', stats_user_path(user), class: 'link'
+
+  = will_paginate @users
