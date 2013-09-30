@@ -12,6 +12,7 @@ en:
     edit: Edit
     delete: Delete
     confirm: Are you sure?
+    send: Send
     save: Save
     user:
       new: New User
@@ -25,3 +26,5 @@ en:
       more: Show more
     game:
       translate: Translate!
+    stat:
+      more: Show more

@@ -1,16 +1,25 @@
-%h1= "Nome: #{ @user.name }"
-%h1= "Traduções: #{ @translations }"
-%h1= "Rejeitadas: #{ @rejected }"
-%h1= "Aprovadas: #{ @accepted }"
+%h1
+  = t('activerecord.attributes.game_translator/user.name')
+  = ": #{ truncate @user.name, length: 20 }"
+  
+%h1
+  = t('titles.translations.all')
+  = ": #{ @translations }"
+%h1
+  = t('titles.review.rejected')
+  = ": #{ @rejected }"
+%h1
+  = t('titles.review.accepted')
+  = ": #{ @accepted }"
 
-%h1 Por período:
+%h1= t('titles.translations.period')
 = form_tag stats_user_per_date_path, method: :post do
-  = label_tag 'De'
+  = label_tag t('titles.translations.date_from')
   = text_field_tag 'date_from', '', required: true
-  = label_tag 'Até'
+  = label_tag t('titles.translations.date_to')
   = text_field_tag 'date_to', '', required: true
   %br
-  = submit_tag 'Enviar', class: 'button'
+  = submit_tag t('links.send'), class: 'button'
 
 .per_date
 

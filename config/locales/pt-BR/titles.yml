@@ -16,10 +16,13 @@ pt-BR:
       accepted: Aprovadas
       rejected: Reprovadas
       reviser: "Revisor: %{name}"
+      translator: "Tradutor: %{name}"
       translations: "Traduções: %{count}"
       none: Nenhuma Revisão Disponível
       translated_by: "Traduzido por %{user}"
       revise: Revisar
+      game: "Game: %{name}"
+      locale: "Idioma: %{locale}"
     stat:
       all: Estatísticas gerais
       user: Estatísticas por usuário
@@ -33,3 +36,8 @@ pt-BR:
     game:
       none: Nenhum Game Não Traduzido
       alert: Preencha todos os campos!
+    translations:
+      all: Traduções
+      period: "Por período:"
+      date_from: De
+      date_to: Até

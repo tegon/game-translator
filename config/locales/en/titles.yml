@@ -15,11 +15,14 @@ en:
       pending: Pending
       accepted: Accepted
       rejected: Rejected
+      translator: "Translator: %{name}"
       reviser: "Reviser: %{name}"
       translations: "Translations: %{count}"
       none: No Review Available
       translated_by: "Translated by %{user}"
       revise: Review
+      game: "Game: %{name}"
+      locale: "Language: %{locale}"
     stat:
       all: Stats
       user: Stats per user
@@ -33,3 +36,8 @@ en:
     game:
       none: No Game untranslated
       alert: Fill in all fields!
+    translations:
+      all: Translations
+      period: "Per period:"
+      date_from: From
+      date_to: To

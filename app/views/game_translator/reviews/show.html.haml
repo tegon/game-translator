@@ -1,9 +1,9 @@
-%h1 Traduções
+%h1= t('titles.translations.all')
 
 - @translations.each do |translation|
   #wrap
-    %p.title Tradutor: #{ translation.user.name }
-    %p.title Game: #{ translation.game.name }
-    %p.title Idioma: #{ translation.locale }
-    = link_to 'Mostrar mais', review_translation_path(@review, translation), class: 'link'
+    %p.title= t('titles.review.translator', name: translation.user.name)
+    %p.title= t('titles.review.game', name: translation.game.name)
+    %p.title= t('titles.review.locale', locale: translation.locale)
+    = link_to t('links.review.more'), review_translation_path(@review, translation), class: 'link'
 = will_paginate @translations

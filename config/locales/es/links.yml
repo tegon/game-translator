@@ -13,6 +13,7 @@ es:
     delete: Borrar
     confirm: ¿Está seguro?
     save: Guardar
+    send: Enviar
     user:
       new: Nuevo Usuario
     language:
@@ -25,3 +26,5 @@ es:
       more: Mostrar mais
     game:
       translate: Traducir!
+    stat:
+      more: Mostrar mais

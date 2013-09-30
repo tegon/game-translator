@@ -1,6 +1,8 @@
 #wrap
-  %p.title Tradutor: #{ review.translations.first.user.name }
-  %p.title Status: #{ review.status.humanize }
+  %p.title= t('titles.review.translator', name: review.translations.first.user.name)
+  %p.title 
+    = t('activerecord.attributes.game_translator/review.status')
+    = ": #{ review.status.humanize }"
 
 - if review.pending?
   = link_to t('links.review.revise'), review_edit_path(review), class: 'link'
