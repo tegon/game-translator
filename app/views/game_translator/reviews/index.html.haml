@@ -1,5 +1,5 @@
 - if @reviews.present?
-   %h1= t('titles.review.index')
+  %h1= t('titles.review.index')
 
   = link_to t('titles.review.pending'), review_path(filter: 'pending'), class: 'link'
   = link_to t('titles.review.accpted'), review_path(filter: 'accepted'), class: 'link'
