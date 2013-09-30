@@ -1,25 +1,25 @@
 = render 'shared/error_messages', record: @user
 
 %dl
-  %dt Nome
+  %dt= f.label :name
   %dd= f.text_field :name, autofocus: true, required: true
 
-  %dt Email
+  %dt= f.label :email
   %dd= f.email_field :email, required: true
 
-  - unless @user.new_record? 
-    %dt Senha Atual
+  - unless @user.new_record?
+    %dt= f.label :current_password
     %dd= f.password_field :current_password
-  
-  %dt Senha
+
+  %dt= f.label :password
   %dd= f.password_field :password
 
-  %dt Confirmação da Senha
+  %dt= f.label :password_confirmation
   %dd= f.password_field :password_confirmation
 
-  %dt Função
+  %dt= f.label :role
   %dt= f.collection_select :role, GameTranslator::User::ROLES, :to_s, :humanize
   %br
-  = f.submit 'Salvar', class: 'button'
+  = f.submit t('links.save'), class: 'button'
 
-  = link_to 'Deletar', user_destroy_path(@user.id), method: :delete, confirm: 'Certeza?', class: 'button delete' unless @user.new_record?
+  = link_to t('links.delete'), user_destroy_path(@user), method: :delete, confirm: t('links.confirm'), class: 'button delete' unless @user.new_record?

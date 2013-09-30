@@ -28,7 +28,7 @@ class GameTranslator::ReviewsController < ApplicationController
 
     @review.update_attribute(:status, 'accepted')
 
-    flash[:success] = 'Tradução aceita com sucesso!'
+    flash[:success] = t('controllers.reviews.accepted')
 
     redirect_to review_path
   end
@@ -40,7 +40,7 @@ class GameTranslator::ReviewsController < ApplicationController
 
     @review.update_attribute(:status, 'rejected')
 
-    flash[:success] = 'Tradução rejeitada com sucesso!'
+    flash[:success] = t('controllers.reviews.rejected')
 
     redirect_to review_path
   end

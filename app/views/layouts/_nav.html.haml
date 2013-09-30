@@ -1,4 +1,4 @@
 .user
   %ul
-    %li Olá, #{ current_user.name }!
-    %li= link_to 'Sair', destroy_user_session_path, method: :delete
+    %li= t('links.nav.greeting', user: current_user.name)
+    %li= link_to t('links.nav.logout'), destroy_user_session_path, method: :delete

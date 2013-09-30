@@ -1,5 +1,7 @@
-%h1 Usuários cadastrados
- 
-= link_to 'Novo usuário', user_new_path, class: 'link'
+%h1= t('titles.users.all')
+
+%p= link_to t('links.user.new'), user_new_path, class: 'link'
+
 = render @users
-= will_paginate @users
+.page_wraper
+  = will_paginate @users, inner_window: 10

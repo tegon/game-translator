@@ -1,25 +1,31 @@
 @import blueprint/buttons
-@import blueprint/grid
 @import blueprint/interaction
 @import compass/css3/border-radius
 @import compass/css3/box-shadow
 @import compass/css3/images
 @import compass/reset
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300)
+@import compass/css3/transition
 
 body
   font-family: 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif
   font-size: 18px
 
 #container
-  @include container
-  margin: 50px auto 10px auto
+  margin: 60px auto
   width: 1360px
 
 #wrap
-  margin: 20px 0 20px 0
+  border: 1px solid black
+  float: left
+  margin: 10px
+  padding: 5px
+  width: 240px
 
-.error
+#nav
+  font-family: 'Open Sans', sans-serif
+
+.error, .alert
   +error
   margin-top: 15px
 
@@ -34,6 +40,13 @@ h1
   font-weight: bold
   margin: 10px 0
 
+a, .button, .delete, .refuse
+  +transition-property(opacity)
+  +transition-duration(0.2s)
+  +transition-timing-function(ease-in-out)
+  &:hover
+    opacity: 0.8
+
 .button
   +border-radius(3px)
   @include background-image(linear-gradient(#68b12f, #50911e))
@@ -47,9 +60,6 @@ h1
   height: 39px
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25)
   width: 100px
-  &:hover
-    border-color: #9fd574
-    opacity: 0.85
 
 .refuse
   @include background-image(linear-gradient(#ff3019, #cf0404))
@@ -78,7 +88,6 @@ h1
   &:hover
     border-color: #ff3019
     color: white
-    opacity: 0.85
     text-decoration: none
 
 p.title
@@ -89,7 +98,6 @@ a.link
   font-weight: bold
   text-decoration: none
   &:hover
-    opacity: 0.85
     text-decoration: underline
 
 input, textarea
@@ -103,3 +111,8 @@ input, textarea
 .ajax-loading
   background: url('ajax-loader.gif') no-repeat
   height: 40px
+
+.page_wraper
+  clear: both
+  margin: 0 auto
+  width: 325px
