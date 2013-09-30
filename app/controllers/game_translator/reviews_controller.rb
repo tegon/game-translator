@@ -4,7 +4,7 @@ class GameTranslator::ReviewsController < ApplicationController
 
   def index
     GameTranslator::Review.to_review
-    @reviews = GameTranslator::Review.where(status: 'pending').paginate(page: params[:page])
+    @reviews = filter.paginate(page: params[:page])
   end
 
   def edit
@@ -26,7 +26,7 @@ class GameTranslator::ReviewsController < ApplicationController
 
     set_revised(@review.translations, 'accepted')
 
-    @review.update_attribute(:status, 'accepted')
+    @review.update_attributes(status: 'accepted', user: current_user)
 
     flash[:success] = t('controllers.reviews.accepted')
 
@@ -38,11 +38,36 @@ class GameTranslator::ReviewsController < ApplicationController
 
     set_revised(@review.translations, 'rejected')
 
-    @review.update_attribute(:status, 'rejected')
+    @review.update_attributes(status: 'rejected', user: current_user)
 
     flash[:success] = t('controllers.reviews.rejected')
 
     redirect_to review_path
+  end
+
+  def show
+    @review = GameTranslator::Review.find(params[:id])
+    @translations = @review.translations.paginate(page: params[:page])
+  end
+
+  def translation
+    @translation = GameTranslator::Game::Translation.find(params[:translation_id])
+    @game = @translation.game
+  end
+
+  def filter
+    reviews = GameTranslator::Review.scoped
+
+    case params[:filter]
+    when 'accepted'
+      reviews.accepted
+    when 'rejected'
+      reviews.rejected
+    when 'pending'
+      reviews.pending
+    else
+      reviews
+    end
   end
 
   private

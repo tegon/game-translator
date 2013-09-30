@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe GameTranslator::Review do
+  subject { GameTranslator::Review }
+
   it 'has a valid generator' do
     create(:game_translator_review).should be_valid
   end
@@ -18,8 +20,6 @@ describe GameTranslator::Review do
   end
 
   describe '.to_review' do
-    subject { GameTranslator::Review }
-
     it { should respond_to :to_review }
 
     let(:user) { create(:game_translator_user, role: 'translator') }
@@ -42,6 +42,58 @@ describe GameTranslator::Review do
       it 'does not create review for user translations' do
         expect{ GameTranslator::Review.to_review }.to_not change{ GameTranslator::Review.count }.by(1)
       end
+    end
+  end
+
+  describe 'pending?' do
+    context 'when status is pending' do
+      subject { create(:game_translator_review, status: 'pending') }
+
+      it { should respond_to :pending? }
+
+      it { should be_pending }
+    end
+
+    context 'when status is not pending' do
+      subject { create(:game_translator_review, status: %w(rejected accepted).sample) }
+
+      it { should_not be_pending }
+    end
+  end
+
+  describe 'status scopes' do
+    let(:accepted) { create(:game_translator_review, status: 'accepted') }
+    let(:rejected) { create(:game_translator_review, status: 'rejected') }
+    let(:pending) { create(:game_translator_review, status: 'pending') }
+
+    describe 'accepted scope' do
+      it { should respond_to :accepted }
+
+      its(:accepted) { should include accepted }
+
+      its(:accepted) { should_not include rejected }
+
+      its(:accepted) { should_not include pending }
+    end
+
+    describe 'rejected scope' do
+      it { should respond_to :rejected }
+
+      its(:rejected) { should include rejected }
+
+      its(:rejected) { should_not include accepted }
+
+      its(:rejected) { should_not include pending }
+    end
+
+    describe 'pending scope' do
+      it { should respond_to :pending }
+
+      its(:pending) { should include pending }
+
+      its(:pending) { should_not include accepted }
+
+      its(:pending) { should_not include rejected }
     end
   end
 end
