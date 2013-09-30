@@ -1,11 +1,11 @@
 #wrap
-  %p.title= t('titles.review.translator', name: review.translations.first.user.name)
+  %p.title= t('titles.review.translator', name: truncate(review.translations.first.user.name, length: 20))
   %p.title 
     = t('activerecord.attributes.game_translator/review.status')
     = ": #{ review.status.humanize }"
 
-- if review.pending?
-  = link_to t('links.review.revise'), review_edit_path(review), class: 'link'
-- else
-  %p.title= t('titles.review.reviser', name: review.user.name)
-  = link_to t('links.review.more'), review_show_path(review), class: 'link'
+  - if review.pending?
+    = link_to t('links.review.revise'), review_edit_path(review), class: 'link'
+  - else
+    %p.title= t('titles.review.reviser', name: review.user.name)
+    = link_to t('links.review.more'), review_show_path(review), class: 'link'

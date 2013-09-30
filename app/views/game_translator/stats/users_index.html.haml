@@ -8,5 +8,5 @@
       = ": #{ truncate user.email, length: 20 }"
 
     = link_to t('links.stat.more'), stats_user_path(user), class: 'link'
-
+.page_wraper
   = will_paginate @users
