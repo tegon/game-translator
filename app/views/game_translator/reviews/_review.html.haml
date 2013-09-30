@@ -3,7 +3,7 @@
   %p.title Status: #{ review.status.humanize }
 
 - if review.pending?
-  = link_to 'Revisar', review_edit_path(review), class: 'link'
+  = link_to t('links.review.revise'), review_edit_path(review), class: 'link'
 - else
-  %p.title Revisor: #{ review.user.name }
-  = link_to 'Mostrar mais', review_show_path(review), class: 'link'
+  %p.title= t('titles.review.reviser', name: review.user.name)
+  = link_to t('links.review.more'), review_show_path(review), class: 'link'

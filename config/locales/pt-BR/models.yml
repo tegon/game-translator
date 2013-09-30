@@ -1,0 +1,26 @@
+pt-BR:
+  activerecord:
+    models:
+      game_translator/user: Usuário
+      game_translator/language: Idioma
+      game_translator/review: Revisão
+    attributes:
+      game_translator/user:
+        name: Nome
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação de Senha
+        current_password: Senha Atual
+        role: Função
+        remember_me: Mantenha-me conectado
+      game_translator/language:
+        name: Nome
+        code: Sigla
+      game_translator/review:
+        status: Status
+      game_translator/game:
+        name: Nome
+        short_description: Descrição Curta
+        long_description: Descrição
+        wide_description: Descrição Wide
+        instructions: Instruções

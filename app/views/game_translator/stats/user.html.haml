@@ -1,0 +1,17 @@
+%h1= "Nome: #{ @user.name }"
+%h1= "Traduções: #{ @translations }"
+%h1= "Rejeitadas: #{ @rejected }"
+%h1= "Aprovadas: #{ @accepted }"
+
+%h1 Por período:
+= form_tag stats_user_per_date_path, method: :post do
+  = label_tag 'De'
+  = text_field_tag 'date_from', '', required: true
+  = label_tag 'Até'
+  = text_field_tag 'date_to', '', required: true
+  %br
+  = submit_tag 'Enviar', class: 'button'
+
+.per_date
+
+= javascript_tag 'new Stat()'

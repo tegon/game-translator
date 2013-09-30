@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module GameTranslator
   class Stat
     class << self
@@ -10,7 +11,7 @@ module GameTranslator
       end
 
       def revised
-        GameTranslator::Game::Translation.revised.count
+        GameTranslator::Translation.revised.count
       end
 
       def greatest_translator
@@ -29,9 +30,15 @@ module GameTranslator
         (100 * translated/total.to_f).round
       end
 
-      def count_translations(user)
-        return 'Nenhum tradutor cadastrado!' if user.nil?
-        user.translations.count
+      def count_translations(user, status = nil)
+        return 'Tradutor não encontrado!' unless user
+        translations = user.translations.scoped
+        case status
+        when 'accepted', 'rejected'
+          translations.joins(:review).where(reviews: { status: status }).count
+        when nil
+          translations.count
+        end
       end
     end
   end

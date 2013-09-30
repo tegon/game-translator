@@ -17,9 +17,9 @@ class GameTranslator::GamesController < ApplicationController
 
         set_user(@game.translations)
 
-        flash[:sucess] = 'Game traduzido com sucesso!'
+        flash[:sucess] = t('controllers.games.update.success')
       else
-        flash[:error] = 'Erro ao traduzir o game'
+        flash[:error] = t('controllers.games.update.error')
         @game.update_attribute(:status, 'not_translated')
       end
     end

@@ -1,0 +1,27 @@
+es:
+  links:
+    nav:
+      translate: Traducir
+      users: Usuarios
+      languages: Idiomas
+      stats: Estadísticas
+      reviews: Revisiones
+      greeting: "Hola, %{user}!"
+      logout: Logout
+    login: Entrar
+    edit: Editar
+    delete: Borrar
+    confirm: ¿Está seguro?
+    save: Guardar
+    user:
+      new: Nuevo Usuario
+    language:
+      new: Nuevo Idioma
+      reference: Referencia
+    review:
+      accept: Aceptar
+      reject: Rechazar
+      revise: Revisar
+      more: Mostrar mais
+    game:
+      translate: Traducir!

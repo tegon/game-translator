@@ -5,7 +5,7 @@ module GameTranslator
 
     # relationship
     belongs_to :user
-    has_many :translations, class_name: GameTranslator::Game::Translation
+    has_many :translations
 
     # validates
     validates :status, presence: true, inclusion: { in: %w(pending accepted rejected) }

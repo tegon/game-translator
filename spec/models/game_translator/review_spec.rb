@@ -26,7 +26,7 @@ describe GameTranslator::Review do
 
     context 'when user has at least 100 translations' do
       before do
-        100.times { create(:game_translator_game_translation, user: user, revised: false) }
+        100.times { create(:game_translator_translation, user: user, revised: false) }
       end
 
       it 'creates review for user translations' do
@@ -36,7 +36,7 @@ describe GameTranslator::Review do
 
     context 'when user has less than 100 translations' do
       before do
-        10.times { create(:game_translator_game_translation, user: user, revised: false) }
+        10.times { create(:game_translator_translation, user: user, revised: false) }
       end
 
       it 'does not create review for user translations' do

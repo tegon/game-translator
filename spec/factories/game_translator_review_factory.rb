@@ -6,5 +6,5 @@ FactoryGirl.define do
 end
 
 def translations_create
-  [create(:game_translator_game_translation)]
+  [create(:game_translator_translation)]
 end
