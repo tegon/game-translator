@@ -51,7 +51,7 @@ class GameTranslator::ReviewsController < ApplicationController
   end
 
   def translation
-    @translation = GameTranslator::Game::Translation.find(params[:translation_id])
+    @translation = GameTranslator::Translation.find(params[:translation_id])
     @game = @translation.game
   end
 
