@@ -14,9 +14,7 @@ class GameTranslator::GamesController < ApplicationController
     @game = GameTranslator::Game.find(params[:id])
     if @game.update_attributes(params['game'].merge(status: 'translated'))
       set_user(@game.translations)
-      flash[:sucess] = t('controllers.games.update.success')
     else
-      flash[:error] = t('controllers.games.update.error')
       @game.update_attribute(:status, 'not_translated')
     end
     redirect_to game_translate_path
