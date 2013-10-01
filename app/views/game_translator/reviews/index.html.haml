@@ -1,10 +1,10 @@
 - if @reviews.present?
   %h1= t('titles.review.index')
 
-  = link_to t('titles.review.pending'), review_path(filter: 'pending'), class: 'link'
-  = link_to t('titles.review.accpted'), review_path(filter: 'accepted'), class: 'link'
-  = link_to t('titles.review.rejected'), review_path(filter: 'rejected'), class: 'link'
-  = link_to t('titles.review.all'), review_path, class: 'link'
+  %p= link_to t('titles.review.pending'), review_path(filter: 'pending'), class: 'link'
+  %p= link_to t('titles.review.accpted'), review_path(filter: 'accepted'), class: 'link'
+  %p= link_to t('titles.review.rejected'), review_path(filter: 'rejected'), class: 'link'
+  %p= link_to t('titles.review.all'), review_path, class: 'link'
 
   = render @reviews
   .page_wraper
