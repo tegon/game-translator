@@ -6,8 +6,10 @@ class GameTranslator::GamesController < ApplicationController
   def translate
     @languages = GameTranslator::Language.codes
     @game = GameTranslator::Game.not_translated.sample
-    @game.update_attribute(:status, 'translating')
-    session[:translating] = @game.id
+    if @game
+      @game.update_attribute(:status, 'translating')
+      session[:translating] = @game.id
+    end
   end
 
   def update
