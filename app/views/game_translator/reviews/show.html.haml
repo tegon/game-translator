@@ -4,7 +4,7 @@
   #wrap
     %p.title= t('titles.review.translator', name: translation.user.name)
     %p.title= t('titles.review.game', name: translation.game.name)
-    %p.title= t('titles.review.locale', locale: translation.locale)
+    %p.title= t('titles.review.locale', code: translation.locale)
     = link_to t('links.review.more'), review_translation_path(@review, translation), class: 'link'
 .page_wraper    
   = will_paginate @translations

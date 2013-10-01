@@ -22,7 +22,7 @@ pt-BR:
       translated_by: "Traduzido por %{user}"
       revise: Revisar
       game: "Game: %{name}"
-      locale: "Idioma: %{locale}"
+      locale: "Idioma: %{code}"
     stat:
       all: Estatísticas gerais
       user: Estatísticas por usuário

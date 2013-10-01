@@ -22,7 +22,7 @@ es:
       translated_by: "Traducido por %{user}"
       revise: Revisar
       game: "Juego: %{name}"
-      locale: "Idioma: %{locale}"
+      locale: "Idioma: %{code}"
     stat:
       all: Estadísticas
       user: Estadísticas usuarios
