@@ -8,8 +8,6 @@ class GameTranslator::SessionsController < Devise::SessionsController
   private
 
   def stop_translating
-    session[:translating].each do |id|
-      GameTranslator::Game.find(id).update_attribute(:status, 'not_translated')
-    end
+    GameTranslator::Game.find(session[:translating]).update_attribute(:status, 'not_translated')
   end
 end

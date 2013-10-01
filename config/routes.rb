@@ -23,7 +23,7 @@ GameTranslator::Application.routes.draw do
     get 'review/:id/translation/:translation_id' => 'game_translator/reviews#translation', as: :review_translation
 
     get 'translate' => 'game_translator/games#translate', as: :game_translate
-    put 'translate/update' => 'game_translator/games#update', as: :game_update
+    put 'translate/:id' => 'game_translator/games#update', as: :game_update
 
     get '/stats' => 'game_translator/stats#index', as: :stats
     get 'stats/users' => 'game_translator/stats#users_index', as: :stats_users_index

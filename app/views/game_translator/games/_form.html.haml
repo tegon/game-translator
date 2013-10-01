@@ -2,13 +2,11 @@
   .alert
     = t('titles.game.alert')
 
-  - @games.each do |game|
-    = fields_for 'game[]', game do |game_fields|
-      %fieldset
-        = render 'shared/translation_form', f: game_fields, language: :"pt-BR", translation: game, disabled: true, parse_instructions: false, required: false
+  %fieldset
+    = render 'shared/translation_form', f: f, language: :"pt-BR", translation: @game, disabled: true, parse_instructions: false, required: false
 
-        - @languages.each do |language|
-          = render 'shared/translation_form', f: game_fields, language: language, translation: game, disabled: false, parse_instructions: true, required: true
+    - @languages.each do |language|
+      = render 'shared/translation_form', f: f, language: language, translation: @game, disabled: false, parse_instructions: true, required: true
 
   = submit_tag t('links.game.translate'), class: 'button'
 
